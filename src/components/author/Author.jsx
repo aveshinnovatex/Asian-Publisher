@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./Author.css";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
+import { countBooksByAuthor } from "../../redux/slices/authorSlice";
+import { REACT_APP_URL } from "../../config";
 
 function Author() {
+  const { loading, countBookauthor } = useSelector((state) => state.author);
+  const dispatch = useDispatch();
+  const [countBookByAuthor, setCountBookByAuthor] = useState([]);
+  useEffect(() => {
+    dispatch(countBooksByAuthor());
+  }, [dispatch]);
+  useEffect(() => {
+    if (loading === "fulfilled") {
+      setCountBookByAuthor(countBookauthor);
+    }
+  }, [loading]);
+
   return (
     <>
       <title>Authors - Asian Publishers</title>
@@ -317,214 +332,39 @@ function Author() {
 
     }'
               >
-                <div className="  col-lg-3 col-md-4 col-sm-6 col-12  block_template--14588627386448__e5bea2ba-dc5b-4b9a-bda3-2860db263594-collection-1">
-                  <div className="single_collection mb-30 text-center  large__size">
-                    <a href="../collections/best-sellers.html">
-                      <img
-                        src="../Assets/shop/files/at1_96461cdb-1ecd-4c69-a00f-75a9000a26a4dbb6.jpg?v=1698484178"
-                        alt=""
-                      />
-                    </a>
-                    <div className="banner-common best-coll-content">
-                      <h4 className="multi_top ">
-                        <a
-                          className="ban_btn1"
-                          href="../collections/best-sellers.html"
-                        >
-                          James Patterson
+                {countBookByAuthor &&
+                  countBookByAuthor.length > 0 &&
+                  countBookByAuthor.map((author, index) => (
+                    <div
+                      key={index}
+                      className="  col-lg-3 col-md-4 col-sm-6 col-12  block_template--14588627386448__e5bea2ba-dc5b-4b9a-bda3-2860db263594-collection-1"
+                    >
+                      <div className="single_collection mb-30 text-center  large__size">
+                        <a href="../collections/best-sellers.html">
+                          <img
+                            src="../Assets/shop/files/at1_96461cdb-1ecd-4c69-a00f-75a9000a26a4dbb6.jpg?v=1698484178"
+                            alt=""
+                          />
                         </a>
-                      </h4>
-                      <a href="#">
-                        <span className="subtitle_with_count">
-                          <span> 8 </span>
-                          <p className="multi_bottom">Published Book</p>
-                        </span>
-                      </a>
+                        <div className="banner-common best-coll-content">
+                          <h4 className="multi_top ">
+                            <a
+                              className="ban_btn1"
+                              href="../collections/best-sellers.html"
+                            >
+                              {author.name}
+                            </a>
+                          </h4>
+                          <a href="#">
+                            <span className="subtitle_with_count">
+                              <span>{author.bookCount} </span>
+                              <p className="multi_bottom">Published Book</p>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div className="  col-lg-3 col-md-4 col-sm-6 col-12  block_16491d26-b02f-4c08-8375-c47c291cca2e">
-                  <div className="single_collection mb-30 text-center  large__size">
-                    <a href="../collections/gillian-flynn.html">
-                      <img
-                        src="../Assets/shop/files/at3dbb6.jpg?v=1698484178"
-                        alt=""
-                      />
-                    </a>
-                    <div className="banner-common best-coll-content">
-                      <h4 className="multi_top ">
-                        <a
-                          className="ban_btn1"
-                          href="../collections/gillian-flynn.html"
-                        >
-                          Paulo Coelho
-                        </a>
-                      </h4>
-                      <a href="#">
-                        <span className="subtitle_with_count">
-                          <span> 8 </span>
-                          <p className="multi_bottom">Published Book</p>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-4 col-sm-6 col-12  block_dd1a70c5-cd23-4d61-99c7-beeeaa3a975c">
-                  <div className="single_collection mb-30 text-center  large__size">
-                    <a href="../collections/sylvia-plath.html">
-                      <img
-                        src="../Assets/shop/files/at5dbb6.jpg?v=1698484178"
-                        alt=""
-                      />
-                    </a>
-                    <div className="banner-common best-coll-content">
-                      <h4 className="multi_top ">
-                        <a
-                          className="ban_btn1"
-                          href="../collections/sylvia-plath.html"
-                        >
-                          Alice Walker
-                        </a>
-                      </h4>
-                      <a href="#">
-                        <span className="subtitle_with_count">
-                          <span> 8 </span>
-                          <p className="multi_bottom">Published Book</p>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-4 col-sm-6 col-12  block_c06e0339-a33d-4d36-abd9-89b1af7f6096">
-                  <div className="single_collection mb-30 text-center  large__size">
-                    <a href="../collections/best-sellers.html">
-                      <img
-                        src="../Assets/shop/files/at6dbb6.jpg?v=1698484178"
-                        alt=""
-                      />
-                    </a>
-                    <div className="banner-common best-coll-content">
-                      <h4 className="multi_top ">
-                        <a
-                          className="ban_btn1"
-                          href="../collections/best-sellers.html"
-                        >
-                          Aldous Huxley
-                        </a>
-                      </h4>
-                      <a href="#">
-                        <span className="subtitle_with_count">
-                          <span> 8 </span>
-                          <p className="multi_bottom">Published Book</p>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="  col-lg-3 col-md-4 col-sm-6 col-12  block_8340f754-89f8-438f-8db4-58cfbe5b9a70">
-                  <div className="single_collection mb-30 text-center  large__size">
-                    <a href="../collections/alice-walker.html">
-                      <img
-                        src="../Assets/shop/files/at4dbb6.jpg?v=1698484178"
-                        alt=""
-                      />
-                    </a>
-                    <div className="banner-common best-coll-content">
-                      <h4 className="multi_top ">
-                        <a
-                          className="ban_btn1"
-                          href="../collections/alice-walker.html"
-                        >
-                          Gillian Flynn
-                        </a>
-                      </h4>
-                      <a href="#">
-                        <span className="subtitle_with_count">
-                          <span> 8 </span>
-                          <p className="multi_bottom">Published Book</p>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="  col-lg-3 col-md-4 col-sm-6 col-12  block_34f22956-c7f1-426f-9fac-72b26df2cf30">
-                  <div className="single_collection mb-30 text-center  large__size">
-                    <a href="../collections/best-sellers.html">
-                      <img
-                        src="../Assets/shop/files/at7dbb6.jpg?v=1698484178"
-                        alt=""
-                      />
-                    </a>
-                    <div className="banner-common best-coll-content">
-                      <h4 className="multi_top ">
-                        <a
-                          className="ban_btn1"
-                          href="../collections/best-sellers.html"
-                        >
-                          Ernest Cline
-                        </a>
-                      </h4>
-                      <a href="#">
-                        <span className="subtitle_with_count">
-                          <span> 8 </span>
-                          <p className="multi_bottom">Published Book</p>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="  col-lg-3 col-md-4 col-sm-6 col-12  block_6e56c69c-a0fe-4f48-9f8d-1bb803eeb6cd">
-                  <div className="single_collection mb-30 text-center  large__size">
-                    <a href="../collections/gillian-flynn.html">
-                      <img
-                        src="../Assets/shop/files/at8dbb6.jpg?v=1698484178"
-                        alt=""
-                      />
-                    </a>
-                    <div className="banner-common best-coll-content">
-                      <h4 className="multi_top ">
-                        <a
-                          className="ban_btn1"
-                          href="../collections/gillian-flynn.html"
-                        >
-                          Rainbow Rowell
-                        </a>
-                      </h4>
-                      <a href="#">
-                        <span className="subtitle_with_count">
-                          <span> 8 </span>
-                          <p className="multi_bottom">Published Book</p>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="  col-lg-3 col-md-4 col-sm-6 col-12  block_7daf8cb4-0d03-4f2c-9c0b-64b39c10abf4">
-                  <div className="single_collection mb-30 text-center  large__size">
-                    <a href="../collections/alice-walker.html">
-                      <img
-                        src="../Assets/shop/files/at2dbb6.jpg?v=1698484178"
-                        alt=""
-                      />
-                    </a>
-                    <div className="banner-common best-coll-content">
-                      <h4 className="multi_top ">
-                        <a
-                          className="ban_btn1"
-                          href="../collections/alice-walker.html"
-                        >
-                          Sylvia Plath
-                        </a>
-                      </h4>
-                      <a href="#">
-                        <span className="subtitle_with_count">
-                          <span> 8 </span>
-                          <p className="multi_bottom">Published Book</p>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                  ))}
               </div>
             </div>
           </div>
