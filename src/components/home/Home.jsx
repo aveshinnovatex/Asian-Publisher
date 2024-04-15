@@ -1,60 +1,9 @@
 import React from "react";
 import "./Home.css";
-// import "../../Assets/shop/t/9/assets/bootstrap.min528d.css";
+import Footer from "../footer/Footer";
 function Home() {
   return (
     <>
-      <link
-        href="../../Assets/shop/t/9/assets/bootstrap.min528d.css"
-        rel="stylesheet"
-        type="text/css"
-        media="all"
-      />
-      <link
-        href="../../Assets/shop/t/9/assets/icons.min4e41.css"
-        rel="stylesheet"
-        type="text/css"
-        media="all"
-      />
-      <link
-        href="../../Assets/shop/t/9/assets/icofont.minba8d.css"
-        rel="stylesheet"
-        type="text/css"
-        media="all"
-      />
-      <link
-        href="../../Assets/shop/t/9/assets/slick-slidera987.css"
-        rel="stylesheet"
-        type="text/css"
-        media="all"
-      />
-      <link
-        href="../../Assets/shop/t/9/assets/plugins5006.css"
-        rel="stylesheet"
-        type="text/css"
-        media="all"
-      />
-      <link
-        href="../../Assets/shop/t/9/assets/stylea2a8.css"
-        rel="stylesheet"
-        type="text/css"
-        media="all"
-      />
-      <link
-        href="../../src/Assets/shop/t/9/assets/theme-default8cb8.css"
-        rel="stylesheet"
-        type="text/css"
-        media="all"
-      />
-      <link
-        href="../../Assets/shop/t/9/assets/theme-custom0acb.css"
-        rel="stylesheet"
-        type="text/css"
-        media="all"
-      />
-      <script src="../../Assets/shop/t/9/assets/jquery-1.12.4.min61ad.js"></script>
-      <script src="../../Assets/shop/t/9/assets/slick-slider9875.js"></script>
-      <script src="../../Assets/shop/t/9/assets/theme08ca.js"></script>
       <div id="preloader_active">
         <div id="loading-center">
           <div id="loading-center-absolute">
@@ -294,9 +243,7 @@ function Home() {
                             {/* <h4>Account</h4> */}
                             <ul>
                               <li>
-                                <a href="BecomeanAuthor.html">
-                                  Become an Author
-                                </a>
+                                <a href="/becomean-author">Become an Author</a>
                               </li>
                               <li>
                                 <a href="/orderForm">Order Form</a>
@@ -6735,112 +6682,14 @@ function Home() {
                       </div>
                     </div>
                   </div>
-                  {/*=======  End of brand logo slider wrapper  =======*/}
                 </div>
               </div>
             </div>
           </div>
-          {/*====================  End of brand logo slider area  ====================*/}
         </div>
       </main>
-      <footer className="footer-area">
-        <div id="shopify-section-footer_5" className="shopify-section">
-          <div className="theme_footer_top" id="section-footer_5">
-            <div className="container default ">
-              <div className="footer-top-2 pb-20 footer_style_5">
-                <div className="row">
-                  <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <div className="footer-widget mb-40">
-                      <a href="index.html">
-                        <img
-                          src="Images/AsianLogo.jpeg"
-                          style={{
-                            width: "auto",
-                            height: "14vh",
-                            borderRadius: 15,
-                          }}
-                          alt=""
-                        />
-                      </a>
-                      <div className="subscribe-style">
-                        <p style={{ width: "100%" }}>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit sed do eiusmod tempor inci ut labore et dolore.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-6 col-sm-6 col-6">
-                    <div className="footer-widget mb-40">
-                      <div className="footer-title">
-                        <h3>Address Information</h3>
-                      </div>
-                      <div className="footer_about_contact">
-                        <p>
-                          <i className="sli sli-map" />
-                          <span>Address: Muzaffarnagar, Uttar Pradesh</span>
-                        </p>
-                        <p>
-                          <i className="sli sli-envelope" />
-                          <span>Email: hello@example.com</span>
-                        </p>
-                        <p>
-                          <i className="sli sli-phone" />
-                          <span>Phone: (012) 345 6789</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-6 col-sm-6 col-6">
-                    <div className="footer-widget mb-40">
-                      <div className="footer-title">
-                        <h3>Location</h3>
-                      </div>
-                      <div className="footer-list">
-                        <iframe
-                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55574.58198434516!2d77.66765778469876!3d29.475194078566478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c1ba00983523d%3A0xc6a75ba008574871!2sMuzaffarnagar%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1712662812454!5m2!1sen!2sin"
-                          width="100%"
-                          height={150}
-                          style={{ border: 0 }}
-                          allowFullScreen=""
-                          loading="lazy"
-                          referrerPolicy="no-referrer-when-downgrade"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="shopify-section-footer-bottom" className="shopify-section">
-          <div
-            className="footer-bottom "
-            id="section-footer-bottom"
-            style={{ borderTop: "1px solid #313030" }}
-          >
-            <div className="container default ">
-              <div className="row align-items-center">
-                <div className="col-lg-12 col-md-6 col-12">
-                  <div className="copyright text-center pb-20">
-                    <p></p>
-                    <p>Designed &amp; Developed By Innovate X</p>
-                    <p />
-                  </div>
-                </div>
-                {/* <div class="col-lg-6 col-md-6 col-12">
-                     <div class="payment-mathod pb-20 text-right"><a href="index.html">
-                        <img src="Assets/shop/files/paymet_largefcce.png?v=1698813667" alt="">
-                        </a>
-                     </div>
-                  </div> */}
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-      {/* Some styles to get you started. */}
+      <Footer />
+
       <div
         className="modal fade productModal"
         id="quickViewModal"

@@ -1,4 +1,4 @@
-.theme-logo img {
+/* .theme-logo img {
   max-width: 130px;
 }
 .header-area,
@@ -209,7 +209,7 @@
 }
 .clickable-menu.clickable-mainmenu-active i:hover {
   color: #dd321e;
-}
+} */
 
 data-shopify > #section-template--14595761569872__main {
   padding-top: 85px;
@@ -226,6 +226,13 @@ data-shopify > #section-template--14595761569872__main {
     padding-top: 60px;
     padding-bottom: 65px;
   }
+}
+.html-content-class {
+  color: #fff;
+  margin-top: 0px;
+}
+.html-content-class h2 {
+  margin-bottom: 20px;
 }
 data-shopify
   > #section-template--14595761569872__04f20c7a-4f79-430b-88a5-6b93e4f72b9b {
@@ -247,173 +254,6 @@ data-shopify
   }
 }
 data-shopify
-  > #section-template--14595761569872__5dbfa890-1f8b-435a-9cd2-905e3ade96e8 {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  background: #ffffff no-repeat scroll center center / cover;
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  #section-template--14595761569872__5dbfa890-1f8b-435a-9cd2-905e3ade96e8 {
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
-}
-@media (max-width: 767px) {
-  #section-template--14595761569872__5dbfa890-1f8b-435a-9cd2-905e3ade96e8 {
-    padding-top: 20px;
-    padding-bottom: 40px;
-  }
-}
-#section-template--14595761569872__5dbfa890-1f8b-435a-9cd2-905e3ade96e8.testimonial-area
-  .nav-style-1.owl-carousel
-  .owl-nav
-  div,
-#section-template--14595761569872__5dbfa890-1f8b-435a-9cd2-905e3ade96e8.testimonial-area
-  .nav-style-2
-  .owl-nav
-  div,
-#section-template--14595761569872__5dbfa890-1f8b-435a-9cd2-905e3ade96e8.testimonial-area
-  .nav-style-3
-  .owl-nav
-  div {
-  color: #ffffff;
-  background-color: #444444;
-  border: 1px solid #444444;
-  border-radius: 30px;
-}
-#section-template--14595761569872__5dbfa890-1f8b-435a-9cd2-905e3ade96e8.testimonial-area
-  .nav-style-1.owl-carousel
-  .owl-nav
-  div:hover,
-#section-template--14595761569872__5dbfa890-1f8b-435a-9cd2-905e3ade96e8.testimonial-area
-  .nav-style-2
-  .owl-nav
-  div:hover,
-#section-template--14595761569872__5dbfa890-1f8b-435a-9cd2-905e3ade96e8.testimonial-area
-  .nav-style-3
-  .owl-nav
-  div:hover {
-  color: #ffffff;
-  background-color: #ff0d0d;
-  border: 1px solid #ff0d0d;
-}
-#section-template--14595761569872__5dbfa890-1f8b-435a-9cd2-905e3ade96e8
-  .single-testimonial {
-  background: #ffffff;
-}
-#section-template--14595761569872__5dbfa890-1f8b-435a-9cd2-905e3ade96e8
-  .shadow_enable
-  .single-testimonial {
-  padding: 40px 30px 50px;
-  margin: 20px;
-}
-#section-template--14595761569872__5dbfa890-1f8b-435a-9cd2-905e3ade96e8
-  .shadow_enable
-  .single-testimonial
-  svg {
-  width: 75px;
-  height: 75px;
-  display: inline-block;
-  position: absolute;
-  right: 35px;
-  bottom: 35px;
-  opacity: 0.5;
-}
-@font-face {
-  font-family: Futura;
-  font-weight: 400;
-  font-style: normal;
-  src: url("/public/Assets/fonts/futura/futura_n4.df36ce3d9db534a4d7947f4aa825495ed740e4107941.woff2?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=4685eb3a7180e62ddf191370d23164d60304af1a30c582deb0889ba465b1b403")
-      format("woff2"),
-    url("/public/Assets/fonts/futura/futura_n4.6bce24beb4ba1ff4ddeb20f7cd6e2fa513a3d6ec2d45.woff?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=e4130ced5fd30018d43e34eaa324b8777e07b07982b23cb6f1a3039115366e9a")
-      format("woff");
-}
-@font-face {
-  font-family: Poppins;
-  font-weight: 400;
-  font-style: normal;
-  src: url("/public/Assets/fonts/poppins/poppins_n4.934accbf9f5987aa89334210e6c1e9151f37d3b6ea16.woff2?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=e5d3299ecdc61d30a7a93568d590212972abbc3bbf42a2bbd9640ddbefeaf2fd")
-      format("woff2"),
-    url("/public/Assets/fonts/poppins/poppins_n4.ee28d4489eaf5de9cf6e17e696991b5e9148c7164545.woff?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=bbc97143f771cd9695ddf91c5f817a57ae45ed11340bfcf5cceac91bd433353c")
-      format("woff");
-}
-#section-template--14595761569872__4b9dfdc4-58eb-401a-b926-7d2ae6ed9efb
-  .section-title
-  h2 {
-  font-family: Futura, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  color: #000000;
-  font-size: 40px;
-  line-height: 40px;
-  margin-bottom: 18px;
-}
-#section-template--14595761569872__4b9dfdc4-58eb-401a-b926-7d2ae6ed9efb
-  .section-title
-  p {
-  font-family: Poppins, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  color: #000000;
-  font-size: 18px;
-  line-height: 30px;
-  margin-bottom: 10px;
-}
-@media (min-width: 768px) and (max-width: 1200px) {
-  #section-template--14595761569872__4b9dfdc4-58eb-401a-b926-7d2ae6ed9efb
-    .section-title
-    h2 {
-    font-size: 40px;
-    line-height: 40px;
-  }
-  #section-template--14595761569872__4b9dfdc4-58eb-401a-b926-7d2ae6ed9efb
-    .section-title
-    p {
-    font-size: 18px;
-    line-height: 30px;
-  }
-}
-@media (min-width: 300px) and (max-width: 767px) {
-  #section-template--14595761569872__4b9dfdc4-58eb-401a-b926-7d2ae6ed9efb
-    .section-title
-    h2 {
-    font-size: 20px;
-    line-height: 30px;
-  }
-  #section-template--14595761569872__4b9dfdc4-58eb-401a-b926-7d2ae6ed9efb
-    .section-title
-    p {
-    font-size: 18px;
-    line-height: 30px;
-  }
-}
-data-shopify
-  > #section-template--14595761569872__4b9dfdc4-58eb-401a-b926-7d2ae6ed9efb {
-  padding-top: 150px;
-  padding-bottom: 150px;
-  margin-top: 60px;
-  margin-bottom: 0px;
-  background: #a1d0b9
-    url("/public/Assets/shop/files/Untitled-1_9099b966-c624-43c5-8147-852578ddccad26e2.jpg?v=1698144715")
-    no-repeat scroll center center / cover;
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  #section-template--14595761569872__4b9dfdc4-58eb-401a-b926-7d2ae6ed9efb {
-    padding-top: 150px;
-    padding-bottom: 150px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-}
-@media (max-width: 767px) {
-  #section-template--14595761569872__4b9dfdc4-58eb-401a-b926-7d2ae6ed9efb {
-    padding-top: 55px;
-    padding-bottom: 120px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-}
-data-shopify
   > #section-template--14595761569872__ce0c48d7-848f-4c32-bb43-bffdd2d7718f {
   padding-bottom: 50px;
 }
@@ -429,7 +269,149 @@ data-shopify
     padding-bottom: 20px;
   }
 }
+.footer-widget .footer-title h3 {
+  color: #ffffff;
+}
+.subscribe-style p,
+.footer-widget .footer-list ul li a,
+.footer-top ul li a,
+.theme_footer_top .social_widget a,
+.footer-widget .footer-list ul li {
+  color: #ffffff;
+}
+.theme_footer_top .footer-widget .subscribe-style p {
+  color: #ffffff;
+}
+.subscribe-style .subscribe-form .mc-form .clear:hover {
+  background-color: #dd321e;
+}
+.footer-top ul li a:hover {
+  color: #dd321e;
+}
+.subscribe-style .subscribe-form .mc-form input::-moz-placeholder {
+  color: #ffffff !important;
+}
+.subscribe-style .subscribe-form .mc-form input::-webkit-input-placeholder {
+  color: #ffffff !important;
+}
+.subscribe-style .subscribe-form .mc-form input {
+  border-color: #ffffff;
+}
+.footer-widget .footer_about_contact p {
+  color: #ffffff;
+}
+.theme_footer_top .top_bar_social a {
+  color: #ffffff;
+}
+.theme_footer_top .top_bar_social a:hover {
+  color: #dd321e;
+}
+@font-face {
+  font-family: Futura;
+  font-weight: 400;
+  font-style: normal;
+  src: url("/public/Assets/fonts/futura/futura_n4.df36ce3d9db534a4d7947f4aa825495ed740e4107941.woff2?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=4685eb3a7180e62ddf191370d23164d60304af1a30c582deb0889ba465b1b403")
+      format("woff2"),
+    url("/public/Assets/fonts/futura/futura_n4.6bce24beb4ba1ff4ddeb20f7cd6e2fa513a3d6ec2d45.woff?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=e4130ced5fd30018d43e34eaa324b8777e07b07982b23cb6f1a3039115366e9a")
+      format("woff");
+}
+@font-face {
+  font-family: Futura;
+  font-weight: 400;
+  font-style: normal;
+  src: url("/public/Assets/fonts/futura/futura_n4.df36ce3d9db534a4d7947f4aa825495ed740e4107941.woff2?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=4685eb3a7180e62ddf191370d23164d60304af1a30c582deb0889ba465b1b403")
+      format("woff2"),
+    url("/public/Assets/fonts/futura/futura_n4.6bce24beb4ba1ff4ddeb20f7cd6e2fa513a3d6ec2d45.woff?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=e4130ced5fd30018d43e34eaa324b8777e07b07982b23cb6f1a3039115366e9a")
+      format("woff");
+}
+.theme_footer_top .footer-widget .footer-title h3 {
+  font-family: Futura, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+}
+.theme_footer_top .subscribe-style p,
+.theme_footer_top .footer-widget .footer-list ul li a,
+.theme_footer_top .footer-top ul li a,
+.theme_footer_top .footer-widget .footer_about_contact p,
+.theme_footer_top .social_widget a {
+  font-family: Futura, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+data-shopify > #section-footer_5 {
+  background: #282828 no-repeat scroll center center / cover;
+  padding-top: 80px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  #section-footer_5 {
+    padding-top: 80px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+@media (max-width: 767px) {
+  #section-footer_5 {
+    padding-top: 60px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
 
+.footer-bottom .footer-social a,
+.footer-bottom .copyright p,
+.footer-bottom .copyright a {
+  color: #ffffff;
+}
+.footer-bottom .footer-social a:hover,
+.footer-bottom .copyright a:hover {
+  color: #dd321e;
+}
+@font-face {
+  font-family: Futura;
+  font-weight: 400;
+  font-style: normal;
+  src: url("/public/Assets/fonts/futura/futura_n4.df36ce3d9db534a4d7947f4aa825495ed740e4107941.woff2?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=4685eb3a7180e62ddf191370d23164d60304af1a30c582deb0889ba465b1b403")
+      format("woff2"),
+    url("/public/Assets/fonts/futura/futura_n4.6bce24beb4ba1ff4ddeb20f7cd6e2fa513a3d6ec2d45.woff?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=e4130ced5fd30018d43e34eaa324b8777e07b07982b23cb6f1a3039115366e9a")
+      format("woff");
+}
+.footer-bottom .footer-social a,
+.footer-bottom .copyright p {
+  font-family: Futura, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+.footer-bottom.position_fb {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+data-shopify > #section-footer-bottom {
+  padding-top: 20px;
+  padding-bottom: 0px;
+  background: #242424 no-repeat scroll center center / cover;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  #section-footer-bottom {
+    padding-top: 20px;
+    padding-bottom: 0px;
+  }
+}
+@media (max-width: 767px) {
+  #section-footer-bottom {
+    padding-top: 20px;
+    padding-bottom: 0px;
+  }
+}
 .search-results {
   z-index: 8889;
   list-style-type: none;

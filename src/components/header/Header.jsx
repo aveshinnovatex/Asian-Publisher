@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Header.css";
 function Header() {
   return (
     <div className="header-area sticky-bar menu-center">
@@ -226,16 +226,16 @@ function Header() {
                         {/* <h4>Account</h4> */}
                         <ul>
                           <li>
-                            <a href="BecomeanAuthor.html">Become an Author</a>
+                            <a href="/becomean-author">Become an Author</a>
                           </li>
                           <li>
-                            <a href="OrderForm.html">Order Form</a>
+                            <a href="/orderForm">Order Form</a>
                           </li>
                           <li>
-                            <a href="Login.html">Login</a>
+                            <a href="/login">Login</a>
                           </li>
                           <li>
-                            <a href="Register.html">Create Account</a>
+                            <a href="/register">Create Account</a>
                           </li>
                         </ul>
                       </li>

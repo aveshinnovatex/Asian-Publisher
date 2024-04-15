@@ -1,5 +1,7 @@
 import React from "react";
 import "./Aboutus.css";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
 
 function AboutUs() {
   return (
@@ -28,8 +30,7 @@ function AboutUs() {
         type="text/css"
         media="all"
       />
-      <script src="../../Assets/shop/t/9/assets/jquery-1.12.4.min61ad.js"></script>
-      <script src="../../Assets/shop/t/9/assets/theme08ca.js"></script>
+
       <link
         href="../../Assets/shop/t/9/assets/icons.min4e41.css"
         rel="stylesheet"
@@ -42,7 +43,11 @@ function AboutUs() {
         type="text/css"
         media="all"
       />
+      <script src="../../Assets/shop/t/9/assets/jquery-1.12.4.min61ad.js"></script>
+      <script src="../../Assets/shop/t/9/assets/theme08ca.js"></script>
+
       <div id="shopify-section-header" className="shopify-section">
+        <Header />
         <div className="mobile-off-canvas-active">
           <a className="mobile-aside-close">
             <i className="sli sli-close" />
@@ -415,6 +420,7 @@ function AboutUs() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

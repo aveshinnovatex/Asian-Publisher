@@ -39,18 +39,18 @@
   font-family: Futura;
   font-weight: 400;
   font-style: normal;
-  src: url("Assets/fonts/futura/futura_n4.df36ce3d9db534a4d7947f4aa825495ed740e4107941.woff2?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=4685eb3a7180e62ddf191370d23164d60304af1a30c582deb0889ba465b1b403")
+  src: url("/public/Assets/fonts/futura/futura_n4.df36ce3d9db534a4d7947f4aa825495ed740e4107941.woff2?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=4685eb3a7180e62ddf191370d23164d60304af1a30c582deb0889ba465b1b403")
       format("woff2"),
-    url("Assets/fonts/futura/futura_n4.6bce24beb4ba1ff4ddeb20f7cd6e2fa513a3d6ec2d45.woff?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=e4130ced5fd30018d43e34eaa324b8777e07b07982b23cb6f1a3039115366e9a")
+    url("/public/Assets/fonts/futura/futura_n4.6bce24beb4ba1ff4ddeb20f7cd6e2fa513a3d6ec2d45.woff?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=e4130ced5fd30018d43e34eaa324b8777e07b07982b23cb6f1a3039115366e9a")
       format("woff");
 }
 @font-face {
   font-family: Futura;
   font-weight: 400;
   font-style: normal;
-  src: url("Assets/fonts/futura/futura_n4.df36ce3d9db534a4d7947f4aa825495ed740e4107941.woff2?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=4685eb3a7180e62ddf191370d23164d60304af1a30c582deb0889ba465b1b403")
+  src: url("/public/Assets/fonts/futura/futura_n4.df36ce3d9db534a4d7947f4aa825495ed740e4107941.woff2?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=4685eb3a7180e62ddf191370d23164d60304af1a30c582deb0889ba465b1b403")
       format("woff2"),
-    url("Assets/fonts/futura/futura_n4.6bce24beb4ba1ff4ddeb20f7cd6e2fa513a3d6ec2d45.woff?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=e4130ced5fd30018d43e34eaa324b8777e07b07982b23cb6f1a3039115366e9a")
+    url("/public/Assets/fonts/futura/futura_n4.6bce24beb4ba1ff4ddeb20f7cd6e2fa513a3d6ec2d45.woff?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=e4130ced5fd30018d43e34eaa324b8777e07b07982b23cb6f1a3039115366e9a")
       format("woff");
 }
 .theme_footer_top .footer-widget .footer-title h3 {
@@ -124,9 +124,9 @@ data-shopify > #section-footer-bottom {
   font-family: Futura;
   font-weight: 400;
   font-style: normal;
-  src: url("Assets/fonts/futura/futura_n4.df36ce3d9db534a4d7947f4aa825495ed740e4107941.woff2?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=4685eb3a7180e62ddf191370d23164d60304af1a30c582deb0889ba465b1b403")
+  src: url("/public/Assets/fonts/futura/futura_n4.df36ce3d9db534a4d7947f4aa825495ed740e4107941.woff2?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=4685eb3a7180e62ddf191370d23164d60304af1a30c582deb0889ba465b1b403")
       format("woff2"),
-    url("Assets/fonts/futura/futura_n4.6bce24beb4ba1ff4ddeb20f7cd6e2fa513a3d6ec2d45.woff?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=e4130ced5fd30018d43e34eaa324b8777e07b07982b23cb6f1a3039115366e9a")
+    url("/public/Assets/fonts/futura/futura_n4.6bce24beb4ba1ff4ddeb20f7cd6e2fa513a3d6ec2d45.woff?h1=YXNzeXJpYW4tMy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=ZHVua2ktZGVtby5teXNob3BpZnkuY29t&amp;hmac=e4130ced5fd30018d43e34eaa324b8777e07b07982b23cb6f1a3039115366e9a")
       format("woff");
 }
 .footer-bottom .footer-social a,
