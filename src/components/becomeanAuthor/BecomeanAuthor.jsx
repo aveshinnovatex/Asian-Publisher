@@ -5,48 +5,45 @@ import Footer from "../footer/Footer";
 function BecomeanAuthor() {
   return (
     <>
-      <meta httpEquiv="content-type" content="text/html;charset=utf-8" />
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <meta name="theme-color" content="#dd321e" />
-      <title>Become an Author - Asian Publishers</title>
-      {/* CSS */}
       <link
-        href="../Assets/shop/t/9/assets/bootstrap.min528d.css?v=19868337340211324411698938058"
+        href="../../Assets/shop/t/9/assets/bootstrap.min528d.css?v=19868337340211324411698938058"
         rel="stylesheet"
         type="text/css"
         media="all"
       />
       <link
-        href="../Assets/shop/t/9/assets/stylea2a8.css?v=23287745902246098161698938060"
+        href="../../Assets/shop/t/9/assets/stylea2a8.css?v=23287745902246098161698938060"
         rel="stylesheet"
         type="text/css"
         media="all"
       />
       <link
-        href="../Assets/shop/t/9/assets/theme-custom0acb.css?v=63313606314167933051698938089"
+        href="../../Assets/shop/t/9/assets/theme-custom0acb.css?v=63313606314167933051698938089"
         rel="stylesheet"
         type="text/css"
         media="all"
       />
       <link
-        href="../Assets/shop/t/9/assets/skin-and-color85c1.css?v=64489753365287532231698938089"
+        href="../../Assets/shop/t/9/assets/skin-and-color85c1.css?v=64489753365287532231698938089"
+        rel="stylesheet"
+        type="text/css"
+        media="all"
+      />
+      <script src="../../Assets/shop/t/9/assets/jquery-1.12.4.min61ad.js?v=167620768852842279821698938059"></script>
+      <script src="../../Assets/shop/t/9/assets/theme08ca.js?v=58729172318499673551698938089"></script>
+      <link
+        href="../../Assets/shop/t/9/assets/icons.min4e41.css?v=144771626144460745771698938059"
         rel="stylesheet"
         type="text/css"
         media="all"
       />
       <link
-        href="Assets/shop/t/9/assets/icons.min4e41.css?v=144771626144460745771698938059"
+        href="../../Assets/shop/t/9/assets/icofont.minba8d.css?v=49818375117710154861698938058"
         rel="stylesheet"
         type="text/css"
         media="all"
       />
-      <link
-        href="Assets/shop/t/9/assets/icofont.minba8d.css?v=49818375117710154861698938058"
-        rel="stylesheet"
-        type="text/css"
-        media="all"
-      />
+
       <div id="preloader_active">
         <div id="loading-center">
           <div id="loading-center-absolute">
@@ -87,7 +84,7 @@ function BecomeanAuthor() {
                 <nav>
                   <ul className="mobile-menu">
                     <li className="menu-item-has-children">
-                      <a href="index.html">Home</a>
+                      <a href="/">Home</a>
                       <ul className="dropdown">
                         <li>
                           <a href="../index501f.html?preview_theme_id=122477707344">
@@ -112,7 +109,7 @@ function BecomeanAuthor() {
                       </ul>
                     </li>
                     <li className="menu-item-has-children">
-                      <a href="Shop.html">Shop</a>
+                      <a href="/shop">Shop</a>
                       <ul className="dropdown">
                         <li className="mobile_img_menu">
                           <a href="../collections/featured-books.html">
@@ -198,13 +195,13 @@ function BecomeanAuthor() {
                       <a href="#">Pages</a>
                       <ul className="dropdown">
                         <li>
-                          <a href="Authors.html">Authors</a>
+                          <a href="/author">Authors</a>
                         </li>
                         <li>
-                          <a href="AboutUs.html">About Us</a>
+                          <a href="/about-us">About Us</a>
                         </li>
                         <li>
-                          <a href="ContactUs.html">Contact us</a>
+                          <a href="/contact-us">Contact us</a>
                         </li>
                         <li>
                           <a href="faq.html">Faq Page</a>
@@ -215,10 +212,10 @@ function BecomeanAuthor() {
                       </ul>
                     </li>
                     <li>
-                      <a href="AboutUs.html">About Us</a>
+                      <a href="/about-us">About Us</a>
                     </li>
                     <li>
-                      <a href="ContactUs.html">Contact Us</a>
+                      <a href="/contact-us">Contact Us</a>
                     </li>
                   </ul>
                 </nav>
@@ -232,10 +229,10 @@ function BecomeanAuthor() {
                 <div className="lang-curr-dropdown account-dropdown-active">
                   <ul>
                     <li>
-                      <a href="Login.html">Login</a>
+                      <a href="/login">Login</a>
                     </li>
                     <li>
-                      <a href="Register.html">Create Account</a>
+                      <a href="/register">Create Account</a>
                     </li>
                   </ul>
                 </div>

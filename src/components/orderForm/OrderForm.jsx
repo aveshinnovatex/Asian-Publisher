@@ -5,48 +5,45 @@ import Footer from "../footer/Footer";
 function OrderForm() {
   return (
     <>
-      <meta httpEquiv="content-type" content="text/html;charset=utf-8" />
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <meta name="theme-color" content="#dd321e" />
-      <title>Order Form - Asian Publishers</title>
-      {/* CSS */}
       <link
-        href="../../Assets/shop/t/9/assets/bootstrap.min528d.css"
+        href="../../Assets/shop/t/9/assets/bootstrap.min528d.css?v=19868337340211324411698938058"
         rel="stylesheet"
         type="text/css"
         media="all"
       />
       <link
-        href="../../Assets/shop/t/9/assets/stylea2a8.css"
+        href="../../Assets/shop/t/9/assets/stylea2a8.css?v=23287745902246098161698938060"
         rel="stylesheet"
         type="text/css"
         media="all"
       />
       <link
-        href="../../Assets/shop/t/9/assets/theme-custom0acb.css"
+        href="../../Assets/shop/t/9/assets/theme-custom0acb.css?v=63313606314167933051698938089"
         rel="stylesheet"
         type="text/css"
         media="all"
       />
       <link
-        href="../../Assets/shop/t/9/assets/skin-and-color85c1.css"
+        href="../../Assets/shop/t/9/assets/skin-and-color85c1.css?v=64489753365287532231698938089"
+        rel="stylesheet"
+        type="text/css"
+        media="all"
+      />
+
+      <link
+        href="../../Assets/shop/t/9/assets/icons.min4e41.css?v=144771626144460745771698938059"
         rel="stylesheet"
         type="text/css"
         media="all"
       />
       <link
-        href="../../Assets/shop/t/9/assets/icons.min4e41.css"
+        href="../../Assets/shop/t/9/assets/icofont.minba8d.css?v=49818375117710154861698938058"
         rel="stylesheet"
         type="text/css"
         media="all"
       />
-      <link
-        href="../../Assets/shop/t/9/assets/icofont.minba8d.css"
-        rel="stylesheet"
-        type="text/css"
-        media="all"
-      />
+      <script src="../../Assets/shop/t/9/assets/jquery-1.12.4.min61ad.js?v=167620768852842279821698938059"></script>
+      <script src="../../Assets/shop/t/9/assets/theme08ca.js?v=58729172318499673551698938089"></script>
       <div id="preloader_active">
         <div id="loading-center">
           <div id="loading-center-absolute">
