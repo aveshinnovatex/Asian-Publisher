@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/home/Home";
-import AboutUs from "./components/aboutus/AboutUs";
-import ContactUs from "./components/contactUs/ContactUs";
-import Author from "./components/author/Author";
-import BecomeanAuthor from "./components/becomeanAuthor/BecomeanAuthor";
-import Login from "./components/login/Login";
-import OrderForm from "./components/orderForm/OrderForm";
-import Register from "./components/register/Register";
-import Shop from "./components/shop/Shop";
+import Home from "../src/components/pages/home/Home";
+import AboutUs from "../src/components/pages/aboutus/AboutUs";
+import ContactUs from "../src/components/pages/contactUs/ContactUs";
+import Author from "../src/components/pages/author/Author";
+import BecomeanAuthor from "../src/components/pages/becomeanAuthor/BecomeanAuthor";
+import Login from "../src/components/common/login/Login";
+import OrderForm from "../src/components/pages/orderForm/OrderForm";
+import Register from "../src/components/common/register/Register";
+import Shop from "../src/components/pages/shop/Shop";
 // import Layout from "./components/Layout";
 const App = () => {
   return (

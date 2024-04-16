@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Author.css";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
+import Header from "../../common/header/Header";
+import Footer from "../../common/footer/Footer";
 import { countBooksByAuthor } from "../../../redux/slices/authorSlice";
 import { REACT_APP_URL } from "../../../config/config";
 

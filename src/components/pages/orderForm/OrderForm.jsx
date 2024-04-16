@@ -1,7 +1,6 @@
 import React from "react";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
-
+import Header from "../../common/header/Header";
+import Footer from "../../common/footer/Footer";
 function OrderForm() {
   return (
     <>

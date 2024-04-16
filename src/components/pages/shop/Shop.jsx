@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
+import Header from "../../common/header/Header";
+import Footer from "../../common/footer/Footer";
 import "./Shop.css";
 import { fetchBooks } from "../../../redux/slices/bookSlice";
 import { REACT_APP_URL } from "../../../config/config";

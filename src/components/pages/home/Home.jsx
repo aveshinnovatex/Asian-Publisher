@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBooks } from "../../../redux/slices/bookSlice";
 import "./Home.css";
 import { REACT_APP_URL } from "../../../config/config";
-import Footer from "../footer/Footer";
-import Header from "../header/Header";
+import Header from "../../common/header/Header";
+import Footer from "../../common/footer/Footer";
 function Home() {
   const { loading, books } = useSelector((state) => state.book);
   const dispatch = useDispatch();

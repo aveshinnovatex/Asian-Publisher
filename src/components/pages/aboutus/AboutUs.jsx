@@ -1,7 +1,7 @@
 import React from "react";
 import "./Aboutus.css";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
+import Header from "../../common/header/Header";
+import Footer from "../../common/footer/Footer";
 
 function AboutUs() {
   return (
@@ -47,11 +47,10 @@ function AboutUs() {
       <script src="../../Assets/shop/t/9/assets/theme08ca.js"></script>
 
       <div id="shopify-section-header" className="shopify-section">
-        <div style={{height:"16vh"}}>
-        <Header />
+        <div style={{ height: "16vh" }}>
+          <Header />
         </div>
-     
-     </div>
+      </div>
       <div className="breadcrumb-area breadcrumbs-section">
         <div className="breadcrumbs overlay-bg">
           <div className="container">
@@ -133,7 +132,7 @@ function AboutUs() {
           </div>
         </div>
         <div
-          style={{ backgroundColor: "#FAF4EB", padding:"20px" }}
+          style={{ backgroundColor: "#FAF4EB", padding: "20px" }}
           id="shopify-section-template--14595761569872__04f20c7a-4f79-430b-88a5-6b93e4f72b9b"
           className="shopify-section"
         >
