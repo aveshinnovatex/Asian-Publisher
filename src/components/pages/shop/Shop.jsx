@@ -4,18 +4,46 @@ import Header from "../../common/header/Header";
 import Footer from "../../common/footer/Footer";
 import "./Shop.css";
 import { fetchBooks } from "../../../redux/slices/bookSlice";
+import { fetchAuthors } from "../../../redux/slices/authorSlice";
+import { fetchCourses } from "../../../redux/slices/courseSlice";
+import { fetchSemesters } from "../../../redux/slices/semesterSlice";
+
 import { REACT_APP_URL } from "../../../config/config";
 
 function Shop() {
   const { loading, books } = useSelector((state) => state.book);
+  const { courses } = useSelector((state) => state.course);
+  const { semesters } = useSelector((state) => state.semester);
+  const { authors } = useSelector((state) => state.author);
   const dispatch = useDispatch();
   const [allBooks, setAllBooks] = useState([]);
+  const [allAuthors, setAllAuthors] = useState([]);
+  const [allCourses, setAllCourses] = useState([]);
+  const [allSemesters, setAllSemesters] = useState([]);
+  console.log("allAuthors", allAuthors);
+  console.log("allCourses", allCourses);
+  console.log("allSemesters", allBooks);
+  console.log("allBooks", allBooks);
+
   useEffect(() => {
     dispatch(fetchBooks());
   }, [dispatch]);
   useEffect(() => {
+    dispatch(fetchAuthors());
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchCourses());
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchSemesters());
+  }, [dispatch]);
+
+  useEffect(() => {
     if (loading === "fulfilled") {
       setAllBooks(books);
+      setAllAuthors(authors);
+      setAllCourses(courses);
+      setAllSemesters(semesters);
     }
   }, [loading]);
 
