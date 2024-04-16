@@ -22,14 +22,14 @@ function Header() {
                 <nav>
                   <ul>
                     <li className="angle-shape">
-                      <a href="/" style={{ fontWeight: 800, letterSpacing: 1 }}>
+                      <a href="/" style={{ fontWeight: 800, letterSpacing: 1, color:"#000" }}>
                         Home
                       </a>
                     </li>
                     <li className="angle-shape">
                       <a
                         href="/about-us"
-                        style={{ fontWeight: 800, letterSpacing: 1 }}
+                        style={{ fontWeight: 800, letterSpacing: 1 , color:"#000"}}
                       >
                         About Us
                       </a>
@@ -37,7 +37,7 @@ function Header() {
                     <li className="angle-shape">
                       <a
                         href="/shop"
-                        style={{ fontWeight: 800, letterSpacing: 1 }}
+                        style={{ fontWeight: 800, letterSpacing: 1  , color:"#000"}}
                       >
                         Shop
                       </a>
@@ -46,7 +46,7 @@ function Header() {
                     <li className="angle-shape">
                       <a
                         href="/author"
-                        style={{ fontWeight: 800, letterSpacing: 1 }}
+                        style={{ fontWeight: 800, letterSpacing: 1  , color:"#000"}}
                       >
                         Authors
                       </a>
@@ -54,7 +54,7 @@ function Header() {
                     <li className="angle-shape">
                       <a
                         href="/orderForm"
-                        style={{ fontWeight: 800, letterSpacing: 1 }}
+                        style={{ fontWeight: 800, letterSpacing: 1 , color:"#000" }}
                       >
                         Order Form
                       </a>
@@ -62,7 +62,7 @@ function Header() {
                     <li className="angle-shape">
                       <a
                         href="/becomean-author"
-                        style={{ fontWeight: 800, letterSpacing: 1 }}
+                        style={{ fontWeight: 800, letterSpacing: 1 , color:"#000" }}
                       >
                         Become an Author
                       </a>
@@ -70,7 +70,7 @@ function Header() {
                     <li className="angle-shape">
                       <a
                         href="/contact-us"
-                        style={{ fontWeight: 800, letterSpacing: 1 }}
+                        style={{ fontWeight: 800, letterSpacing: 1  , color:"#000"}}
                       >
                         Contact Us
                       </a>
@@ -78,7 +78,7 @@ function Header() {
                     <li className="angle-shape">
                       <a
                         href="/login"
-                        style={{ fontWeight: 800, letterSpacing: 1 }}
+                        style={{ fontWeight: 800, letterSpacing: 1  , color:"#000"}}
                       >
                         Login
                       </a>
@@ -99,7 +99,7 @@ function Header() {
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="ionicon"
-                          viewBox="0 0 512 512"
+                          viewBox="0 0 512 512" style={{color:"#000"}}
                         >
                           <path
                             d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
@@ -163,7 +163,7 @@ function Header() {
                         cla=""
                         xmlns="http://www.w3.org/2000/svg"
                         className="ionicon"
-                        viewBox="0 0 512 512"
+                        viewBox="0 0 512 512" style={{color:"#000"}}
                       >
                         <path
                           d="M80 176a16 16 0 00-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 00-16-16zM160 176v-32a96 96 0 0196-96h0a96 96 0 0196 96v32"
@@ -236,7 +236,6 @@ function Header() {
                 <div className="setting-wrap">
                   <button className="setting-active">
                     <svg
-                      className="HeaderIcons1"
                       viewBox="-42 0 512 512.001"
                       xmlns="http://www.w3.org/2000/svg"
                     >
