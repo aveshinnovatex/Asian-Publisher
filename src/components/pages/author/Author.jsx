@@ -285,7 +285,7 @@ function Author() {
       <main>
         <div
           id="shopify-section-template--14595761602640__e5bea2ba-dc5b-4b9a-bda3-2860db263594"
-          className="shopify-section"
+          className="shopify-section" style={{marginTop:"40px"}}
         >
           <div
             className="best_collection_area common_slick_slider"
@@ -335,35 +335,74 @@ function Author() {
                 {countBookByAuthor &&
                   countBookByAuthor.length > 0 &&
                   countBookByAuthor.map((author, index) => (
-                    <div
-                      key={index}
-                      className="  col-lg-3 col-md-4 col-sm-6 col-12  block_template--14588627386448__e5bea2ba-dc5b-4b9a-bda3-2860db263594-collection-1"
-                    >
-                      <div className="single_collection mb-30 text-center  large__size">
-                        <a href="../collections/best-sellers.html">
-                          <img
-                            src="../Assets/shop/files/at1_96461cdb-1ecd-4c69-a00f-75a9000a26a4dbb6.jpg?v=1698484178"
-                            alt=""
-                          />
-                        </a>
-                        <div className="banner-common best-coll-content">
-                          <h4 className="multi_top ">
-                            <a
-                              className="ban_btn1"
-                              href="../collections/best-sellers.html"
-                            >
-                              {author.name}
-                            </a>
-                          </h4>
-                          <a href="#">
-                            <span className="subtitle_with_count">
-                              <span>{author.bookCount} </span>
-                              <p className="multi_bottom">Published Book</p>
-                            </span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                    <div key={index} className="col-lg-6 col-md-4 col-sm-6 col-12 block_template--14588627386448__e5bea2ba-dc5b-4b9a-bda3-2860db263594-collection-1">
+  <div
+    style={{
+      borderTopLeftRadius: 50,
+      borderBottomRightRadius: 50,
+      padding: 20,
+      background: "linear-gradient(to bottom, #fff, #F6F2E7)",
+      /* gradient colors */ boxShadow: "0 8px 10px rgba(0, 0, 0, 0.1)"
+    }}
+    className="single_collection mb-30 text-center large__size"
+  >
+    <div className="banner-common best-coll-content">
+      <h4 className="multi_top" style={{ fontWeight: 800 }}>
+      {author.name}
+      </h4>
+      <br />
+      <p style={{ textAlign: "justify" }}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ullam dicta
+        accusamus optio doloremque eos aspernatur, provident, harum accusantium,
+        nihil fugiat fuga dolores? Facere omnis quas ullam quaerat rem
+        laudantium!
+      </p>
+      <a
+        className="ban_btn1 banner_style_2"
+        href="ContactUs.html"
+        style={{
+          fontSize: 12,
+          borderTopLeftRadius: 10,
+          borderBottomRightRadius: 10
+        }}
+      >
+        View 8 Published Books
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+                    // <div
+                    //   key={index}
+                    //   className="  col-lg-3 col-md-4 col-sm-6 col-12  block_template--14588627386448__e5bea2ba-dc5b-4b9a-bda3-2860db263594-collection-1"
+                    // >
+                    //   <div className="single_collection mb-30 text-center  large__size">
+                    //     <a href="../collections/best-sellers.html">
+                    //       <img
+                    //         src="../Assets/shop/files/at1_96461cdb-1ecd-4c69-a00f-75a9000a26a4dbb6.jpg?v=1698484178"
+                    //         alt=""
+                    //       />
+                    //     </a>
+                    //     <div className="banner-common best-coll-content">
+                    //       <h4 className="multi_top ">
+                    //         <a
+                    //           className="ban_btn1"
+                    //           href="../collections/best-sellers.html"
+                    //         >
+                    //           {author.name}
+                    //         </a>
+                    //       </h4>
+                    //       <a href="#">
+                    //         <span className="subtitle_with_count">
+                    //           <span>{author.bookCount} </span>
+                    //           <p className="multi_bottom">Published Book</p>
+                    //         </span>
+                    //       </a>
+                    //     </div>
+                    //   </div>
+                    // </div>
                   ))}
               </div>
             </div>
