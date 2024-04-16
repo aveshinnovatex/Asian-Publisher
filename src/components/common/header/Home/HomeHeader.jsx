@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css";
+import "../Header.css";
 function HomeHeader() {
   return (
     <header class="header-area sticky-bar menu-center">
