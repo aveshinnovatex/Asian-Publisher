@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../../common/header/Header";
 import Footer from "../../common/footer/Footer";
+import "./Checkout.css";
+import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 
-function ContactUs() {
+function Checkout() {
   return (
     <>
-      <title>Contact Us - Asian Publishers</title>
-      {/* CSS */}
       <link
         href="../../Assets/shop/t/9/assets/bootstrap.min528d.css?v=19868337340211324411698938058"
         rel="stylesheet"
@@ -31,7 +31,8 @@ function ContactUs() {
         type="text/css"
         media="all"
       />
-
+      <script src="../../Assets/shop/t/9/assets/jquery-1.12.4.min61ad.js?v=167620768852842279821698938059"></script>
+      <script src="../../Assets/shop/t/9/assets/theme08ca.js?v=58729172318499673551698938089"></script>
       <link
         href="../../Assets/shop/t/9/assets/icons.min4e41.css?v=144771626144460745771698938059"
         rel="stylesheet"
@@ -44,8 +45,7 @@ function ContactUs() {
         type="text/css"
         media="all"
       />
-      <script src="../../Assets/shop/t/9/assets/jquery-1.12.4.min61ad.js?v=167620768852842279821698938059"></script>
-      <script src="../../Assets/shop/t/9/assets/theme08ca.js?v=58729172318499673551698938089"></script>
+
       <div id="preloader_active">
         <div id="loading-center">
           <div id="loading-center-absolute">
@@ -57,26 +57,30 @@ function ContactUs() {
         </div>
       </div>
       <div id="shopify-section-header" className="shopify-section">
-        <div style={{height:"16vh"}}>
-        <Header />
+        <div style={{ height: "16vh" }}>
+          <Header />
         </div>
-     
-     </div>
+      </div>
       <div className="breadcrumb-area breadcrumbs-section">
         <div className="breadcrumbs overlay-bg">
           <div className="container">
             <div className="breadcrumb-content text-center breadcrumbs-inner">
               <div className="page-title">
-                <h1 className="breadcrumbs-title">Contact us</h1>
+                <h1
+                  className="breadcrumbs-title"
+                  style={{ textTransform: "unset" }}
+                >
+                  Check Out
+                </h1>
               </div>
               <nav>
                 <ul className="breadcrumb-list">
                   <li>
-                    <a href="/" title="Back to the home page">
+                    <a href="index.html" title="Back to the home page">
                       Home
                     </a>
                   </li>
-                  <li>Contact us</li>
+                  <li style={{ textTransform: "unset" }}>Check Out</li>
                 </ul>
               </nav>
             </div>
@@ -85,83 +89,16 @@ function ContactUs() {
       </div>
       <div id="shopify-section-breadcrumb" className="shopify-section"></div>
       <main>
-        <div
-          id="shopify-section-template--14595761635408__1633605873cf309896"
-          className="shopify-section"
-        >
-          <div className="contact-area pb-100">
-            <div className="container">
-              <div className="contact-map">
-                <div id="map">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55574.58198434516!2d77.66765778469876!3d29.475194078566478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c1ba00983523d%3A0xc6a75ba008574871!2sMuzaffarnagar%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1712662812454!5m2!1sen!2sin"
-                    width="100%"
-                    height={500}
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <br />
         <div
           id="shopify-section-template--14595761635408__main"
           className="shopify-section"
         >
           <div className="contact-area pt-100 pb-100">
             <div className="container">
-              <div className="section-title text-center pb-60">
-                <h2>Let's get in touch</h2>
-              </div>
               <div className="row">
-                <div className="col-lg-5 col-md-6">
-                  <div className="contact-info-area">
-                    <div className="contact-info-wrap">
-                      <div className="single-contact-info">
-                        <div className="contact-info-icon">
-                          <i
-                            className="sli sli-location-pin"
-                            style={{ color: "#dd321e" }}
-                          />
-                        </div>
-                        <div className="contact-info-content">
-                          <h6>Address:</h6>
-                          <p>Muzaffarnagar, Uttar Pradesh</p>
-                        </div>
-                      </div>
-                      <div className="single-contact-info">
-                        <div className="contact-info-icon">
-                          <i
-                            className="sli sli-sli sli-envelope"
-                            style={{ color: "#dd321e" }}
-                          />
-                        </div>
-                        <div className="contact-info-content">
-                          <h6>Email:</h6>
-                          <p>info@asianpublisher.in</p>
-                        </div>
-                      </div>
-                      <div className="single-contact-info">
-                        <div className="contact-info-icon">
-                          <i
-                            className="sli sli-sli sli-screen-smartphone"
-                            style={{ color: "#dd321e" }}
-                          />
-                        </div>
-                        <div className="contact-info-content">
-                          <h6>Call Us:</h6>
-                          <p>+91 0987654321</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-7 col-md-6">
-                  <div className="contact-from contact-shadow">
-                    <form
+                <div className="col-lg-6 col-md-6">
+                <form
                       method="post"
                       action=""
                       id="contact-form"
@@ -208,7 +145,70 @@ function ContactUs() {
                         Send Message
                       </button>
                     </form>
-                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <table className="table table-spriped">
+                    <tr>
+                      <th style={{ fontSize: "18px", width: "20%" }}>
+                        Product
+                      </th>
+                      <th>Description</th>
+                      <th style={{ textAlign: "right", fontSize: "18px" }}>
+                        Qty
+                      </th>
+                      <th style={{ textAlign: "right", fontSize: "18px" }}>
+                        Price
+                      </th>
+                      <th style={{ textAlign: "right", fontSize: "18px" }}>
+                        Amount
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img
+                          src="Assets/shop/collections/2d8ec.png?v=1698470765"
+                          alt="Best Sellers"
+                          loading="lazy"
+                          style={{ height: "10vh" }}
+                        />
+                      </td>
+                      <td style={{ fontWeight: "600", fontSize: "18px" }}>
+                        Book Name Here
+                      </td>
+                      <td style={{ textAlign: "right" }}>50</td>
+                      <td style={{ textAlign: "right" }}>Rs. 100</td>
+                      <td style={{ textAlign: "right" }}>Rs. 5000</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img
+                          src="Assets/shop/collections/p880c1.png?v=1698470737"
+                          alt="Best Sellers"
+                          loading="lazy"
+                          style={{ height: "10vh" }}
+                        />
+                      </td>
+                      <td style={{ fontWeight: "600", fontSize: "18px" }}>
+                        Book Name Here
+                      </td>
+                      <td style={{ textAlign: "right" }}>20</td>
+                      <td style={{ textAlign: "right" }}>Rs. 200</td>
+                      <td style={{ textAlign: "right" }}>Rs. 4000</td>
+                    </tr>
+                    <tr>
+                      <th>Total</th>
+                      <th></th>
+                      <th style={{ textAlign: "right" }}>70</th>
+                      <th style={{ textAlign: "right" }}>Rs. 300</th>
+                      <th style={{ textAlign: "right" }}>Rs. 9000</th>
+                    </tr>
+                  </table>
+                  <br></br>
+                  <center>
+                    <a className="ban_btn1 banner_style_2" href="index.html">
+                      Place Your Order Now
+                    </a>
+                  </center>
                 </div>
               </div>
             </div>
@@ -216,9 +216,8 @@ function ContactUs() {
         </div>
       </main>
       <Footer />
-      {/* Some styles to get you started. */}
     </>
   );
 }
 
-export default ContactUs;
+export default Checkout;

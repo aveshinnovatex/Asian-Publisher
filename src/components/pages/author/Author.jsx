@@ -74,192 +74,11 @@ function Author() {
         </div>
       </div>
       <div id="shopify-section-header" className="shopify-section">
+        <div style={{height:"16vh"}}>
         <Header />
-        <div className="mobile-off-canvas-active">
-          <a className="mobile-aside-close">
-            <i className="sli sli-close" />
-          </a>
-          <div className="header-mobile-aside-wrap">
-            <div className="mobile-search">
-              <form
-                className="search-form"
-                action=""
-                method="get"
-                role="search"
-              >
-                <input
-                  type="search"
-                  name="q"
-                  defaultValue=""
-                  placeholder="I'm looking for…"
-                />
-                <button className="button-search" type="submit">
-                  <i className="sli sli-magnifier" />
-                </button>
-              </form>
-            </div>
-            <div className="mobile-menu-wrap">
-              <div className="mobile-navigation">
-                <nav>
-                  <ul className="mobile-menu">
-                    <li className="menu-item-has-children">
-                      <a href="/">Home</a>
-                      <ul className="dropdown">
-                        <li>
-                          <a href="../index501f.html?preview_theme_id=122477707344">
-                            Home Demo v1
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../index2c6b.html?preview_theme_id=122478461008">
-                            Home Demo v2
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../index712d.html?preview_theme_id=122478493776">
-                            Home Demo v3
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../index3b70.html?preview_theme_id=122479902800">
-                            Home Demo v4
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <a href="/shop">Shop</a>
-                      <ul className="dropdown">
-                        <li className="mobile_img_menu">
-                          <a href="../collections/featured-books.html">
-                            <img
-                              src="../Assets/shop/collections/p3f10c.png?v=1698470305"
-                              alt="Featured Books"
-                              loading="lazy"
-                            />
-                          </a>
-                          <span>
-                            <a
-                              href="../collections/featured-books.html"
-                              title=""
-                            >
-                              Featured Books
-                            </a>{" "}
-                          </span>
-                        </li>
-                        <li className="mobile_img_menu">
-                          <a href="../collections/best-sellers.html">
-                            <img
-                              src="../Assets/shop/collections/2d8ec.png?v=1698470765"
-                              alt="Best Sellers"
-                              loading="lazy"
-                            />
-                          </a>
-                          <span>
-                            <a href="../collections/best-sellers.html" title="">
-                              Best Sellers
-                            </a>{" "}
-                          </span>
-                        </li>
-                        <li className="mobile_img_menu">
-                          <a href="../collections/most-viewed.html">
-                            <img
-                              src="../Assets/shop/collections/p880c1.png?v=1698470737"
-                              alt="Most Viewed"
-                              loading="lazy"
-                            />
-                          </a>
-                          <span>
-                            <a href="../collections/most-viewed.html" title="">
-                              Most Viewed
-                            </a>{" "}
-                          </span>
-                        </li>
-                        <li className="m_mega-menu-li">
-                          <a href="../collections.html">All Collections</a>
-                          <ul className="dropdown">
-                            <li>
-                              <a href="../collections/featured-books.html">
-                                Romance
-                              </a>
-                            </li>
-                            <li>
-                              <a href="../collections/best-sellers.html">
-                                History
-                              </a>
-                            </li>
-                            <li>
-                              <a href="../collections/best-sellers.html">
-                                Comedy
-                              </a>
-                            </li>
-                            <li>
-                              <a href="../collections/most-viewed.html">
-                                Fiction
-                              </a>
-                            </li>
-                            <li>
-                              <a href="../collections/best-sellers.html">
-                                Adventure
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="../blogs/news.html">Blog</a>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <a href="#">Pages</a>
-                      <ul className="dropdown">
-                        <li>
-                          <a href="/author">Authors</a>
-                        </li>
-                        <li>
-                          <a href="/about-us">About Us</a>
-                        </li>
-                        <li>
-                          <a href="/contact-us">Contact us</a>
-                        </li>
-                        <li>
-                          <a href="faq.html">Faq Page</a>
-                        </li>
-                        <li>
-                          <a href="../404.html">404 Error Page</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="/about-us">About Us</a>
-                    </li>
-                    <li>
-                      <a href="/contact-us">Contact Us</a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-            <div className="mobile-curr-lang-wrap">
-              <div className="single-mobile-curr-lang">
-                <a className="mobile-account-active remove_href" href="#">
-                  Account <i className="sli sli-arrow-down" />
-                </a>
-                <div className="lang-curr-dropdown account-dropdown-active">
-                  <ul>
-                    <li>
-                      <a href="/login">Login</a>
-                    </li>
-                    <li>
-                      <a href="/register">Create Account</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+     
+     </div>
       <div className="breadcrumb-area breadcrumbs-section">
         <div className="breadcrumbs overlay-bg">
           <div className="container">
@@ -285,7 +104,7 @@ function Author() {
       <main>
         <div
           id="shopify-section-template--14595761602640__e5bea2ba-dc5b-4b9a-bda3-2860db263594"
-          className="shopify-section"
+          className="shopify-section" style={{marginTop:"40px"}}
         >
           <div
             className="best_collection_area common_slick_slider"
@@ -335,35 +154,74 @@ function Author() {
                 {countBookByAuthor &&
                   countBookByAuthor.length > 0 &&
                   countBookByAuthor.map((author, index) => (
-                    <div
-                      key={index}
-                      className="  col-lg-3 col-md-4 col-sm-6 col-12  block_template--14588627386448__e5bea2ba-dc5b-4b9a-bda3-2860db263594-collection-1"
-                    >
-                      <div className="single_collection mb-30 text-center  large__size">
-                        <a href="../collections/best-sellers.html">
-                          <img
-                            src="../Assets/shop/files/at1_96461cdb-1ecd-4c69-a00f-75a9000a26a4dbb6.jpg?v=1698484178"
-                            alt=""
-                          />
-                        </a>
-                        <div className="banner-common best-coll-content">
-                          <h4 className="multi_top ">
-                            <a
-                              className="ban_btn1"
-                              href="../collections/best-sellers.html"
-                            >
-                              {author.name}
-                            </a>
-                          </h4>
-                          <a href="#">
-                            <span className="subtitle_with_count">
-                              <span>{author.bookCount} </span>
-                              <p className="multi_bottom">Published Book</p>
-                            </span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                    <div key={index} className="col-lg-6 col-md-4 col-sm-6 col-12 block_template--14588627386448__e5bea2ba-dc5b-4b9a-bda3-2860db263594-collection-1">
+  <div
+    style={{
+      borderTopLeftRadius: 50,
+      borderBottomRightRadius: 50,
+      padding: 20,
+      background: "linear-gradient(to bottom, #fff, #F6F2E7)",
+      /* gradient colors */ boxShadow: "0 8px 10px rgba(0, 0, 0, 0.1)"
+    }}
+    className="single_collection mb-30 text-center large__size"
+  >
+    <div className="banner-common best-coll-content">
+      <h4 className="multi_top" style={{ fontWeight: 800 }}>
+      {author.name}
+      </h4>
+      <br />
+      <p style={{ textAlign: "justify" }}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ullam dicta
+        accusamus optio doloremque eos aspernatur, provident, harum accusantium,
+        nihil fugiat fuga dolores? Facere omnis quas ullam quaerat rem
+        laudantium!
+      </p>
+      <a
+        className="ban_btn1 banner_style_2"
+        href="ContactUs.html"
+        style={{
+          fontSize: 12,
+          borderTopLeftRadius: 10,
+          borderBottomRightRadius: 10
+        }}
+      >
+        View 8 Published Books
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+                    // <div
+                    //   key={index}
+                    //   className="  col-lg-3 col-md-4 col-sm-6 col-12  block_template--14588627386448__e5bea2ba-dc5b-4b9a-bda3-2860db263594-collection-1"
+                    // >
+                    //   <div className="single_collection mb-30 text-center  large__size">
+                    //     <a href="../collections/best-sellers.html">
+                    //       <img
+                    //         src="../Assets/shop/files/at1_96461cdb-1ecd-4c69-a00f-75a9000a26a4dbb6.jpg?v=1698484178"
+                    //         alt=""
+                    //       />
+                    //     </a>
+                    //     <div className="banner-common best-coll-content">
+                    //       <h4 className="multi_top ">
+                    //         <a
+                    //           className="ban_btn1"
+                    //           href="../collections/best-sellers.html"
+                    //         >
+                    //           {author.name}
+                    //         </a>
+                    //       </h4>
+                    //       <a href="#">
+                    //         <span className="subtitle_with_count">
+                    //           <span>{author.bookCount} </span>
+                    //           <p className="multi_bottom">Published Book</p>
+                    //         </span>
+                    //       </a>
+                    //     </div>
+                    //   </div>
+                    // </div>
                   ))}
               </div>
             </div>

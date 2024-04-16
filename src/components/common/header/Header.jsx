@@ -22,14 +22,14 @@ function Header() {
                 <nav>
                   <ul>
                     <li className="angle-shape">
-                      <a href="/" style={{ fontWeight: 800, letterSpacing: 1, color:"#000" }}>
+                      <a href="/" style={{ fontWeight: 800, letterSpacing: 1, color:"#000", fontSize:"18px" }}>
                         Home
                       </a>
                     </li>
                     <li className="angle-shape">
                       <a
                         href="/about-us"
-                        style={{ fontWeight: 800, letterSpacing: 1 , color:"#000"}}
+                        style={{ fontWeight: 800, letterSpacing: 1 , color:"#000", fontSize:"18px"}}
                       >
                         About Us
                       </a>
@@ -37,7 +37,7 @@ function Header() {
                     <li className="angle-shape">
                       <a
                         href="/shop"
-                        style={{ fontWeight: 800, letterSpacing: 1  , color:"#000"}}
+                        style={{ fontWeight: 800, letterSpacing: 1  , color:"#000", fontSize:"18px"}}
                       >
                         Shop
                       </a>
@@ -46,7 +46,7 @@ function Header() {
                     <li className="angle-shape">
                       <a
                         href="/author"
-                        style={{ fontWeight: 800, letterSpacing: 1  , color:"#000"}}
+                        style={{ fontWeight: 800, letterSpacing: 1  , color:"#000", fontSize:"18px"}}
                       >
                         Authors
                       </a>
@@ -54,7 +54,7 @@ function Header() {
                     <li className="angle-shape">
                       <a
                         href="/orderForm"
-                        style={{ fontWeight: 800, letterSpacing: 1 , color:"#000" }}
+                        style={{ fontWeight: 800, letterSpacing: 1 , color:"#000", fontSize:"18px" }}
                       >
                         Order Form
                       </a>
@@ -62,7 +62,7 @@ function Header() {
                     <li className="angle-shape">
                       <a
                         href="/becomean-author"
-                        style={{ fontWeight: 800, letterSpacing: 1 , color:"#000" }}
+                        style={{ fontWeight: 800, letterSpacing: 1 , color:"#000", fontSize:"18px" }}
                       >
                         Become an Author
                       </a>
@@ -70,7 +70,7 @@ function Header() {
                     <li className="angle-shape">
                       <a
                         href="/contact-us"
-                        style={{ fontWeight: 800, letterSpacing: 1  , color:"#000"}}
+                        style={{ fontWeight: 800, letterSpacing: 1  , color:"#000", fontSize:"18px"}}
                       >
                         Contact Us
                       </a>
@@ -78,7 +78,7 @@ function Header() {
                     <li className="angle-shape">
                       <a
                         href="/login"
-                        style={{ fontWeight: 800, letterSpacing: 1  , color:"#000"}}
+                        style={{ fontWeight: 800, letterSpacing: 1  , color:"#000", fontSize:"18px"}}
                       >
                         Login
                       </a>

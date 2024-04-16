@@ -9,7 +9,10 @@ import Login from "../src/components/common/login/Login";
 import OrderForm from "../src/components/pages/orderForm/OrderForm";
 import Register from "../src/components/common/register/Register";
 import Shop from "../src/components/pages/shop/Shop";
+import Cart from "./components/pages/cart/Cart";
+import Checkout from "./components/pages/checkout/Checkout";
 // import Layout from "./components/Layout";
+
 const App = () => {
   return (
     <Router>
@@ -24,6 +27,8 @@ const App = () => {
         <Route path="/orderForm" element={<OrderForm />} />
         <Route path="/register" element={<Register />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
       {/* </Layout> */}
     </Router>
