@@ -70,7 +70,7 @@ function Cart() {
                   className="breadcrumbs-title"
                   style={{ textTransform: "unset" }}
                 >
-                  Check Out
+                  Cart
                 </h1>
               </div>
               <nav>
@@ -80,7 +80,7 @@ function Cart() {
                       Home
                     </a>
                   </li>
-                  <li style={{ textTransform: "unset" }}>Check Out</li>
+                  <li style={{ textTransform: "unset" }}>Cart</li>
                 </ul>
               </nav>
             </div>
@@ -98,13 +98,60 @@ function Cart() {
             <div className="container">
               <div className="row">
                 <div className="col-lg-12 col-md-6">
-                  
-                  <br></br>
-                  <center>
-                    <a className="ban_btn1 banner_style_2" href="index.html">
+                  <table className="table table-spriped">
+                    <tr>
+                      <th style={{fontSize:"18px", width:"20%"}}>Product Description</th>
+                      <th></th>
+                      <th style={{ textAlign: "right", fontSize:"18px" }}>Qty</th>
+                      <th style={{ textAlign: "right", fontSize:"18px" }}>Price</th>
+                      <th style={{ textAlign: "right", fontSize:"18px" }}>Amount</th>
+                      <th style={{ textAlign: "center", fontSize:"18px" }}>Action</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img
+                          src="Assets/shop/collections/2d8ec.png?v=1698470765"
+                          alt="Best Sellers"
+                          loading="lazy"
+                          style={{ height: "10vh" }}
+                        />
+                      </td>
+                      <td style={{fontWeight:"600",fontSize:"18px",}}>Book Name Here</td>
+                      <td style={{ textAlign: "right" }}>50</td>
+                      <td style={{ textAlign: "right" }}>Rs. 100</td>
+                      <td style={{ textAlign: "right" }}>Rs. 5000</td>
+                      <td style={{ fontSize:"25px", textAlign: "center" }}><MdOutlineRemoveShoppingCart /></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img
+                          src="Assets/shop/collections/p880c1.png?v=1698470737"
+                          alt="Best Sellers"
+                          loading="lazy"
+                          style={{ height: "10vh" }}
+                        />
+                      </td>
+                      <td style={{fontWeight:"600",fontSize:"18px",}}>Book Name Here</td>
+                      <td style={{ textAlign: "right" }}>20</td>
+                      <td style={{ textAlign: "right" }}>Rs. 200</td>
+                      <td style={{ textAlign: "right" }}>Rs. 4000</td>
+                      <td style={{ fontSize:"25px", textAlign: "center" }}><MdOutlineRemoveShoppingCart /></td>
+                    </tr>
+                    <tr>
+                      <th>Total</th>
+                      <th></th>
+                      <th style={{ textAlign: "right" }}>70</th>
+                      <th style={{ textAlign: "right" }}>Rs. 300</th>
+                      <th style={{ textAlign: "right" }}>Rs. 9000</th>
+                      <th></th>
+                    </tr>
+                  </table>
+<br></br>
+<center>
+                  <a className="ban_btn1 banner_style_2" href="index.html">
                       Checkout Now
                     </a>
-                  </center>
+                    </center>
                 </div>
               </div>
             </div>
