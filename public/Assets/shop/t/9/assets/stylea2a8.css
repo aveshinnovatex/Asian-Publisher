@@ -3472,7 +3472,7 @@ textarea:focus {
 .theme-products .theme-product .theme-product-inner .theme-product-image-wrap .theme-product-image {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+    /* display: flex; */
   	justify-content: center;
 }
 .theme-products .theme-product .theme-product-inner .theme-product-image-wrap .theme-product-image img {

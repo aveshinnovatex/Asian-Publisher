@@ -718,13 +718,14 @@ function Home() {
         <div
           id="shopify-section-template--14595761504336__480bb6da-bf95-4066-9784-92e5f4a7ecb0"
           className="shopify-section"
+          style={{ paddingTop: "20px" }}
         >
           <div
-            className="product-area pb-150 feature_deal_collection common_slick_slider"
+            className="product-area pb-50 pt-30 feature_deal_collection common_slick_slider"
             id="section-template--14595761504336__480bb6da-bf95-4066-9784-92e5f4a7ecb0"
             data-section="Feature_Collection"
           >
-            <div className="container default ">
+            <div className="container default " style={{maxWidth:"1300px"}}>
               <div className="section-title text-left pb-30  title_button_show ">
                 <h2>Featured Books</h2>
                 <div className="deal_count_area_wrap show-more-btn_title">
@@ -737,223 +738,99 @@ function Home() {
                   </a>
                 </div>
               </div>
-              <div className="product-menu-banner-wrapper row">
-                {allBooks &&
-                  allBooks.length > 0 &&
-                  allBooks.length > 0 &&
-                  allBooks.slice(0, 6).map((book, index) => (
-                    <div className="col-md-4" key={index}>
-                      <div className="arrivals-wrap item-wrapper">
-                        <div
-                          className="theme-products  feature-product-slider-active carsoule_arrow_style row"
-                          data-slick='{
-                           "infinite": true,
-                           "slidesToShow": 5,
-                           "slidesToScroll": 1,
-                           "rows":1,
-                           "arrows": false,
-                           "responsive": [
-                           {
-                           "breakpoint": 1800,
-                           "settings": {
-                           "slidesToShow": 5,
-                           "slidesToScroll": 1
-                           }
-                           },
-                           {
-                           "breakpoint": 1200,
-                           "settings": {
-                           "slidesToShow": 4,
-                           "slidesToScroll": 1
-                           }
-                           },
-                           {
-                           "breakpoint": 991,
-                           "settings": {
-                           "slidesToShow": 2,
-                           "slidesToScroll": 1
-                           }
-                           },
-                           {
-                           "breakpoint": 767,
-                           "settings": {
-                           "slidesToShow": 2,
-                           "slidesToScroll": 1
-                           }
-                           },
-                           {
-                           "breakpoint": 450,
-                           "settings": {
-                           "slidesToShow": 1,
-                           "slidesToScroll": 1
-                           }
-                           }
-                           ]
-                           }'
-                        >
-                          <div className="col-md-12 ">
+              <div className=" container-fluid product-menu-banner-wrapper row " style={{paddingLeft:"0px",  paddingRight:"0px"}}>
+                <div class="col-md-12">
+                  <div class="arrivals-wrap item-wrapper">
+                    <div
+                      class="theme-products  feature-product-slider-active carsoule_arrow_style row"
+                      data-slick='{
+                                 "infinite": true,
+                                 "slidesToShow": 5,
+                                 "slidesToScroll": 1,
+                                 "rows":1,
+                                 "arrows": false,
+                                 "responsive": [
+                                 {
+                                 "breakpoint": 1800,
+                                 "settings": {
+                                 "slidesToShow": 5,
+                                 "slidesToScroll": 1
+                                 }
+                                 },
+                                 {
+                                 "breakpoint": 1200,
+                                 "settings": {
+                                 "slidesToShow": 4,
+                                 "slidesToScroll": 1
+                                 }
+                                 },
+                                 {
+                                 "breakpoint": 991,
+                                 "settings": {
+                                 "slidesToShow": 2,
+                                 "slidesToScroll": 1
+                                 }
+                                 },
+                                 {
+                                 "breakpoint": 767,
+                                 "settings": {
+                                 "slidesToShow": 2,
+                                 "slidesToScroll": 1
+                                 }
+                                 },
+                                 {
+                                 "breakpoint": 450,
+                                 "settings": {
+                                 "slidesToShow": 1,
+                                 "slidesToScroll": 1
+                                 }
+                                 }
+                                 ]
+                                 }'
+                    >
+                      {allBooks &&
+                        allBooks.length > 0 &&
+                        allBooks.length > 0 &&
+                        allBooks.slice(0, 4).map((book, index) => (
+                          <center>
+                          <div
+                            class="col-md-3"
+                            key={index}
+                            style={{ float: "left"}}
+                          >
                             <div
-                              className="40344359665744 theme-product theme-product-action-on-hover mb-30 
-                                 theme-product-action-middle
-                                 theme-product-countdown-bottom
-                                 product-wrapper-class"
+                              class="40344359665744 theme-product theme-product-action-on-hover mb-30 
+                                       theme-product-action-middle
+                                       theme-product-countdown-bottom
+                                       product-wrapper-class"
                             >
-                              <div className="theme-product-inner icon_bg grid__style__2">
-                                <div className="theme-product-image-wrap product-color">
-                                  <div className="theme-product-image">
-                                    <div className="theme-product-cus-tab icon_bg_img">
+                              <div class="theme-product-inner icon_bg grid__style__2">
+                                <div class="theme-product-image-wrap product-color">
+                                  <div class="theme-product-image">
+                                    <div class="theme-product-cus-tab icon_bg_img">
                                       <a
                                         href="products/first-love-shadows-of-nebula.html"
-                                        className="theme-product-image"
+                                        class="theme-product-image" style={{display:"block"}}
                                       >
                                         <img
-                                          style={{
-                                            height: "50%",
-                                            width: "50%",
-                                          }}
-                                          className="popup_cart_image"
+                                          class="popup_cart_image"
                                           src={`${REACT_APP_URL}/Image/${book.image}`}
                                           alt="First Love Shadows of Nebula"
+                                          style={{ height: "50vh" }}
                                         />
                                       </a>
-                                      <div className="theme-product-action">
-                                        <ul>
-                                          <li>
-                                            <a
-                                              href="javascript:void(0);"
-                                              onclick="quiqview('first-love-shadows-of-nebula')"
-                                              data-toggle="modal"
-                                              data-target="#exampleModal"
-                                            >
-                                              <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="ionicon"
-                                                viewBox="0 0 512 512"
-                                              >
-                                                <path
-                                                  d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z"
-                                                  fill="none"
-                                                  stroke="currentColor"
-                                                  strokeLinecap="round"
-                                                  strokeLinejoin="round"
-                                                  strokeWidth={32}
-                                                />
-                                                <circle
-                                                  cx={256}
-                                                  cy={256}
-                                                  r={80}
-                                                  fill="none"
-                                                  stroke="currentColor"
-                                                  strokeMiterlimit={10}
-                                                  strokeWidth={32}
-                                                />
-                                              </svg>
-                                            </a>
-                                          </li>
-                                          <li>
-                                            <a
-                                              className="action-wishlist tile-actions--btn flex wishlist-btn wishlist"
-                                              href="javascript: void(0)"
-                                              button-wishlist=""
-                                              data-product-handle="first-love-shadows-of-nebula"
-                                              data-toggle="tooltip"
-                                              data-placement="left"
-                                              title=""
-                                            >
-                                              <span className="add-wishlist">
-                                                <svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  className="ionicon"
-                                                  viewBox="0 0 512 512"
-                                                >
-                                                  <path
-                                                    d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={32}
-                                                  />
-                                                </svg>
-                                              </span>
-                                              <span className="loading-wishlist">
-                                                <svg
-                                                  className="loader"
-                                                  id="Layer_1"
-                                                  enableBackground="new 0 0 24 24"
-                                                  height={512}
-                                                  viewBox="0 0 24 24"
-                                                  width={512}
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                >
-                                                  <g>
-                                                    <path d="m12 7c-.6 0-1-.4-1-1v-3c0-.6.4-1 1-1s1 .4 1 1v3c0 .6-.4 1-1 1z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m16.3 8.8c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l2.2-2.1c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-2.2 2.1c-.2.2-.5.3-.7.3z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m21 13h-3c-.6 0-1-.4-1-1s.4-1 1-1h3c.6 0 1 .4 1 1s-.4 1-1 1z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m18.4 19.4c-.3 0-.5-.1-.7-.3l-2.2-2.1c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l2.2 2.2c.4.4.4 1 0 1.4-.2.1-.4.2-.7.2z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m12 22c-.6 0-1-.4-1-1v-3c0-.6.4-1 1-1s1 .4 1 1v3c0 .6-.4 1-1 1z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m5.6 19.4c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l2.1-2.2c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-2.1 2.2c-.2.2-.4.3-.7.3z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m6 13h-3c-.6 0-1-.4-1-1s.4-1 1-1h3c.6 0 1 .4 1 1s-.4 1-1 1z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m7.8 8.8c-.3 0-.6-.1-.8-.3l-2.1-2.2c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l2.2 2.1c.4.4.4 1 0 1.4-.2.3-.5.4-.7.4z" />
-                                                  </g>
-                                                </svg>
-                                              </span>
-                                              <span className="remove-wishlist">
-                                                <svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  className="ionicon"
-                                                  viewBox="0 0 512 512"
-                                                >
-                                                  <path d="M352.92 64c-48.09 0-80 29.54-96.92 51-16.88-21.49-48.83-51-96.92-51C98.46 64 48.63 114.54 48 176.65c-.54 54.21 18.63 104.27 58.61 153 18.77 22.88 52.8 59.46 131.39 112.81a31.84 31.84 0 0036 0c78.59-53.35 112.62-89.93 131.39-112.81 40-48.74 59.15-98.8 58.61-153C463.37 114.54 413.54 64 352.92 64zM256 416V207.58c0-19.63 5.23-38.76 14.21-56.22a1.19 1.19 0 01.08-.16 123 123 0 0121.77-28.51C310.19 105 330.66 96 352.92 96c43.15 0 78.62 36.32 79.07 81C433 281.61 343.63 356.51 256 416z" />
-                                                </svg>
-                                              </span>
-                                            </a>
-                                          </li>
-                                          <li>
-                                            <a
-                                              href="javascript:void(0);"
-                                              onclick="Shopify.addItem(40344359665744, 1); return false;"
-                                              className="theme-product-action-btn"
-                                            >
-                                              <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="ionicon"
-                                                viewBox="0 0 512 512"
-                                              >
-                                                <path
-                                                  fill="none"
-                                                  stroke="currentColor"
-                                                  strokeLinecap="round"
-                                                  strokeLinejoin="round"
-                                                  strokeWidth={32}
-                                                  d="M256 256v128M320 320H192M80 176a16 16 0 00-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 00-16-16zM160 176v-32a96 96 0 0196-96h0a96 96 0 0196 96v32"
-                                                />
-                                              </svg>
-                                            </a>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                      <div className="color_size_img_wrap" />
+                                      
                                     </div>
                                   </div>
                                 </div>
-                                <div className="theme-product-content  content__center ">
-                                  <div className="theme-product-content-inner ">
-                                    <div className="theme-product-categories ">
+                                <div class="theme-product-content  content__center ">
+                                  <div class="theme-product-content-inner ">
+                                  <h4 class="theme-product-title popup_cart_title">
+                                      <a href="products/first-love-shadows-of-nebula.html">
+                                        {book.name}
+                                      </a>
+                                    </h4>
+                                    <div class="theme-product-categories" style={{fontSize:"7px"}}>
                                       {book.authors &&
                                         book.authors.length > 0 && (
                                           <a href="#" className="remove_href">
@@ -970,27 +847,22 @@ function Home() {
                                             )}
                                           </a>
                                         )}
+                                      {/* <a href="#" class="remove_href">John Grisham</a> */}
                                     </div>
-                                    <h4 className="theme-product-title popup_cart_title">
-                                      <a href="products/first-love-shadows-of-nebula.html">
-                                        {book.name}
-                                      </a>
-                                    </h4>
-                                    <div className="theme-product-price ">
-                                      <span className="new">
-                                        Rs. {book.mRP}
-                                      </span>
+                                    
+                                    <div class="theme-product-price ">
+                                      <span class="new">Rs. {book.mRP}</span>
                                     </div>
-                                    <div className="theme-product-ratting-wrap ">
-                                      <span className="theme-product-ratting spr-badge-caption-none">
+                                    <div class="theme-product-ratting-wrap ">
+                                      <span class="theme-product-ratting spr-badge-caption-none">
                                         <span
-                                          className="shopify-product-reviews-badge"
-                                          data-id={book.id}
-                                        />
+                                          class="shopify-product-reviews-badge"
+                                          data-id="6885543608400"
+                                        ></span>
                                       </span>
                                     </div>
                                   </div>
-                                  <div className="theme-product-action">
+                                  <div class="theme-product-action">
                                     <ul>
                                       <li>
                                         <a
@@ -1001,63 +873,63 @@ function Home() {
                                         >
                                           <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            className="ionicon"
+                                            class="ionicon"
                                             viewBox="0 0 512 512"
                                           >
                                             <path
                                               d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z"
                                               fill="none"
                                               stroke="currentColor"
-                                              strokeLinecap="round"
-                                              strokeLinejoin="round"
-                                              strokeWidth={32}
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"
+                                              stroke-width="32"
                                             />
                                             <circle
-                                              cx={256}
-                                              cy={256}
-                                              r={80}
+                                              cx="256"
+                                              cy="256"
+                                              r="80"
                                               fill="none"
                                               stroke="currentColor"
-                                              strokeMiterlimit={10}
-                                              strokeWidth={32}
+                                              stroke-miterlimit="10"
+                                              stroke-width="32"
                                             />
                                           </svg>
                                         </a>
                                       </li>
                                       <li>
                                         <a
-                                          className="action-wishlist tile-actions--btn flex wishlist-btn wishlist"
+                                          class="action-wishlist tile-actions--btn flex wishlist-btn wishlist"
                                           href="javascript: void(0)"
-                                          button-wishlist=""
+                                          button-wishlist
                                           data-product-handle="first-love-shadows-of-nebula"
                                           data-toggle="tooltip"
                                           data-placement="left"
                                           title=""
                                         >
-                                          <span className="add-wishlist">
+                                          <span class="add-wishlist">
                                             <svg
                                               xmlns="http://www.w3.org/2000/svg"
-                                              className="ionicon"
+                                              class="ionicon"
                                               viewBox="0 0 512 512"
                                             >
                                               <path
                                                 d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"
                                                 fill="none"
                                                 stroke="currentColor"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={32}
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="32"
                                               />
                                             </svg>
                                           </span>
-                                          <span className="loading-wishlist">
+                                          <span class="loading-wishlist">
                                             <svg
-                                              className="loader"
+                                              class="loader"
                                               id="Layer_1"
-                                              enableBackground="new 0 0 24 24"
-                                              height={512}
+                                              enable-background="new 0 0 24 24"
+                                              height="512"
                                               viewBox="0 0 24 24"
-                                              width={512}
+                                              width="512"
                                               xmlns="http://www.w3.org/2000/svg"
                                             >
                                               <g>
@@ -1086,10 +958,10 @@ function Home() {
                                               </g>
                                             </svg>
                                           </span>
-                                          <span className="remove-wishlist">
+                                          <span class="remove-wishlist">
                                             <svg
                                               xmlns="http://www.w3.org/2000/svg"
-                                              className="ionicon"
+                                              class="ionicon"
                                               viewBox="0 0 512 512"
                                             >
                                               <path d="M352.92 64c-48.09 0-80 29.54-96.92 51-16.88-21.49-48.83-51-96.92-51C98.46 64 48.63 114.54 48 176.65c-.54 54.21 18.63 104.27 58.61 153 18.77 22.88 52.8 59.46 131.39 112.81a31.84 31.84 0 0036 0c78.59-53.35 112.62-89.93 131.39-112.81 40-48.74 59.15-98.8 58.61-153C463.37 114.54 413.54 64 352.92 64zM256 416V207.58c0-19.63 5.23-38.76 14.21-56.22a1.19 1.19 0 01.08-.16 123 123 0 0121.77-28.51C310.19 105 330.66 96 352.92 96c43.15 0 78.62 36.32 79.07 81C433 281.61 343.63 356.51 256 416z" />
@@ -1101,19 +973,19 @@ function Home() {
                                         <a
                                           href="javascript:void(0);"
                                           onclick="Shopify.addItem(40344359665744, 1); return false;"
-                                          className="theme-product-action-btn"
+                                          class="theme-product-action-btn"
                                         >
                                           <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            className="ionicon"
+                                            class="ionicon"
                                             viewBox="0 0 512 512"
                                           >
                                             <path
                                               fill="none"
                                               stroke="currentColor"
-                                              strokeLinecap="round"
-                                              strokeLinejoin="round"
-                                              strokeWidth={32}
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"
+                                              stroke-width="32"
                                               d="M256 256v128M320 320H192M80 176a16 16 0 00-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 00-16-16zM160 176v-32a96 96 0 0196-96h0a96 96 0 0196 96v32"
                                             />
                                           </svg>
@@ -1125,10 +997,11 @@ function Home() {
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
+                          </center>
+                        ))}
                     </div>
-                  ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1150,14 +1023,14 @@ function Home() {
                       <h2>The largest Book Publisher on the planet</h2>
                       <span className="cstm_ul_li">
                         <ul className="trx_addons_list_dot text_link2">
-                          <li>Civil Engineering</li>
-                          <li>Electrical Engineering</li>
-                          <li>Mechanical Engineering</li>
+                          <li style={{color:"#000"}}>Civil Engineering</li>
+                          <li style={{color:"#000"}}>Electrical Engineering</li>
+                          <li style={{color:"#000"}}>Mechanical Engineering</li>
                         </ul>
                         <ul className="trx_addons_list_dot text_link2">
-                          <li>Electronics Engineering</li>
-                          <li>Computer Science Engineering</li>
-                          <li>Information Technology</li>
+                          <li style={{color:"#000"}}>Electronics Engineering</li>
+                          <li style={{color:"#000"}}>Computer Science Engineering</li>
+                          <li style={{color:"#000"}}>Information Technology</li>
                         </ul>
                       </span>
                       <a className="btn_main" href="collections/all.html">
@@ -1180,243 +1053,120 @@ function Home() {
           </div>
         </div>
         <div
-          id="shopify-section-template--14595761504336__1635682320e743e23b"
+          id="shopify-section-template--14595761504336__480bb6da-bf95-4066-9784-92e5f4a7ecb0"
           className="shopify-section"
         >
           <div
-            className="product-area pb-150 common_slick_slider"
-            id="section-template--14595761504336__1635682320e743e23b"
+            className="product-area pb-50 pt-20 feature_deal_collection common_slick_slider"
+            id="section-template--14595761504336__480bb6da-bf95-4066-9784-92e5f4a7ecb0"
             data-section="Feature_Collection"
           >
-            <div className="container default ">
-              <div className="section-title text-left  title_button_show   pb-40">
+            <div className="container default " style={{maxWidth:"1300px"}}>
+              <div className="section-title text-left pb-30  title_button_show ">
                 <h2>New Release Books</h2>
-                <div className="show-more-btn_title">
+                <div className="deal_count_area_wrap show-more-btn_title">
                   <a
                     className="ban_btn1 banner_style_2"
-                    href="collections/featured-books.html"
+                    href="/shop"
+                    style={{ backgroundColor: "#DD321E !important" }}
                   >
                     View All Books
                   </a>
                 </div>
               </div>
-              <div className="product-menu-banner-wrapper row">
-                {allBooks &&
-                  allBooks.length > 0 &&
-                  allBooks.length > 0 &&
-                  allBooks.slice(0, 6).map((book, index) => (
-                    <div className="col-md-4" key={index}>
-                      <div className="arrivals-wrap item-wrapper">
-                        <div
-                          className="theme-products  feature-product-slider-active carsoule_arrow_style row"
-                          data-slick='{
-                           "infinite": true,
-                           "slidesToShow": 5,
-                           "slidesToScroll": 1,
-                           "rows":1,
-                           "arrows": false,
-                           "responsive": [
-                           {
-                           "breakpoint": 1800,
-                           "settings": {
-                           "slidesToShow": 5,
-                           "slidesToScroll": 1
-                           }
-                           },
-                           {
-                           "breakpoint": 1200,
-                           "settings": {
-                           "slidesToShow": 4,
-                           "slidesToScroll": 1
-                           }
-                           },
-                           {
-                           "breakpoint": 991,
-                           "settings": {
-                           "slidesToShow": 2,
-                           "slidesToScroll": 1
-                           }
-                           },
-                           {
-                           "breakpoint": 767,
-                           "settings": {
-                           "slidesToShow": 2,
-                           "slidesToScroll": 1
-                           }
-                           },
-                           {
-                           "breakpoint": 450,
-                           "settings": {
-                           "slidesToShow": 1,
-                           "slidesToScroll": 1
-                           }
-                           }
-                           ]
-                           }'
-                        >
-                          <div className="col-md-12 ">
+              <div className=" container-fluid product-menu-banner-wrapper row " style={{paddingLeft:"0px",  paddingRight:"0px"}}>
+                <div class="col-md-12">
+                  <div class="arrivals-wrap item-wrapper">
+                    <div
+                      class="theme-products  feature-product-slider-active carsoule_arrow_style row"
+                      data-slick='{
+                                 "infinite": true,
+                                 "slidesToShow": 5,
+                                 "slidesToScroll": 1,
+                                 "rows":1,
+                                 "arrows": false,
+                                 "responsive": [
+                                 {
+                                 "breakpoint": 1800,
+                                 "settings": {
+                                 "slidesToShow": 5,
+                                 "slidesToScroll": 1
+                                 }
+                                 },
+                                 {
+                                 "breakpoint": 1200,
+                                 "settings": {
+                                 "slidesToShow": 4,
+                                 "slidesToScroll": 1
+                                 }
+                                 },
+                                 {
+                                 "breakpoint": 991,
+                                 "settings": {
+                                 "slidesToShow": 2,
+                                 "slidesToScroll": 1
+                                 }
+                                 },
+                                 {
+                                 "breakpoint": 767,
+                                 "settings": {
+                                 "slidesToShow": 2,
+                                 "slidesToScroll": 1
+                                 }
+                                 },
+                                 {
+                                 "breakpoint": 450,
+                                 "settings": {
+                                 "slidesToShow": 1,
+                                 "slidesToScroll": 1
+                                 }
+                                 }
+                                 ]
+                                 }'
+                    >
+                      {allBooks &&
+                        allBooks.length > 0 &&
+                        allBooks.length > 0 &&
+                        allBooks.slice(0, 4).map((book, index) => (
+                          <center>
+                          <div
+                            class="col-md-3"
+                            key={index}
+                            style={{ float: "left"}}
+                          >
                             <div
-                              className="40344359665744 theme-product theme-product-action-on-hover mb-30 
-                                 theme-product-action-middle
-                                 theme-product-countdown-bottom
-                                 product-wrapper-class"
+                              class="40344359665744 theme-product theme-product-action-on-hover mb-30 
+                                       theme-product-action-middle
+                                       theme-product-countdown-bottom
+                                       product-wrapper-class"
                             >
-                              <div className="theme-product-inner icon_bg grid__style__2">
-                                <div className="theme-product-image-wrap product-color">
-                                  <div className="theme-product-image">
-                                    <div className="theme-product-cus-tab icon_bg_img">
+                              <div class="theme-product-inner icon_bg grid__style__2">
+                                <div class="theme-product-image-wrap product-color">
+                                  <div class="theme-product-image">
+                                    <div class="theme-product-cus-tab icon_bg_img">
                                       <a
                                         href="products/first-love-shadows-of-nebula.html"
-                                        className="theme-product-image"
+                                        class="theme-product-image" style={{display:"block"}}
                                       >
                                         <img
-                                          style={{
-                                            height: "50%",
-                                            width: "50%",
-                                          }}
-                                          className="popup_cart_image"
+                                          class="popup_cart_image"
                                           src={`${REACT_APP_URL}/Image/${book.image}`}
                                           alt="First Love Shadows of Nebula"
+                                          style={{ height: "50vh" }}
                                         />
                                       </a>
-                                      <div className="theme-product-action">
-                                        <ul>
-                                          <li>
-                                            <a
-                                              href="javascript:void(0);"
-                                              onclick="quiqview('first-love-shadows-of-nebula')"
-                                              data-toggle="modal"
-                                              data-target="#exampleModal"
-                                            >
-                                              <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="ionicon"
-                                                viewBox="0 0 512 512"
-                                              >
-                                                <path
-                                                  d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z"
-                                                  fill="none"
-                                                  stroke="currentColor"
-                                                  strokeLinecap="round"
-                                                  strokeLinejoin="round"
-                                                  strokeWidth={32}
-                                                />
-                                                <circle
-                                                  cx={256}
-                                                  cy={256}
-                                                  r={80}
-                                                  fill="none"
-                                                  stroke="currentColor"
-                                                  strokeMiterlimit={10}
-                                                  strokeWidth={32}
-                                                />
-                                              </svg>
-                                            </a>
-                                          </li>
-                                          <li>
-                                            <a
-                                              className="action-wishlist tile-actions--btn flex wishlist-btn wishlist"
-                                              href="javascript: void(0)"
-                                              button-wishlist=""
-                                              data-product-handle="first-love-shadows-of-nebula"
-                                              data-toggle="tooltip"
-                                              data-placement="left"
-                                              title=""
-                                            >
-                                              <span className="add-wishlist">
-                                                <svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  className="ionicon"
-                                                  viewBox="0 0 512 512"
-                                                >
-                                                  <path
-                                                    d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={32}
-                                                  />
-                                                </svg>
-                                              </span>
-                                              <span className="loading-wishlist">
-                                                <svg
-                                                  className="loader"
-                                                  id="Layer_1"
-                                                  enableBackground="new 0 0 24 24"
-                                                  height={512}
-                                                  viewBox="0 0 24 24"
-                                                  width={512}
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                >
-                                                  <g>
-                                                    <path d="m12 7c-.6 0-1-.4-1-1v-3c0-.6.4-1 1-1s1 .4 1 1v3c0 .6-.4 1-1 1z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m16.3 8.8c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l2.2-2.1c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-2.2 2.1c-.2.2-.5.3-.7.3z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m21 13h-3c-.6 0-1-.4-1-1s.4-1 1-1h3c.6 0 1 .4 1 1s-.4 1-1 1z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m18.4 19.4c-.3 0-.5-.1-.7-.3l-2.2-2.1c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l2.2 2.2c.4.4.4 1 0 1.4-.2.1-.4.2-.7.2z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m12 22c-.6 0-1-.4-1-1v-3c0-.6.4-1 1-1s1 .4 1 1v3c0 .6-.4 1-1 1z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m5.6 19.4c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l2.1-2.2c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-2.1 2.2c-.2.2-.4.3-.7.3z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m6 13h-3c-.6 0-1-.4-1-1s.4-1 1-1h3c.6 0 1 .4 1 1s-.4 1-1 1z" />
-                                                  </g>
-                                                  <g>
-                                                    <path d="m7.8 8.8c-.3 0-.6-.1-.8-.3l-2.1-2.2c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l2.2 2.1c.4.4.4 1 0 1.4-.2.3-.5.4-.7.4z" />
-                                                  </g>
-                                                </svg>
-                                              </span>
-                                              <span className="remove-wishlist">
-                                                <svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  className="ionicon"
-                                                  viewBox="0 0 512 512"
-                                                >
-                                                  <path d="M352.92 64c-48.09 0-80 29.54-96.92 51-16.88-21.49-48.83-51-96.92-51C98.46 64 48.63 114.54 48 176.65c-.54 54.21 18.63 104.27 58.61 153 18.77 22.88 52.8 59.46 131.39 112.81a31.84 31.84 0 0036 0c78.59-53.35 112.62-89.93 131.39-112.81 40-48.74 59.15-98.8 58.61-153C463.37 114.54 413.54 64 352.92 64zM256 416V207.58c0-19.63 5.23-38.76 14.21-56.22a1.19 1.19 0 01.08-.16 123 123 0 0121.77-28.51C310.19 105 330.66 96 352.92 96c43.15 0 78.62 36.32 79.07 81C433 281.61 343.63 356.51 256 416z" />
-                                                </svg>
-                                              </span>
-                                            </a>
-                                          </li>
-                                          <li>
-                                            <a
-                                              href="javascript:void(0);"
-                                              onclick="Shopify.addItem(40344359665744, 1); return false;"
-                                              className="theme-product-action-btn"
-                                            >
-                                              <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="ionicon"
-                                                viewBox="0 0 512 512"
-                                              >
-                                                <path
-                                                  fill="none"
-                                                  stroke="currentColor"
-                                                  strokeLinecap="round"
-                                                  strokeLinejoin="round"
-                                                  strokeWidth={32}
-                                                  d="M256 256v128M320 320H192M80 176a16 16 0 00-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 00-16-16zM160 176v-32a96 96 0 0196-96h0a96 96 0 0196 96v32"
-                                                />
-                                              </svg>
-                                            </a>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                      <div className="color_size_img_wrap" />
+                                      
                                     </div>
                                   </div>
                                 </div>
-                                <div className="theme-product-content  content__center ">
-                                  <div className="theme-product-content-inner ">
-                                    <div className="theme-product-categories ">
+                                <div class="theme-product-content  content__center ">
+                                  <div class="theme-product-content-inner ">
+                                  <h4 class="theme-product-title popup_cart_title">
+                                      <a href="products/first-love-shadows-of-nebula.html">
+                                        {book.name}
+                                      </a>
+                                    </h4>
+                                    <div class="theme-product-categories" style={{fontSize:"7px"}}>
                                       {book.authors &&
                                         book.authors.length > 0 && (
                                           <a href="#" className="remove_href">
@@ -1433,27 +1183,22 @@ function Home() {
                                             )}
                                           </a>
                                         )}
+                                      {/* <a href="#" class="remove_href">John Grisham</a> */}
                                     </div>
-                                    <h4 className="theme-product-title popup_cart_title">
-                                      <a href="products/first-love-shadows-of-nebula.html">
-                                        {book.name}
-                                      </a>
-                                    </h4>
-                                    <div className="theme-product-price ">
-                                      <span className="new">
-                                        Rs. {book.mRP}
-                                      </span>
+                                    
+                                    <div class="theme-product-price ">
+                                      <span class="new">Rs. {book.mRP}</span>
                                     </div>
-                                    <div className="theme-product-ratting-wrap ">
-                                      <span className="theme-product-ratting spr-badge-caption-none">
+                                    <div class="theme-product-ratting-wrap ">
+                                      <span class="theme-product-ratting spr-badge-caption-none">
                                         <span
-                                          className="shopify-product-reviews-badge"
-                                          data-id={book.id}
-                                        />
+                                          class="shopify-product-reviews-badge"
+                                          data-id="6885543608400"
+                                        ></span>
                                       </span>
                                     </div>
                                   </div>
-                                  <div className="theme-product-action">
+                                  <div class="theme-product-action">
                                     <ul>
                                       <li>
                                         <a
@@ -1464,63 +1209,63 @@ function Home() {
                                         >
                                           <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            className="ionicon"
+                                            class="ionicon"
                                             viewBox="0 0 512 512"
                                           >
                                             <path
                                               d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z"
                                               fill="none"
                                               stroke="currentColor"
-                                              strokeLinecap="round"
-                                              strokeLinejoin="round"
-                                              strokeWidth={32}
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"
+                                              stroke-width="32"
                                             />
                                             <circle
-                                              cx={256}
-                                              cy={256}
-                                              r={80}
+                                              cx="256"
+                                              cy="256"
+                                              r="80"
                                               fill="none"
                                               stroke="currentColor"
-                                              strokeMiterlimit={10}
-                                              strokeWidth={32}
+                                              stroke-miterlimit="10"
+                                              stroke-width="32"
                                             />
                                           </svg>
                                         </a>
                                       </li>
                                       <li>
                                         <a
-                                          className="action-wishlist tile-actions--btn flex wishlist-btn wishlist"
+                                          class="action-wishlist tile-actions--btn flex wishlist-btn wishlist"
                                           href="javascript: void(0)"
-                                          button-wishlist=""
+                                          button-wishlist
                                           data-product-handle="first-love-shadows-of-nebula"
                                           data-toggle="tooltip"
                                           data-placement="left"
                                           title=""
                                         >
-                                          <span className="add-wishlist">
+                                          <span class="add-wishlist">
                                             <svg
                                               xmlns="http://www.w3.org/2000/svg"
-                                              className="ionicon"
+                                              class="ionicon"
                                               viewBox="0 0 512 512"
                                             >
                                               <path
                                                 d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"
                                                 fill="none"
                                                 stroke="currentColor"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={32}
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="32"
                                               />
                                             </svg>
                                           </span>
-                                          <span className="loading-wishlist">
+                                          <span class="loading-wishlist">
                                             <svg
-                                              className="loader"
+                                              class="loader"
                                               id="Layer_1"
-                                              enableBackground="new 0 0 24 24"
-                                              height={512}
+                                              enable-background="new 0 0 24 24"
+                                              height="512"
                                               viewBox="0 0 24 24"
-                                              width={512}
+                                              width="512"
                                               xmlns="http://www.w3.org/2000/svg"
                                             >
                                               <g>
@@ -1549,10 +1294,10 @@ function Home() {
                                               </g>
                                             </svg>
                                           </span>
-                                          <span className="remove-wishlist">
+                                          <span class="remove-wishlist">
                                             <svg
                                               xmlns="http://www.w3.org/2000/svg"
-                                              className="ionicon"
+                                              class="ionicon"
                                               viewBox="0 0 512 512"
                                             >
                                               <path d="M352.92 64c-48.09 0-80 29.54-96.92 51-16.88-21.49-48.83-51-96.92-51C98.46 64 48.63 114.54 48 176.65c-.54 54.21 18.63 104.27 58.61 153 18.77 22.88 52.8 59.46 131.39 112.81a31.84 31.84 0 0036 0c78.59-53.35 112.62-89.93 131.39-112.81 40-48.74 59.15-98.8 58.61-153C463.37 114.54 413.54 64 352.92 64zM256 416V207.58c0-19.63 5.23-38.76 14.21-56.22a1.19 1.19 0 01.08-.16 123 123 0 0121.77-28.51C310.19 105 330.66 96 352.92 96c43.15 0 78.62 36.32 79.07 81C433 281.61 343.63 356.51 256 416z" />
@@ -1564,19 +1309,19 @@ function Home() {
                                         <a
                                           href="javascript:void(0);"
                                           onclick="Shopify.addItem(40344359665744, 1); return false;"
-                                          className="theme-product-action-btn"
+                                          class="theme-product-action-btn"
                                         >
                                           <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            className="ionicon"
+                                            class="ionicon"
                                             viewBox="0 0 512 512"
                                           >
                                             <path
                                               fill="none"
                                               stroke="currentColor"
-                                              strokeLinecap="round"
-                                              strokeLinejoin="round"
-                                              strokeWidth={32}
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"
+                                              stroke-width="32"
                                               d="M256 256v128M320 320H192M80 176a16 16 0 00-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 00-16-16zM160 176v-32a96 96 0 0196-96h0a96 96 0 0196 96v32"
                                             />
                                           </svg>
@@ -1588,231 +1333,8 @@ function Home() {
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          id="shopify-section-template--14595761504336__16335890543c7ff7c6"
-          className="shopify-section"
-        >
-          <div
-            className="blog-area common_slick_slider"
-            id="section-template--14595761504336__16335890543c7ff7c6"
-            data-section="Latest_Blog"
-          >
-            <div className="container default ">
-              <div className="section-title text-left  title_button_show   pb-40">
-                <h2>Our Catagories</h2>
-                <div className="show-more-btn_title">
-                  <a className="ban_btn1 banner_style_2" href="blogs/news.html">
-                    Shop Now
-                  </a>
-                </div>
-              </div>
-              <div
-                className=" blog-slider-active carsoule_arrow_style row"
-                data-slick='{
-                  "infinite": true,
-                  "slidesToShow": 3,
-                  "slidesToScroll": 1,
-                  "arrows": false,
-                  "responsive": [{
-                  "breakpoint": 1600,
-                  "settings": {
-                  "slidesToShow": 3,
-                  "slidesToScroll": 1
-                  }
-                  },
-                  {
-                  "breakpoint": 1400,
-                  "settings": {
-                  "slidesToShow": 3,
-                  "slidesToScroll": 1
-                  }
-                  },
-                  {
-                  "breakpoint": 1367,
-                  "settings": {
-                  "slidesToShow": 3,
-                  "slidesToScroll": 1
-                  }
-                  },
-                  {
-                  "breakpoint": 767,
-                  "settings": {
-                  "slidesToShow": 1,
-                  "slidesToScroll": 1
-                  }
-                  },
-                  {
-                  "breakpoint": 458,
-                  "settings": {
-                  "slidesToShow": 1,
-                  "slidesToScroll": 1
-                  }
-                  },
-                  {
-                  "breakpoint": 349,
-                  "settings": {
-                  "slidesToShow": 1,
-                  "slidesToScroll": 1
-                  }
-                  }
-                  ]
-                  }'
-              >
-                <div className="col-md-12 ">
-                  <div className="blog-wrap mb-40 text-center">
-                    <div className="blog-img mb-25">
-                      <a href="blogs/news/miracle-morning-with-book-store-shopify.html">
-                        <img
-                          src="Assets/shop/articles/b5_600x400_crop_center788a.jpg?v=1698470014"
-                          alt="Miracle morning with Book shopify"
-                        />
-                      </a>
-                    </div>
-                    <div className="blog-content text-left">
-                      <div className="blog-meta blog-mrg-border">
-                        {/* <ul>
-                                 <li><a href="#" class="remove_href">28 October, 2023</a></li>
-                                 <li><a href="blogs/news/miracle-morning-with-book-store-shopify.html#comments">0 comments</a></li>
-                              </ul> */}
-                      </div>
-                      <center>
-                        <h3>
-                          <a href="#">Civil Engineering</a>
-                        </h3>
-                      </center>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 ">
-                  <div className="blog-wrap mb-40 text-center">
-                    <div className="blog-img mb-25">
-                      <a href="blogs/news/best-book-store-shopify-theme-ever.html">
-                        <img
-                          src="Assets/shop/articles/b7_600x400_crop_centerd2a5.jpg?v=1698469854"
-                          alt="Best Book store shopify theme ever"
-                        />
-                      </a>
-                    </div>
-                    <div className="blog-content text-left">
-                      <div className="blog-meta blog-mrg-border">
-                        {/* <ul>
-                                <li><a href="#" class="remove_href">28 October, 2023</a></li>
-                                <li><a href="blogs/news/miracle-morning-with-book-store-shopify.html#comments">0 comments</a></li>
-                             </ul> */}
-                      </div>
-                      <center>
-                        <h3>
-                          <a href="#">Electrical Engineering</a>
-                        </h3>
-                      </center>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 ">
-                  <div className="blog-wrap mb-40 text-center">
-                    <div className="blog-img mb-25">
-                      <a href="blogs/news/top-5-book-for-world-summit-2023.html">
-                        <img
-                          src="Assets/shop/articles/b6_600x400_crop_center7251.jpg?v=1698469738"
-                          alt="Top 5  Book  for World Summit 2023"
-                        />
-                      </a>
-                    </div>
-                    <div className="blog-content text-left">
-                      <div className="blog-meta blog-mrg-border">
-                        {/* <ul>
-                                <li><a href="#" class="remove_href">28 October, 2023</a></li>
-                                <li><a href="blogs/news/miracle-morning-with-book-store-shopify.html#comments">0 comments</a></li>
-                             </ul> */}
-                      </div>
-                      <center>
-                        <h3>
-                          <a href="#">Mechanical Engineering</a>
-                        </h3>
-                      </center>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 ">
-                  <div className="blog-wrap mb-40 text-center">
-                    <div className="blog-img mb-25">
-                      <a href="blogs/news/a-beautiful-morning-with-my-baby-book.html">
-                        <img
-                          src="Assets/shop/articles/b3_600x400_crop_center6502.jpg?v=1698469626"
-                          alt="A Beautiful Morning with my baby book"
-                        />
-                      </a>
-                    </div>
-                    <div className="blog-content text-left">
-                      <div className="blog-meta blog-mrg-border">
-                        {/* <ul>
-                                <li><a href="#" class="remove_href">28 October, 2023</a></li>
-                                <li><a href="blogs/news/miracle-morning-with-book-store-shopify.html#comments">0 comments</a></li>
-                             </ul> */}
-                      </div>
-                      <center>
-                        <h3>
-                          <a href="#">Electronics Engineering</a>
-                        </h3>
-                      </center>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 ">
-                  <div className="blog-wrap mb-40 text-center">
-                    <div className="blog-img mb-25">
-                      <a href="blogs/news/top-10-books-to-make-it-a-great-year.html">
-                        <img
-                          src="Assets/shop/articles/b4_600x400_crop_centerf1a2.jpg?v=1698469522"
-                          alt="Top 10 Books to Make It a Great Year"
-                        />
-                      </a>
-                    </div>
-                    <div className="blog-content text-left">
-                      <div className="blog-meta blog-mrg-border">
-                        {/* <ul>
-                                <li><a href="#" class="remove_href">28 October, 2023</a></li>
-                                <li><a href="blogs/news/miracle-morning-with-book-store-shopify.html#comments">0 comments</a></li>
-                             </ul> */}
-                      </div>
-                      <center>
-                        <h3>
-                          <a href="#">Computer Science Engineering</a>
-                        </h3>
-                      </center>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 ">
-                  <div className="blog-wrap mb-40 text-center">
-                    <div className="blog-img mb-25">
-                      <a href="blogs/news/novels-changed-our-history.html">
-                        <img
-                          src="Assets/shop/articles/b2_600x400_crop_center2693.jpg?v=1698469425"
-                          alt="Novels changed our history"
-                        />
-                      </a>
-                    </div>
-                    <div className="blog-content text-left">
-                      <div className="blog-meta blog-mrg-border">
-                        {/* <ul>
-                                <li><a href="#" class="remove_href">28 October, 2023</a></li>
-                                <li><a href="blogs/news/miracle-morning-with-book-store-shopify.html#comments">0 comments</a></li>
-                             </ul> */}
-                      </div>
-                      <center>
-                        <h3>
-                          <a href="#">Information Technology</a>
-                        </h3>
-                      </center>
+                          </center>
+                        ))}
                     </div>
                   </div>
                 </div>
@@ -1820,6 +1342,7 @@ function Home() {
             </div>
           </div>
         </div>
+     
         <div
           id="shopify-section-template--14595761504336__bc7a5bd5-6193-47a8-9a53-156c9db8ef14"
           className="shopify-section"
@@ -1995,6 +1518,230 @@ function Home() {
                           />
                         </a>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          id="shopify-section-template--14595761504336__16335890543c7ff7c6"
+          className="shopify-section"
+        >
+          <div
+            className="blog-area common_slick_slider"
+            id="section-template--14595761504336__16335890543c7ff7c6"
+            data-section="Latest_Blog"
+          >
+            <div className="container default ">
+              <div className="section-title text-left  title_button_show   pb-40 pt-20">
+                <h2>Our Catagories</h2>
+                <div className="show-more-btn_title">
+                  <a className="ban_btn1 banner_style_2" href="blogs/news.html">
+                    Shop Now
+                  </a>
+                </div>
+              </div>
+              <div
+                className=" blog-slider-active carsoule_arrow_style row"
+                data-slick='{
+                  "infinite": true,
+                  "slidesToShow": 3,
+                  "slidesToScroll": 1,
+                  "arrows": false,
+                  "responsive": [{
+                  "breakpoint": 1600,
+                  "settings": {
+                  "slidesToShow": 3,
+                  "slidesToScroll": 1
+                  }
+                  },
+                  {
+                  "breakpoint": 1400,
+                  "settings": {
+                  "slidesToShow": 3,
+                  "slidesToScroll": 1
+                  }
+                  },
+                  {
+                  "breakpoint": 1367,
+                  "settings": {
+                  "slidesToShow": 3,
+                  "slidesToScroll": 1
+                  }
+                  },
+                  {
+                  "breakpoint": 767,
+                  "settings": {
+                  "slidesToShow": 1,
+                  "slidesToScroll": 1
+                  }
+                  },
+                  {
+                  "breakpoint": 458,
+                  "settings": {
+                  "slidesToShow": 1,
+                  "slidesToScroll": 1
+                  }
+                  },
+                  {
+                  "breakpoint": 349,
+                  "settings": {
+                  "slidesToShow": 1,
+                  "slidesToScroll": 1
+                  }
+                  }
+                  ]
+                  }'
+              >
+                <div className="col-md-12 ">
+                  <div className="blog-wrap mb-40 text-center">
+                    <div className="blog-img mb-25">
+                      <a href="blogs/news/miracle-morning-with-book-store-shopify.html">
+                        <img
+                          src="Images/CivilEngineering.png"
+                          alt="Miracle morning with Book shopify"
+                        />
+                      </a>
+                    </div>
+                    <div className="blog-content text-left">
+                      <div className="blog-meta blog-mrg-border">
+                        {/* <ul>
+                                 <li><a href="#" class="remove_href">28 October, 2023</a></li>
+                                 <li><a href="blogs/news/miracle-morning-with-book-store-shopify.html#comments">0 comments</a></li>
+                              </ul> */}
+                      </div>
+                      <center>
+                        <h3>
+                          <a href="#">Civil Engineering</a>
+                        </h3>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12 ">
+                  <div className="blog-wrap mb-40 text-center">
+                    <div className="blog-img mb-25">
+                      <a href="blogs/news/best-book-store-shopify-theme-ever.html">
+                        <img
+                          src="Images/ElectricalEngineering.png"
+                          alt="Best Book store shopify theme ever"
+                        />
+                      </a>
+                    </div>
+                    <div className="blog-content text-left">
+                      <div className="blog-meta blog-mrg-border">
+                        {/* <ul>
+                                <li><a href="#" class="remove_href">28 October, 2023</a></li>
+                                <li><a href="blogs/news/miracle-morning-with-book-store-shopify.html#comments">0 comments</a></li>
+                             </ul> */}
+                      </div>
+                      <center>
+                        <h3>
+                          <a href="#">Electrical Engineering</a>
+                        </h3>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12 ">
+                  <div className="blog-wrap mb-40 text-center">
+                    <div className="blog-img mb-25">
+                      <a href="blogs/news/top-5-book-for-world-summit-2023.html">
+                        <img
+                          src="Images/MechanicalEngineering.png"
+                          alt="Top 5  Book  for World Summit 2023"
+                        />
+                      </a>
+                    </div>
+                    <div className="blog-content text-left">
+                      <div className="blog-meta blog-mrg-border">
+                        {/* <ul>
+                                <li><a href="#" class="remove_href">28 October, 2023</a></li>
+                                <li><a href="blogs/news/miracle-morning-with-book-store-shopify.html#comments">0 comments</a></li>
+                             </ul> */}
+                      </div>
+                      <center>
+                        <h3>
+                          <a href="#">Mechanical Engineering</a>
+                        </h3>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12 ">
+                  <div className="blog-wrap mb-40 text-center">
+                    <div className="blog-img mb-25">
+                      <a href="blogs/news/a-beautiful-morning-with-my-baby-book.html">
+                        <img
+                          src="Images/ElectronicsEngineering.png"
+                          alt="A Beautiful Morning with my baby book"
+                        />
+                      </a>
+                    </div>
+                    <div className="blog-content text-left">
+                      <div className="blog-meta blog-mrg-border">
+                        {/* <ul>
+                                <li><a href="#" class="remove_href">28 October, 2023</a></li>
+                                <li><a href="blogs/news/miracle-morning-with-book-store-shopify.html#comments">0 comments</a></li>
+                             </ul> */}
+                      </div>
+                      <center>
+                        <h3>
+                          <a href="#">Electronics Engineering</a>
+                        </h3>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12 ">
+                  <div className="blog-wrap mb-40 text-center">
+                    <div className="blog-img mb-25">
+                      <a href="blogs/news/top-10-books-to-make-it-a-great-year.html">
+                        <img
+                          src="Images/ComputerScienceEngineering.png"
+                          alt="Top 10 Books to Make It a Great Year"
+                        />
+                      </a>
+                    </div>
+                    <div className="blog-content text-left">
+                      <div className="blog-meta blog-mrg-border">
+                        {/* <ul>
+                                <li><a href="#" class="remove_href">28 October, 2023</a></li>
+                                <li><a href="blogs/news/miracle-morning-with-book-store-shopify.html#comments">0 comments</a></li>
+                             </ul> */}
+                      </div>
+                      <center>
+                        <h3>
+                          <a href="#">Computer Science Engineering</a>
+                        </h3>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12 ">
+                  <div className="blog-wrap mb-40 text-center">
+                    <div className="blog-img mb-25">
+                      <a href="blogs/news/novels-changed-our-history.html">
+                        <img
+                          src="Images/InformationTechnology.png"
+                          alt="Novels changed our history"
+                        />
+                      </a>
+                    </div>
+                    <div className="blog-content text-left">
+                      <div className="blog-meta blog-mrg-border">
+                        {/* <ul>
+                                <li><a href="#" class="remove_href">28 October, 2023</a></li>
+                                <li><a href="blogs/news/miracle-morning-with-book-store-shopify.html#comments">0 comments</a></li>
+                             </ul> */}
+                      </div>
+                      <center>
+                        <h3>
+                          <a href="#">Information Technology</a>
+                        </h3>
+                      </center>
                     </div>
                   </div>
                 </div>
