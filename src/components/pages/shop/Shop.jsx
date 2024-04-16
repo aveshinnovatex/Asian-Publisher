@@ -764,9 +764,7 @@ function Shop() {
                               >
                                 <div
                                   className="40344367005776 theme-product theme-product-action-on-hover mb-30 
-       theme-product-action-middle
-      
-      
+       theme-product-action-middle      
        theme-product-countdown-bottom
        product-wrapper-class"
                                 >
