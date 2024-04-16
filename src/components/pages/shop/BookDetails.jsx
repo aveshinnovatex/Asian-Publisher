@@ -174,49 +174,32 @@ function Shop() {
 
                               <center>
                                 <div
-                                  className="col-lg-6"
-                                  style={{ float: "left", marginTop: "7px" }}
+                                  className="quantity"
+                                  style={{ width: "50%" }}
                                 >
-                                  <select className="form-control">
-                                    <option selected>Select Language</option>
-                                    <option>Hindi</option>
-                                    <option>English</option>
-                                  </select>
-                                </div>
-                                <div
-                                  className="col-lg-6"
-                                  style={{ float: "left" }}
-                                >
-                                  <div
-                                    className="quantity"
-                                    style={{ width: "80%" }}
+                                  <button
+                                    className="minus"
+                                    aria-label="Decrease"
                                   >
-                                    <button
-                                      className="minus"
-                                      aria-label="Decrease"
-                                    >
-                                      −
-                                    </button>
-                                    <input
-                                      type="number"
-                                      className="input-box"
-                                      defaultValue={1}
-                                      min={1}
-                                      max={10}
-                                      style={{ width: "100%" }}
-                                    />
-                                    <button
-                                      className="plus"
-                                      aria-label="Increase"
-                                    >
-                                      +
-                                    </button>
-                                  </div>
+                                    −
+                                  </button>
+                                  <input
+                                    type="number"
+                                    className="input-box"
+                                    defaultValue={1}
+                                    min={1}
+                                    max={10}
+                                    style={{ width: "100%" }}
+                                  />
+                                  <button
+                                    className="plus"
+                                    aria-label="Increase"
+                                  >
+                                    +
+                                  </button>
                                 </div>
                               </center>
 
-                              <br></br>
-                              <br></br>
                               <br></br>
                               <center>
                                 <a
