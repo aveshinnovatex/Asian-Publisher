@@ -53,7 +53,7 @@ function HomeHeader() {
                     </li>
                     <li className="angle-shape">
                       <a
-                        href="/contact-us"
+                        href="/orderForm"
                         style={{ fontWeight: 800, letterSpacing: 1 }}
                       >
                         Order Form
@@ -61,7 +61,7 @@ function HomeHeader() {
                     </li>
                     <li className="angle-shape">
                       <a
-                        href="/contact-us"
+                        href="/becomean-author"
                         style={{ fontWeight: 800, letterSpacing: 1 }}
                       >
                         Become an Author
@@ -77,7 +77,7 @@ function HomeHeader() {
                     </li>
                     <li className="angle-shape">
                       <a
-                        href="/contact-us"
+                        href="/login"
                         style={{ fontWeight: 800, letterSpacing: 1 }}
                       >
                         Login
