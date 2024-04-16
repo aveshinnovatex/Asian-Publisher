@@ -95,10 +95,11 @@ function Checkout() {
           className="shopify-section"
         >
           <div className="contact-area pt-100 pb-100">
-            <div className="container">
+            <div className="container-fluid">
               <div className="row">
                 <div className="col-lg-6 col-md-6">
-                <form
+                  <div className="contact-from contact-shadow" style={{marginLeft:"0px"}}>
+                    <form
                       method="post"
                       action=""
                       id="contact-form"
@@ -111,6 +112,7 @@ function Checkout() {
                         defaultValue="contact"
                       />
                       <input type="hidden" name="utf8" defaultValue="✓" />
+                      <div className="col-lg-12">
                       <input
                         type="text"
                         placeholder="Name"
@@ -119,6 +121,8 @@ function Checkout() {
                         id="ContactFormName"
                         defaultValue=""
                       />
+                      </div>
+                      <div className="col-lg-6" style={{float:"left"}}>
                       <input
                         type="email"
                         placeholder="Email"
@@ -127,24 +131,64 @@ function Checkout() {
                         id="ContactFormEmail"
                         defaultValue=""
                       />
+                      </div>
+                      <div className="col-lg-6" style={{float:"left"}}>
                       <input
                         type="text"
                         id="ContactFormSubject"
                         name="contact[subject]"
-                        placeholder="Subject"
+                        placeholder="Mobile No."
                         defaultValue=""
                       />
-                      <textarea
-                        rows={2}
-                        placeholder="Your Message"
-                        name="contact[body]"
-                        id="ContactFormMessage"
-                        style={{ height: "auto" }}
+                      </div>
+                      <div className="col-lg-12" style={{float:"left"}}>
+                      <input
+                        type="text"
+                        id="ContactFormSubject"
+                        name="contact[subject]"
+                        placeholder="Address"
+                        defaultValue=""
                       />
-                      <button className="submit" type="submit">
-                        Send Message
-                      </button>
+                      </div>
+                      <div className="col-lg-6" style={{float:"left"}}>
+                      <input
+                        type="text"
+                        id="ContactFormSubject"
+                        name="contact[subject]"
+                        placeholder="City"
+                        defaultValue=""
+                      />
+                      </div>
+                      <div className="col-lg-6" style={{float:"left"}}>
+                      <input
+                        type="text"
+                        id="ContactFormSubject"
+                        name="contact[subject]"
+                        placeholder="State"
+                        defaultValue=""
+                      />
+                      </div>
+                      <div className="col-lg-6" style={{float:"left"}}>
+                      <input
+                        type="text"
+                        id="ContactFormSubject"
+                        name="contact[subject]"
+                        placeholder="Country"
+                        defaultValue=""
+                      />
+                      </div>
+                      <div className="col-lg-6" style={{float:"left"}}>
+                      <input
+                        type="text"
+                        id="ContactFormSubject"
+                        name="contact[subject]"
+                        placeholder="Pin Code"
+                        defaultValue=""
+                      />
+                      </div>
+                     
                     </form>
+                  </div>
                 </div>
                 <div className="col-lg-6 col-md-6">
                   <table className="table table-spriped">

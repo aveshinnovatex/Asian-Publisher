@@ -104,7 +104,7 @@ function Cart() {
                       <th></th>
                       <th style={{ textAlign: "right", fontSize:"18px" }}>Qty</th>
                       <th style={{ textAlign: "right", fontSize:"18px" }}>Price</th>
-                      <th style={{ textAlign: "right", fontSize:"18px" }}>Amount</th>
+                      <th style={{ textAlign: "right", fontSize:"18px" }}>Sub Total</th>
                       <th style={{ textAlign: "center", fontSize:"18px" }}>Action</th>
                     </tr>
                     <tr>
