@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Author.css";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-import { countBooksByAuthor } from "../../redux/slices/authorSlice";
-import { REACT_APP_URL } from "../../config";
+import { countBooksByAuthor } from "../../../redux/slices/authorSlice";
+import { REACT_APP_URL } from "../../../config/config";
 
 function Author() {
   const { loading, countBookauthor } = useSelector((state) => state.author);
