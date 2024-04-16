@@ -40,7 +40,7 @@ export const countBooksByAuthor = createAsyncThunk(
     //   }
     try {
       const response = await axios.get(
-        "https://asianpublisher.marwariplus.com/api/BookAuthorApi"
+        "https://api.asianpublisher.in/api/BookAuthorApi"
       );
       //   console.log("response", response);
       return response.data;
