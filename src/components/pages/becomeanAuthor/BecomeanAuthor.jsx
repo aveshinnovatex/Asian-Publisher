@@ -98,7 +98,7 @@ function BecomeanAuthor() {
               <div className="row">
                 <div className="col-lg-12 col-md-6">
                   <div className="contact-from contact-shadow">
-                    <form
+                     <form
                       method="post"
                       action=""
                       id="contact-form"
@@ -111,90 +111,39 @@ function BecomeanAuthor() {
                         defaultValue="contact"
                       />
                       <input type="hidden" name="utf8" defaultValue="✓" />
-                      <div
-                        className="col-lg-6"
-                        style={{
-                          float: "left",
-                          paddingLeft: 0,
-                          paddingRight: 5,
-                        }}
-                      >
-                        <label>Name</label>
-                        <input
-                          type="text"
-                          placeholder="Enter Your Name"
-                          className=""
-                          name="contact[name]"
-                          id="ContactFormName"
-                          defaultValue=""
-                        />
-                      </div>
-                      <div
-                        className="col-lg-6"
-                        style={{
-                          float: "left",
-                          paddingLeft: 5,
-                          paddingRight: 0,
-                        }}
-                      >
-                        <label>Email</label>
-                        <input
-                          type="email"
-                          placeholder="Enter Your Email"
-                          className=""
-                          name="contact[email]"
-                          id="ContactFormEmail"
-                          defaultValue=""
-                        />
-                      </div>
-                      <div
-                        className="col-lg-6"
-                        style={{
-                          float: "left",
-                          paddingLeft: 0,
-                          paddingRight: 5,
-                        }}
-                      >
-                        <label>Address</label>
-                        <input
-                          type="text"
-                          id="ContactFormSubject"
-                          name="contact[subject]"
-                          placeholder="Enter Your Address"
-                          defaultValue=""
-                        />
-                      </div>
-                      <div
-                        className="col-lg-6"
-                        style={{
-                          float: "left",
-                          paddingLeft: 5,
-                          paddingRight: 0,
-                        }}
-                      >
-                        <label>Mobile No.</label>
-                        <input
-                          type="text"
-                          id="ContactFormSubject"
-                          name="contact[subject]"
-                          placeholder="Enter Your Mobile No."
-                          defaultValue=""
-                        />
-                      </div>
-                      <label>Message</label>
+                      <input
+                        type="text"
+                        placeholder="Name"
+                        className=""
+                        name="contact[name]"
+                        id="ContactFormName"
+                        defaultValue=""
+                      />
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        className=""
+                        name="contact[email]"
+                        id="ContactFormEmail"
+                        defaultValue=""
+                      />
+                      <input
+                        type="text"
+                        id="ContactFormSubject"
+                        name="contact[subject]"
+                        placeholder="Subject"
+                        defaultValue=""
+                      />
                       <textarea
-                        rows={5}
-                        placeholder="Enter Your Message"
+                        rows={2}
+                        placeholder="Your Message"
                         name="contact[body]"
                         id="ContactFormMessage"
                         style={{ height: "auto" }}
-                        defaultValue={"        \n      "}
                       />
-                      <center>
-                        <button className="submit" type="submit">
-                          Become an Author
-                        </button>
-                      </center>
+                      <button className="submit" type="submit">
+                        Send Message
+                      </button>
                     </form>
                   </div>
                 </div>
