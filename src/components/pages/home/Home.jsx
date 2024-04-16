@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBooks } from "../../../redux/slices/bookSlice";
 import "./Home.css";
 import { REACT_APP_URL } from "../../../config/config";
-import Header from "../../common/header/Header";
+import HomeHeader from "../../common/header/Home/HomeHeader";
 import Footer from "../../common/footer/Footer";
 function Home() {
   const { loading, books } = useSelector((state) => state.book);
@@ -32,7 +32,7 @@ function Home() {
       </div>
       <div id="shopify-section-header" className="shopify-section"></div>
       <div style={{ height: "100vh", overflow: "hidden" }}>
-        <Header />F
+        <HomeHeader />
         <div className="mobile-off-canvas-active">
           <a className="mobile-aside-close">
             <i className="sli sli-close" />
