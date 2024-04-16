@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../Header.css";
 function HomeHeader() {
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector(".header-area");
+      const headerIcons = document.querySelectorAll(
+        ".HeaderIcons, .HeaderIcons1, .HeaderIcons2"
+      );
+
+      header.classList.toggle("scrolled", window.scrollY > 0);
+
+      headerIcons.forEach((icon) => {
+        icon.classList.toggle("scrolled", window.scrollY > 0);
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <header class="header-area sticky-bar menu-center">
       <div class="main-header-wrap">
