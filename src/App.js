@@ -11,6 +11,7 @@ import Register from "../src/components/common/register/Register";
 import Shop from "../src/components/pages/shop/Shop";
 import Cart from "./components/pages/cart/Cart";
 import Checkout from "./components/pages/checkout/Checkout";
+import BookDetails from "./components/pages/shop/BookDetails";
 // import Layout from "./components/Layout";
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/shop" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/bookdetails" element={<BookDetails />} />
       </Routes>
       {/* </Layout> */}
     </Router>

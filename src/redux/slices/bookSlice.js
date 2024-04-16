@@ -15,7 +15,7 @@ export const fetchBooks = createAsyncThunk("book/fetchBooks", async () => {
   //   }
   try {
     const response = await axios.get(
-      "https://asianpublisher.marwariplus.com/api/BookApi"
+      "https://api.asianpublisher.in/api/BookApi"
     );
     // console.log("response", response);
     return response.data;
