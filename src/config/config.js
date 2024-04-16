@@ -6,4 +6,4 @@ export const axiosInstance = axios.create({
 });
 //   baseURL : `https://asianpublisher.marwariplus.com/api/BookApi`
 
-export const REACT_APP_URL = "https://asianpublisher.marwariplus.com";
+export const REACT_APP_URL = "https://api.asianpublisher.in";

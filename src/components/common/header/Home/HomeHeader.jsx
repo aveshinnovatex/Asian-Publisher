@@ -1,6 +1,26 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import "../Header.css";
 function HomeHeader() {
+  let jsonData;
+  let cartData;
+  let quantity;
+
+  // Load cartData from localStorage on component mount
+  useEffect(() => {
+    jsonData = localStorage.getItem("cartdata");
+    if (jsonData === undefined || jsonData === null) {
+      cartData = [];
+      quantity = 0;
+    } else {
+      // Otherwise, parse jsonData to get cartData
+      cartData = JSON.parse(jsonData);
+      quantity = cartData.length ?? 0;
+    }
+  }, []);
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       const header = document.querySelector(".header-area");
@@ -174,7 +194,10 @@ function HomeHeader() {
                   </div>
                 </div>
                 <div className="cart-wrap">
-                  <button className="icon-cart-active">
+                  <button
+                    className="icon-cart-active"
+                    onClick={() => navigate("/cart")}
+                  >
                     <span
                       className="icon-cart HeaderIcons2"
                       style={{ fontWeight: 800, letterSpacing: 1 }}
@@ -206,11 +229,11 @@ function HomeHeader() {
                         className="count-style bigcounter"
                         style={{ backgroundColor: "#fff", color: "#000" }}
                       >
-                        0
+                        {quantity}
                       </span>
                     </span>
                   </button>
-                  <div className="shopping-cart-content">
+                  {/* <div className="shopping-cart-content">
                     <div className="shopping-cart-top">
                       <h4>Shoping Cart</h4>
                       <a className="cart-close" href="#">
@@ -251,7 +274,7 @@ function HomeHeader() {
                     >
                       <p>Your cart is empty now.</p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="setting-wrap">
                   <button className="setting-active">

@@ -17,7 +17,7 @@ export const fetchSemesters = createAsyncThunk(
     //   }
     try {
       const response = await axios.get(
-        "https://asianpublisher.marwariplus.com/api/SemesterApi"
+        "https://api.asianpublisher.in/api/SemesterApi"
       );
       // console.log("response", response);
       return response.data;

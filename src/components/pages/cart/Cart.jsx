@@ -1,10 +1,15 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { REACT_APP_URL } from "../../../config/config";
 import Header from "../../common/header/Header";
 import Footer from "../../common/footer/Footer";
 import "./Cart.css";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
-
+import { removeTocart } from "../../../redux/slices/cartSlice";
 function Cart() {
+  // const { cartdata } = useSelector((state) => state.cart);
+  const jsonData = localStorage.getItem("cartdata");
+  const cartData = JSON.parse(jsonData) ?? [];
   return (
     <>
       <link
@@ -100,58 +105,61 @@ function Cart() {
                 <div className="col-lg-12 col-md-6">
                   <table className="table table-spriped">
                     <tr>
-                      <th style={{fontSize:"18px", width:"20%"}}>Product Description</th>
+                      <th style={{ fontSize: "18px", width: "20%" }}>
+                        Product Description
+                      </th>
                       <th></th>
-                      <th style={{ textAlign: "right", fontSize:"18px" }}>Qty</th>
-                      <th style={{ textAlign: "right", fontSize:"18px" }}>Price</th>
-                      <th style={{ textAlign: "right", fontSize:"18px" }}>Sub Total</th>
-                      <th style={{ textAlign: "center", fontSize:"18px" }}>Action</th>
+                      <th style={{ fontSize: "18px" }}>Qty</th>
+                      <th style={{ textAlign: "right", fontSize: "18px" }}>
+                        Price
+                      </th>
+                      <th style={{ textAlign: "right", fontSize: "18px" }}>
+                        Sub Total
+                      </th>
+                      <th style={{ textAlign: "center", fontSize: "18px" }}>
+                        Action
+                      </th>
                     </tr>
-                    <tr>
-                      <td>
-                        <img
-                          src="Assets/shop/collections/2d8ec.png?v=1698470765"
-                          alt="Best Sellers"
-                          loading="lazy"
-                          style={{ height: "10vh" }}
-                        />
-                      </td>
-                      <td style={{fontWeight:"600",fontSize:"18px",}}>Book Name Here</td>
-                      <td style={{ textAlign: "right" }}>50</td>
-                      <td style={{ textAlign: "right" }}>Rs. 100</td>
-                      <td style={{ textAlign: "right" }}>Rs. 5000</td>
-                      <td style={{ fontSize:"25px", textAlign: "center" }}><MdOutlineRemoveShoppingCart /></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <img
-                          src="Assets/shop/collections/p880c1.png?v=1698470737"
-                          alt="Best Sellers"
-                          loading="lazy"
-                          style={{ height: "10vh" }}
-                        />
-                      </td>
-                      <td style={{fontWeight:"600",fontSize:"18px",}}>Book Name Here</td>
-                      <td style={{ textAlign: "right" }}>20</td>
-                      <td style={{ textAlign: "right" }}>Rs. 200</td>
-                      <td style={{ textAlign: "right" }}>Rs. 4000</td>
-                      <td style={{ fontSize:"25px", textAlign: "center" }}><MdOutlineRemoveShoppingCart /></td>
-                    </tr>
-                    <tr>
-                      <th>Total</th>
-                      <th></th>
-                      <th style={{ textAlign: "right" }}>70</th>
-                      <th style={{ textAlign: "right" }}>Rs. 300</th>
-                      <th style={{ textAlign: "right" }}>Rs. 9000</th>
-                      <th></th>
-                    </tr>
+                    {cartData &&
+                      cartData.length > 0 &&
+                      cartData.map((book, index) => (
+                        <tr key={index}>
+                          <td>
+                            <img
+                              src={`${REACT_APP_URL}/Image/${book.image}`}
+                              alt="Best Sellers"
+                              loading="lazy"
+                              style={{ height: "10vh" }}
+                            />
+                          </td>
+                          <td style={{ fontWeight: "600", fontSize: "18px" }}>
+                            {book.name}
+                          </td>
+                          <td>
+                            <input
+                              type="number"
+                              className="form-control"
+                              name="quantity"
+                              value={book.quantity || null}
+                              style={{ width: "40%" }}
+                            />
+                          </td>
+                          <td style={{ textAlign: "right" }}>Rs. {book.mRP}</td>
+                          <td style={{ textAlign: "right" }}>
+                            Rs.{book.quantity * book.mRP}
+                          </td>
+                          <td style={{ fontSize: "25px", textAlign: "center" }}>
+                            <MdOutlineRemoveShoppingCart />
+                          </td>
+                        </tr>
+                      ))}
                   </table>
-<br></br>
-<center>
-                  <a className="ban_btn1 banner_style_2" href="index.html">
+                  <br></br>
+                  <center>
+                    <a className="ban_btn1 banner_style_2" href="index.html">
                       Checkout Now
                     </a>
-                    </center>
+                  </center>
                 </div>
               </div>
             </div>

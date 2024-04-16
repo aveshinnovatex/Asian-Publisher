@@ -7,8 +7,9 @@ import { fetchBooks } from "../../../redux/slices/bookSlice";
 import { fetchAuthors } from "../../../redux/slices/authorSlice";
 import { fetchCourses } from "../../../redux/slices/courseSlice";
 import { fetchSemesters } from "../../../redux/slices/semesterSlice";
-
+import { addTocart } from "../../../redux/slices/cartSlice";
 import { REACT_APP_URL } from "../../../config/config";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 function Shop() {
   const { loading, books } = useSelector((state) => state.book);
@@ -20,11 +21,6 @@ function Shop() {
   const [allAuthors, setAllAuthors] = useState([]);
   const [allCourses, setAllCourses] = useState([]);
   const [allSemesters, setAllSemesters] = useState([]);
-  console.log("allAuthors", allAuthors);
-  console.log("allCourses", allCourses);
-  console.log("allSemesters", allBooks);
-  console.log("allBooks", allBooks);
-
   useEffect(() => {
     dispatch(fetchBooks());
   }, [dispatch]);
@@ -47,6 +43,42 @@ function Shop() {
     }
   }, [loading]);
 
+  function handleCart(book) {
+    localStorage.setItem("cartdata", JSON.stringify(state.cartdata));
+    const {
+      id,
+      authors,
+      bookCode,
+      courseSemesters,
+      image,
+      isFeatured,
+      languageId,
+      languageNav,
+      mRP,
+      numId,
+      name,
+      ...rest
+    } = book;
+    ``;
+    dispatch(
+      addTocart({
+        product: {
+          id,
+          quantity: 1,
+          authors,
+          bookCode,
+          courseSemesters,
+          image,
+          isFeatured,
+          languageId,
+          languageNav,
+          mRP,
+          numId,
+          name,
+        },
+      })
+    );
+  }
   return (
     <>
       <link
@@ -775,20 +807,27 @@ function Shop() {
                                       <div className="theme-product-image">
                                         <div className="theme-product-cus-tab icon_bg_img">
                                           <a
-                                            href="../products/chronicles-of-celestial-realms.html"
+                                            // href="../products/chronicles-of-celestial-realms.html"
                                             className="theme-product-image"
                                           >
                                             <center>
                                               <img
                                                 className="popup_cart_image"
                                                 src={`${REACT_APP_URL}/Image/${book.image}`}
-                                                // src="../Assets/shop/files/p11_839563f9-8797-449c-a4ae-0e4aefce618e_largef767.png?v=1697899506"
                                                 alt="Chronicles of Celestial Realms"
                                                 style={{
                                                   height: "60vh",
                                                   width: "100vw",
                                                 }}
                                               />
+                                              {/* <addTocart
+                                                onClick={() => handleCart(book)}
+                                              /> */}
+                                              <button
+                                                onClick={() => handleCart(book)}
+                                              >
+                                                Add to Cart
+                                              </button>
                                             </center>
                                           </a>
                                         </div>

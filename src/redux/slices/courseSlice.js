@@ -17,7 +17,7 @@ export const fetchCourses = createAsyncThunk(
     //   }
     try {
       const response = await axios.get(
-        "https://asianpublisher.marwariplus.com/api/CourseApi"
+        "https://api.asianpublisher.in/api/CourseApi"
       );
       // console.log("response", response);
       return response.data;

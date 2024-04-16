@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 export const cartSlice = createSlice({
   name: "cart",
   initialState: {
@@ -11,8 +10,16 @@ export const cartSlice = createSlice({
     addTocart: (state, action) => {
       const sevenDaysInMillis = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
       const checkcartdata = JSON.parse(JSON.stringify(state.cartdata));
-
-      let { name, quantity, price, img, ...rest } = {
+      let {
+        id,
+        authors,
+        bookCode,
+        courseSemesters,
+        image,
+        mRP,
+        name,
+        ...rest
+      } = {
         ...action.payload.product,
       };
 
@@ -20,7 +27,10 @@ export const cartSlice = createSlice({
       //     (i) => i?.id === action?.payload.product.id
       // )
 
-      const isItemExist = findObjectFromArray(rest, checkcartdata);
+      const isItemExist = findObjectFromArray(
+        action.payload.product,
+        checkcartdata
+      );
 
       if (isItemExist) {
         // const existingcartdata = JSON.parse(JSON.stringify(state.cartdata));
@@ -107,11 +117,16 @@ export const cartSlice = createSlice({
 //Function to check from array of objects
 function findObjectFromArray(searchObj, arr) {
   // const result = [];
+  console.log("searchObj -called", searchObj);
+  console.log("arr -called", arr);
+  if (arr.length === 0) {
+    return false;
+  }
+  let isMatch = true;
   for (let i = 0; i < arr.length; i++) {
     const currentObj = arr[i];
-    let isMatch = true;
-
     for (const key of Object.keys(searchObj)) {
+      console.log("findObjectFromArray -called", searchObj[key]);
       if (searchObj[key] !== currentObj[key]) {
         isMatch = false;
         break;
