@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { REACT_APP_URL } from "../../../config/config";
 import Header from "../../common/header/Header";
@@ -8,44 +8,17 @@ import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { removeTocart, resetCart } from "../../../redux/slices/cartSlice";
 function Cart() {
   const { cartdata } = useSelector((state) => state.cart);
-  console.log(" cart data loaded", cartdata);
+  const [cartItem, setCartItem] = useState([]);
+  // console.log(" cart data loaded", cartdata);
   const dispatch = useDispatch();
   const deletecartItems = (book) => {
-    const {
-      id,
-      authors,
-      bookCode,
-      courseSemesters,
-      image,
-      isFeatured,
-      languageId,
-
-      languageNav,
-      mRP,
-      numId,
-      name,
-      ...rest
-    } = book;
+    const { id, ...rest } = book;
     // dispatch(resetCart());
-    dispatch(
-      removeTocart({
-        product: {
-          id,
-          quantity: 1,
-          authors,
-          bookCode,
-          courseSemesters,
-          image,
-          isFeatured,
-          languageId,
-          languageNav,
-          mRP,
-          numId,
-          name,
-        },
-      })
-    );
+    dispatch(removeTocart(id));
   };
+  useEffect(() => {
+    setCartItem(cartdata);
+  }, [cartdata]);
 
   return (
     <>
@@ -157,9 +130,9 @@ function Cart() {
                         Action
                       </th>
                     </tr>
-                    {cartdata &&
-                      cartdata.length > 0 &&
-                      cartdata.map((book, index) => (
+                    {cartItem &&
+                      cartItem.length > 0 &&
+                      cartItem.map((book, index) => (
                         <tr key={index}>
                           <td>
                             <img

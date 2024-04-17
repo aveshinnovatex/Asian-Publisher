@@ -28,9 +28,11 @@ export const fetchBookDetails = createAsyncThunk(
   "book/fetchBookDetails",
   async (id) => {
     try {
-      const { data } = await axiosInstance.get(`/api/book/${id}`);
-
-      return data.data;
+      const response = await axios.get(
+        `https://api.asianpublisher.in/api/BookApi/${id}`
+      );
+      // console.log("response", response);
+      return response.data;
     } catch (error) {
       toastError(error?.response?.data?.message);
       console.log(error.response.data.message);

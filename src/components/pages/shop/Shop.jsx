@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Header from "../../common/header/Header";
 import Footer from "../../common/footer/Footer";
 import "./Shop.css";
@@ -19,6 +20,7 @@ function Shop() {
   const { semesters } = useSelector((state) => state.semester);
   const { authors } = useSelector((state) => state.author);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [allBooks, setAllBooks] = useState([]);
   const [filterLoading, setFilterLoading] = useState(false);
   const [allAuthors, setAllAuthors] = useState([]);
@@ -860,8 +862,11 @@ function Shop() {
                         <div className="row theme-products ">
                           {allBooks &&
                             allBooks.length > 0 &&
-                            allBooks.slice(0, 10).map((book, index) => (
+                            allBooks.map((book, index) => (
                               <div
+                                onClick={() => {
+                                  navigate(`/BookDetails/${book.id}`);
+                                }}
                                 key={index}
                                 className="col-xl-4 col-lg-4 
                                 col-md-4 col-sm-6 
@@ -891,9 +896,6 @@ function Shop() {
                                                   width: "100vw",
                                                 }}
                                               />
-                                              {/* <addTocart
-                                                onClick={() => handleCart(book)}
-                                              /> */}
                                               <button
                                                 onClick={() => handleCart(book)}
                                               >
