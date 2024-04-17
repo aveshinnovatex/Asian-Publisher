@@ -50,9 +50,9 @@ function Shop() {
     }
   }, [loading]);
 
-  useEffect(() => {
-    // console.log("allBooks", allBooks);
-  }, [allBooks]);
+  // useEffect(() => {
+  //   // console.log("allBooks", allBooks);
+  // }, [allBooks]);
 
   function handleCart(book) {
     const {
@@ -63,6 +63,7 @@ function Shop() {
       image,
       isFeatured,
       languageId,
+
       languageNav,
       mRP,
       numId,
@@ -129,7 +130,7 @@ function Shop() {
     }, 1000);
   };
 
-  console.log("mjsndjaksdlka", allBooks, filterAuthors);
+  // console.log("mjsndjaksdlka", allBooks, filterAuthors);
 
   return (
     <>

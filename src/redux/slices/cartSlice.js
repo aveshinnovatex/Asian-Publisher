@@ -26,6 +26,7 @@ export const cartSlice = createSlice({
       // const isItemExist = checkcartdata.find(
       //     (i) => i?.id === action?.payload.product.id
       // )
+      // console.log(" action.payload.product", action.payload.product);
 
       const isItemExist = findObjectFromArray(
         action.payload.product,
@@ -33,7 +34,7 @@ export const cartSlice = createSlice({
       );
 
       if (isItemExist) {
-        // const existingcartdata = JSON.parse(JSON.stringify(state.cartdata));
+        // const existingcartdata = JSON.parse(JSON.stringify(state.cartdata));-
         const existingdata = checkcartdata.map((s) =>
           s === isItemExist ? action.payload.product : s
         );
@@ -117,16 +118,11 @@ export const cartSlice = createSlice({
 //Function to check from array of objects
 function findObjectFromArray(searchObj, arr) {
   // const result = [];
-  console.log("searchObj -called", searchObj);
-  console.log("arr -called", arr);
-  if (arr.length === 0) {
-    return false;
-  }
-  let isMatch = true;
   for (let i = 0; i < arr.length; i++) {
     const currentObj = arr[i];
+    let isMatch = true;
+
     for (const key of Object.keys(searchObj)) {
-      console.log("findObjectFromArray -called", searchObj[key]);
       if (searchObj[key] !== currentObj[key]) {
         isMatch = false;
         break;

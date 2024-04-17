@@ -5,23 +5,8 @@ import { useSelector } from "react-redux";
 import "./Header.css";
 function Header() {
   const navigate = useNavigate();
-  let jsonData;
-  let cartData;
-  let quantity;
+  const { quantity } = useSelector((state) => state.cart);
 
-  // Load cartData from localStorage on component mount
-  useEffect(() => {
-    jsonData = localStorage.getItem("cartdata");
-    // If jsonData is undefined or null, initialize cartData as an empty array
-    if (jsonData === undefined || jsonData === null) {
-      cartData = [];
-      quantity = 0;
-    } else {
-      // Otherwise, parse jsonData to get cartData
-      cartData = JSON.parse(jsonData);
-      quantity = cartData.length ?? 0;
-    }
-  }, []);
   return (
     <header class="header-area sticky-bar menu-center">
       <div class="main-header-wrap">

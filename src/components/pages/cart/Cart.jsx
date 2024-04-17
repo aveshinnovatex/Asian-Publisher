@@ -7,9 +7,9 @@ import "./Cart.css";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { removeTocart } from "../../../redux/slices/cartSlice";
 function Cart() {
-  // const { cartdata } = useSelector((state) => state.cart);
-  const jsonData = localStorage.getItem("cartdata");
-  const cartData = JSON.parse(jsonData) ?? [];
+  const { cartdata } = useSelector((state) => state.cart);
+  console.log(" cartdatacartdata", cartdata);
+
   return (
     <>
       <link
@@ -120,9 +120,9 @@ function Cart() {
                         Action
                       </th>
                     </tr>
-                    {cartData &&
-                      cartData.length > 0 &&
-                      cartData.map((book, index) => (
+                    {cartdata &&
+                      cartdata.length > 0 &&
+                      cartdata.map((book, index) => (
                         <tr key={index}>
                           <td>
                             <img

@@ -4,22 +4,7 @@ import { useSelector } from "react-redux";
 
 import "../Header.css";
 function HomeHeader() {
-  let jsonData;
-  let cartData;
-  let quantity;
-
-  // Load cartData from localStorage on component mount
-  useEffect(() => {
-    jsonData = localStorage.getItem("cartdata");
-    if (jsonData === undefined || jsonData === null) {
-      cartData = [];
-      quantity = 0;
-    } else {
-      // Otherwise, parse jsonData to get cartData
-      cartData = JSON.parse(jsonData);
-      quantity = cartData.length ?? 0;
-    }
-  }, []);
+  const { quantity } = useSelector((state) => state.cart);
   const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
