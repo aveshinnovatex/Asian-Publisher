@@ -1,7 +1,7 @@
 import React from "react";
-import "./Aboutus.css";
 import Header from "../../common/header/Header";
 import Footer from "../../common/footer/Footer";
+import "./Aboutus.css";
 
 function AboutUs() {
   return (
@@ -47,11 +47,10 @@ function AboutUs() {
       <script src="../../Assets/shop/t/9/assets/theme08ca.js"></script>
 
       <div id="shopify-section-header" className="shopify-section">
-        <div style={{height:"16vh"}}>
-        <Header />
+        <div style={{ height: "16vh" }}>
+          <Header />
         </div>
-     
-     </div>
+      </div>
       <div className="breadcrumb-area breadcrumbs-section">
         <div className="breadcrumbs overlay-bg">
           <div className="container">
@@ -133,7 +132,11 @@ function AboutUs() {
           </div>
         </div>
         <div
-          style={{ backgroundColor: "#FAF4EB", paddingTop:"60px", paddingBottom:"60px", }}
+          style={{
+            backgroundColor: "#FAF4EB",
+            paddingTop: "60px",
+            paddingBottom: "60px",
+          }}
           id="shopify-section-template--14595761569872__04f20c7a-4f79-430b-88a5-6b93e4f72b9b"
           className="shopify-section"
         >
@@ -141,7 +144,15 @@ function AboutUs() {
             className="custom-content"
             id="section-template--14595761569872__04f20c7a-4f79-430b-88a5-6b93e4f72b9b"
           >
-            <div className="container default" style={{marginRight:"auto", marginLeft:"auto", paddingLeft:"0px", paddingRight:"0px"}}>
+            <div
+              className="container default"
+              style={{
+                marginRight: "auto",
+                marginLeft: "auto",
+                paddingLeft: "0px",
+                paddingRight: "0px",
+              }}
+            >
               <div className="row custom-content-align">
                 <div className="col-lg-7 col-md-7 col-xs-12">
                   <div className="html-content">
@@ -159,17 +170,17 @@ function AboutUs() {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-1 col-md-1 col-xs-12">
-                  </div>
+                <div className="col-lg-1 col-md-1 col-xs-12"></div>
                 <div className="col-lg-4 col-md-4 col-xs-12">
-                    <center>
-                  <div className="image-content">
-                    <img
-                      src="../Assets/shop/files/ceod3ad.jpg?v=1698136293"
-                      alt="" style={{height:"70vh"}}
-                    />
-                  </div>
-                    </center>
+                  <center>
+                    <div className="image-content">
+                      <img
+                        src="../Assets/shop/files/ceod3ad.jpg?v=1698136293"
+                        alt=""
+                        style={{ height: "70vh" }}
+                      />
+                    </div>
+                  </center>
                 </div>
               </div>
             </div>
