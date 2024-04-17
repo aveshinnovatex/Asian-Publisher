@@ -10,6 +10,8 @@ import { fetchSemesters } from "../../../redux/slices/semesterSlice";
 import { addTocart } from "../../../redux/slices/cartSlice";
 import { REACT_APP_URL } from "../../../config/config";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import MultiCheckGroup from "../../common/MultiCheckGroup";
+import Spinner from "../../common/Spinner";
 
 function Shop() {
   const { loading, books } = useSelector((state) => state.book);
@@ -18,9 +20,14 @@ function Shop() {
   const { authors } = useSelector((state) => state.author);
   const dispatch = useDispatch();
   const [allBooks, setAllBooks] = useState([]);
+  const [filterLoading, setFilterLoading] = useState(false);
   const [allAuthors, setAllAuthors] = useState([]);
   const [allCourses, setAllCourses] = useState([]);
   const [allSemesters, setAllSemesters] = useState([]);
+  const [filterAuthors, setFilterAuthors] = useState([]);
+  const [filterCourses, setFilterCourses] = useState([]);
+  const [filterSemesters, setFilterSemesters] = useState([]);
+
   useEffect(() => {
     dispatch(fetchBooks());
   }, [dispatch]);
@@ -43,8 +50,11 @@ function Shop() {
     }
   }, [loading]);
 
+  useEffect(() => {
+    // console.log("allBooks", allBooks);
+  }, [allBooks]);
+
   function handleCart(book) {
-    localStorage.setItem("cartdata", JSON.stringify(state.cartdata));
     const {
       id,
       authors,
@@ -59,7 +69,7 @@ function Shop() {
       name,
       ...rest
     } = book;
-    ``;
+
     dispatch(
       addTocart({
         product: {
@@ -79,8 +89,51 @@ function Shop() {
       })
     );
   }
+
+  useEffect(() => {
+    if (
+      filterAuthors?.length === 0 &&
+      filterCourses?.length === 0 &&
+      filterSemesters?.length === 0
+    ) {
+      setAllBooks(books);
+    } else {
+      filterAllAppliedData();
+    }
+  }, [filterAuthors, filterCourses, filterSemesters]);
+
+  const filterAllAppliedData = () => {
+    setFilterLoading(true);
+    const allBooksCopy = [...books];
+    const filterAllAuthorsArr = allBooksCopy?.filter((book) =>
+      book.authors?.some((author) => filterAuthors.includes(author?.id))
+    );
+    const filterAllCoursesArr = allBooksCopy?.filter((book) =>
+      book.courseSemesters?.some((course) =>
+        filterCourses.includes(course?.courseId)
+      )
+    );
+    const filterAllSemestersArr = allBooksCopy?.filter((book) =>
+      book.courseSemesters?.some((semester) =>
+        filterSemesters.includes(semester?.semesterId)
+      )
+    );
+    const mergedAllArr = [
+      ...filterAllAuthorsArr,
+      ...filterAllCoursesArr,
+      ...filterAllSemestersArr,
+    ];
+    setAllBooks(mergedAllArr);
+    setTimeout(() => {
+      setFilterLoading(false);
+    }, 1000);
+  };
+
+  console.log("mjsndjaksdlka", allBooks, filterAuthors);
+
   return (
     <>
+      {loading === "pending" || (filterLoading && <Spinner />)}
       <link
         href="../../Assets/shop/t/9/assets/icons.min4e41.css?v=144771626144460745771698938059"
         rel="stylesheet"
@@ -174,8 +227,11 @@ function Shop() {
                       </div>
                       <div className="blog-sidebar sidebar-single widget-collapse sidebar-widget">
                         <h5 className="title">Authors</h5>
-                        <div className="sidebar-body widget-collapse-hide">
-                          <ul className="checkbox-container categories-list">
+                        <div
+                          className=""
+                          style={{ maxHeight: "165px", overflow: "auto" }}
+                        >
+                          {/* <ul className="checkbox-container categories-list">
                             <li>
                               <div className="custom-control custom-checkbox">
                                 <input
@@ -289,13 +345,21 @@ function Shop() {
                                 <span className="checkmark" />
                               </div>
                             </li>
-                          </ul>
+                          </ul> */}
+                          <MultiCheckGroup
+                            data={allAuthors}
+                            type={"Author"}
+                            setStateDispatch={setFilterAuthors}
+                          />
                         </div>
                       </div>
                       <div className="blog-sidebar sidebar-single widget-collapse sidebar-widget">
                         <h5 className="title">Semester</h5>
-                        <div className="sidebar-body widget-collapse-hide">
-                          <ul className="checkbox-container categories-list">
+                        <div
+                          className=""
+                          style={{ maxHeight: "165px", overflow: "auto" }}
+                        >
+                          {/* <ul className="checkbox-container categories-list">
                             <li>
                               <div className="custom-control custom-checkbox">
                                 <input
@@ -422,13 +486,17 @@ function Shop() {
                                 <span className="checkmark" />
                               </div>
                             </li>
-                          </ul>
+                          </ul> */}
+                          <MultiCheckGroup
+                            data={allSemesters}
+                            setStateDispatch={setFilterSemesters}
+                          />
                         </div>
                       </div>
                       <div className="blog-sidebar sidebar-single widget-collapse sidebar-widget">
                         <h5 className="title">Categories</h5>
-                        <div className="sidebar-body widget-collapse-hide">
-                          <ul className="checkbox-container categories-list">
+                        <div style={{ maxHeight: "165px", overflow: "auto" }}>
+                          {/* <ul className="checkbox-container categories-list">
                             <li>
                               <div className="custom-control custom-checkbox">
                                 <input
@@ -745,7 +813,11 @@ function Shop() {
                                 <span className="checkmark" />
                               </div>
                             </li>
-                          </ul>
+                          </ul> */}
+                          <MultiCheckGroup
+                            data={allCourses}
+                            setStateDispatch={setFilterCourses}
+                          />
                         </div>
                       </div>
                     </form>
