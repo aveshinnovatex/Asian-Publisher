@@ -5,10 +5,47 @@ import Header from "../../common/header/Header";
 import Footer from "../../common/footer/Footer";
 import "./Cart.css";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
-import { removeTocart } from "../../../redux/slices/cartSlice";
+import { removeTocart, resetCart } from "../../../redux/slices/cartSlice";
 function Cart() {
   const { cartdata } = useSelector((state) => state.cart);
-  console.log(" cartdatacartdata", cartdata);
+  console.log(" cart data loaded", cartdata);
+  const dispatch = useDispatch();
+  const deletecartItems = (book) => {
+    const {
+      id,
+      authors,
+      bookCode,
+      courseSemesters,
+      image,
+      isFeatured,
+      languageId,
+
+      languageNav,
+      mRP,
+      numId,
+      name,
+      ...rest
+    } = book;
+    // dispatch(resetCart());
+    dispatch(
+      removeTocart({
+        product: {
+          id,
+          quantity: 1,
+          authors,
+          bookCode,
+          courseSemesters,
+          image,
+          isFeatured,
+          languageId,
+          languageNav,
+          mRP,
+          numId,
+          name,
+        },
+      })
+    );
+  };
 
   return (
     <>
@@ -149,7 +186,15 @@ function Cart() {
                             Rs.{book.quantity * book.mRP}
                           </td>
                           <td style={{ fontSize: "25px", textAlign: "center" }}>
-                            <MdOutlineRemoveShoppingCart />
+                            <td
+                              style={{ fontSize: "25px", textAlign: "center" }}
+                            >
+                              <MdOutlineRemoveShoppingCart
+                                onClick={() => {
+                                  deletecartItems(book);
+                                }}
+                              />
+                            </td>
                           </td>
                         </tr>
                       ))}
