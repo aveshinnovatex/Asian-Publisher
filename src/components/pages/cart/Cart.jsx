@@ -194,9 +194,9 @@ function Cart() {
                               className="form-control"
                               name="quantity"
                               min={1}
-                              max={10}
+                              max={1000}
                               value={book.quantity || null}
-                              style={{ width: "60%" }}
+                              style={{ width: "100%" }}
                               onChange={(e) => {
                                 updateOnChangeHandler(e.target.value, book);
                               }}

@@ -273,14 +273,10 @@ function Shop() {
                                     className="input-box"
                                     value={bookQuantity}
                                     min={1}
-                                    max={10}
+                                    max={1000}
                                     onChange={(e) => {
                                       const value = parseInt(e.target.value);
-                                      setQuantity(
-                                        isNaN(value)
-                                          ? 1
-                                          : Math.min(Math.max(value, 1), 10)
-                                      );
+                                      setQuantity(isNaN(value) ? null : value);
                                     }}
                                     style={{ width: "100%" }}
                                   />
@@ -290,7 +286,7 @@ function Shop() {
                                     aria-label="Increase"
                                     onClick={() =>
                                       setQuantity((prevQuantity) =>
-                                        Math.min(prevQuantity + 1, 10)
+                                        Math.min(prevQuantity + 1, 1000)
                                       )
                                     }
                                   >
