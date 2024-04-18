@@ -196,7 +196,7 @@ function Cart() {
                               min={1}
                               max={10}
                               value={book.quantity || null}
-                              style={{ width: "40%" }}
+                              style={{ width: "60%" }}
                               onChange={(e) => {
                                 updateOnChangeHandler(e.target.value, book);
                               }}
