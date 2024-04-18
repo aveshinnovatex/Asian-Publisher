@@ -3,36 +3,37 @@ import { axiosInstance } from "../../config/config";
 import { toastError, toastSuceess } from "../../util/reactToastify";
 import axios from "axios";
 
-export const fetchBooks = createAsyncThunk("book/fetchBooks", async () => {
-  //   const { data } = await axiosInstance.get("/api/BookApi");
-  //   return data.data;
-  //   try {
-  //     const { data } = await axiosInstance.get(`/api/BookApi`);
-  //     return data.data;
-  //   } catch (error) {
-  //     console.log(error.response.data.message);
-  //     toastError(error?.response?.data?.message);
-  //   }
-  try {
-    const response = await axios.get(
-      "https://api.asianpublisher.in/api/BookApi"
-    );
-    // console.log("response", response);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching books:", error);
-  }
-});
-
-export const fetchBookDetails = createAsyncThunk(
-  "book/fetchBookDetails",
-  async (id) => {
+export const fetchSemesters = createAsyncThunk(
+  "semester/fetchSemesters",
+  async () => {
+    //   const { data } = await axiosInstance.get("/api/BookApi");
+    //   return data.data;
+    //   try {
+    //     const { data } = await axiosInstance.get(`/api/BookApi`);
+    //     return data.data;
+    //   } catch (error) {
+    //     console.log(error.response.data.message);
+    //     toastError(error?.response?.data?.message);
+    //   }
     try {
       const response = await axios.get(
-        `https://api.asianpublisher.in/api/BookApi/${id}`
+        "https://api.asianpublisher.in/api/SemesterApi"
       );
       // console.log("response", response);
       return response.data;
+    } catch (error) {
+      console.error("Error fetching books:", error);
+    }
+  }
+);
+
+export const fetchBookDetails = createAsyncThunk(
+  "semester/fetchBookDetails",
+  async (id) => {
+    try {
+      const { data } = await axiosInstance.get(`/api/semester/${id}`);
+
+      return data.data;
     } catch (error) {
       toastError(error?.response?.data?.message);
       console.log(error.response.data.message);
@@ -103,27 +104,27 @@ export const deleteBook = createAsyncThunk(
   }
 );
 
-const bookSlice = createSlice({
+const semesterSlice = createSlice({
   name: "book",
   initialState: {
-    books: [],
+    semesters: [],
     loading: "idle",
     error: null,
     message: "",
-    bookDetails: {},
+    semesterDetails: {},
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       //Get  all Books
-      .addCase(fetchBooks.pending, (state) => {
+      .addCase(fetchSemesters.pending, (state) => {
         state.loading = "pending";
       })
-      .addCase(fetchBooks.fulfilled, (state, action) => {
+      .addCase(fetchSemesters.fulfilled, (state, action) => {
         state.loading = "fulfilled";
-        state.books = action.payload;
+        state.semesters = action.payload;
       })
-      .addCase(fetchBooks.rejected, (state, action) => {
+      .addCase(fetchSemesters.rejected, (state, action) => {
         state.loading = "rejected";
         state.error = action.error.message;
       })
@@ -189,4 +190,4 @@ const bookSlice = createSlice({
   },
 });
 
-export default bookSlice.reducer;
+export default semesterSlice.reducer;

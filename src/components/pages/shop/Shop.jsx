@@ -1,26 +1,141 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
+import { useNavigate } from "react-router-dom";
+import Header from "../../common/header/Header";
+import Footer from "../../common/footer/Footer";
 import "./Shop.css";
-import { fetchBooks } from "../../redux/slices/bookSlice";
-import { REACT_APP_URL } from "../../config";
+import { fetchBooks } from "../../../redux/slices/bookSlice";
+import { fetchAuthors } from "../../../redux/slices/authorSlice";
+import { fetchCourses } from "../../../redux/slices/courseSlice";
+import { fetchSemesters } from "../../../redux/slices/semesterSlice";
+import { addTocart } from "../../../redux/slices/cartSlice";
+import { REACT_APP_URL } from "../../../config/config";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import MultiCheckGroup from "../../common/MultiCheckGroup";
+import Spinner from "../../common/Spinner";
 
 function Shop() {
   const { loading, books } = useSelector((state) => state.book);
+  const { courses } = useSelector((state) => state.course);
+  const { semesters } = useSelector((state) => state.semester);
+  const { authors } = useSelector((state) => state.author);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [allBooks, setAllBooks] = useState([]);
+  const [filterLoading, setFilterLoading] = useState(false);
+  const [allAuthors, setAllAuthors] = useState([]);
+  const [allCourses, setAllCourses] = useState([]);
+  const [allSemesters, setAllSemesters] = useState([]);
+  const [filterAuthors, setFilterAuthors] = useState([]);
+  const [filterCourses, setFilterCourses] = useState([]);
+  const [filterSemesters, setFilterSemesters] = useState([]);
+
   useEffect(() => {
     dispatch(fetchBooks());
   }, [dispatch]);
   useEffect(() => {
+    dispatch(fetchAuthors());
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchCourses());
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchSemesters());
+  }, [dispatch]);
+
+  useEffect(() => {
     if (loading === "fulfilled") {
       setAllBooks(books);
+      setAllAuthors(authors);
+      setAllCourses(courses);
+      setAllSemesters(semesters);
     }
   }, [loading]);
 
+  // useEffect(() => {
+  //   // console.log("allBooks", allBooks);
+  // }, [allBooks]);
+
+  function handleCart(book) {
+    const {
+      id,
+      authors,
+      bookCode,
+      courseSemesters,
+      image,
+      isFeatured,
+      languageId,
+      languageNav,
+      mRP,
+      numId,
+      name,
+      ...rest
+    } = book;
+
+    dispatch(
+      addTocart({
+        product: {
+          id,
+          quantity: 1,
+          authors,
+          bookCode,
+          courseSemesters,
+          image,
+          isFeatured,
+          languageId,
+          languageNav,
+          mRP,
+          numId,
+          name,
+        },
+      })
+    );
+  }
+
+  useEffect(() => {
+    if (
+      filterAuthors?.length === 0 &&
+      filterCourses?.length === 0 &&
+      filterSemesters?.length === 0
+    ) {
+      setAllBooks(books);
+    } else {
+      filterAllAppliedData();
+    }
+  }, [filterAuthors, filterCourses, filterSemesters]);
+
+  const filterAllAppliedData = () => {
+    setFilterLoading(true);
+    const allBooksCopy = [...books];
+    const filterAllAuthorsArr = allBooksCopy?.filter((book) =>
+      book.authors?.some((author) => filterAuthors.includes(author?.id))
+    );
+    const filterAllCoursesArr = allBooksCopy?.filter((book) =>
+      book.courseSemesters?.some((course) =>
+        filterCourses.includes(course?.courseId)
+      )
+    );
+    const filterAllSemestersArr = allBooksCopy?.filter((book) =>
+      book.courseSemesters?.some((semester) =>
+        filterSemesters.includes(semester?.semesterId)
+      )
+    );
+    const mergedAllArr = [
+      ...filterAllAuthorsArr,
+      ...filterAllCoursesArr,
+      ...filterAllSemestersArr,
+    ];
+    setAllBooks(mergedAllArr);
+    setTimeout(() => {
+      setFilterLoading(false);
+    }, 1000);
+  };
+
+  // console.log("mjsndjaksdlka", allBooks, filterAuthors);
+
   return (
     <>
+      {loading === "pending" || (filterLoading && <Spinner />)}
       <link
         href="../../Assets/shop/t/9/assets/icons.min4e41.css?v=144771626144460745771698938059"
         rel="stylesheet"
@@ -69,179 +184,8 @@ function Shop() {
       <script src="../../Assets/shop/t/9/assets/theme08ca.js?v=58729172318499673551698938089"></script>
 
       <div id="shopify-section-header" className="shopify-section">
-        <Header />
-        <div className="mobile-off-canvas-active">
-          <a className="mobile-aside-close">
-            <i className="sli sli-close" />
-          </a>
-          <div className="header-mobile-aside-wrap">
-            <div className="mobile-search">
-              <form
-                className="search-form"
-                action=""
-                method="get"
-                role="search"
-              >
-                <input
-                  type="search"
-                  name="q"
-                  defaultValue=""
-                  placeholder="I'm looking for…"
-                />
-                <button className="button-search" type="submit">
-                  <i className="sli sli-magnifier" />
-                </button>
-              </form>
-            </div>
-            <div className="mobile-menu-wrap">
-              <div className="mobile-navigation">
-                <nav>
-                  <ul className="mobile-menu">
-                    <li className="menu-item-has-children">
-                      <a href="../index.html">Home</a>
-                      <ul className="dropdown">
-                        <li>
-                          <a href="../index501f.html?preview_theme_id=122477707344">
-                            Home Demo v1
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../index2c6b.html?preview_theme_id=122478461008">
-                            Home Demo v2
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../index712d.html?preview_theme_id=122478493776">
-                            Home Demo v3
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../index3b70.html?preview_theme_id=122479902800">
-                            Home Demo v4
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <a href="/shop">Shop</a>
-                      <ul className="dropdown">
-                        <li className="mobile_img_menu">
-                          <a href="featured-books.html">
-                            <img
-                              src="../Assets/shop/collections/p3f10c.png?v=1698470305"
-                              alt="Featured Books"
-                              loading="lazy"
-                            />
-                          </a>
-                          <span>
-                            <a href="featured-books.html" title="">
-                              Featured Books
-                            </a>{" "}
-                          </span>
-                        </li>
-                        <li className="mobile_img_menu">
-                          <a href="best-sellers.html">
-                            <img
-                              src="../Assets/shop/collections/2d8ec.png?v=1698470765"
-                              alt="Best Sellers"
-                              loading="lazy"
-                            />
-                          </a>
-                          <span>
-                            <a href="best-sellers.html" title="">
-                              Best Sellers
-                            </a>{" "}
-                          </span>
-                        </li>
-                        <li className="mobile_img_menu">
-                          <a href="most-viewed.html">
-                            <img
-                              src="../Assets/shop/collections/p880c1.png?v=1698470737"
-                              alt="Most Viewed"
-                              loading="lazy"
-                            />
-                          </a>
-                          <span>
-                            <a href="most-viewed.html" title="">
-                              Most Viewed
-                            </a>{" "}
-                          </span>
-                        </li>
-                        <li className="m_mega-menu-li">
-                          <a href="../collections.html">All Collections</a>
-                          <ul className="dropdown">
-                            <li>
-                              <a href="featured-books.html">Romance</a>
-                            </li>
-                            <li>
-                              <a href="best-sellers.html">History</a>
-                            </li>
-                            <li>
-                              <a href="best-sellers.html">Comedy</a>
-                            </li>
-                            <li>
-                              <a href="most-viewed.html">Fiction</a>
-                            </li>
-                            <li>
-                              <a href="best-sellers.html">Adventure</a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="../blogs/news.html">Blog</a>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <a href="#">Pages</a>
-                      <ul className="dropdown">
-                        <li>
-                          <a href="../pages/authors-list.html">
-                            Author List Page
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/about-us">About Us</a>
-                        </li>
-                        <li>
-                          <a href="/contact-us">Contact us</a>
-                        </li>
-                        <li>
-                          <a href="../pages/faq.html">Faq Page</a>
-                        </li>
-                        <li>
-                          <a href="../404.html">404 Error Page</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="/about-us">About Us</a>
-                    </li>
-                    <li>
-                      <a href="/contact-us">Contact Us</a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-            <div className="mobile-curr-lang-wrap">
-              <div className="single-mobile-curr-lang">
-                <a className="mobile-account-active remove_href" href="#">
-                  Account <i className="sli sli-arrow-down" />
-                </a>
-                <div className="lang-curr-dropdown account-dropdown-active">
-                  <ul>
-                    <li>
-                      <a href="/login">Login</a>
-                    </li>
-                    <li>
-                      <a href="/register">Create Account</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div style={{ height: "16vh" }}>
+          <Header />
         </div>
       </div>
       <div className="breadcrumb-area breadcrumbs-section">
@@ -275,7 +219,7 @@ function Shop() {
             className="shop-area pt-95 pb-100 section-padding-3"
             id="section-template--14595761406032__main"
           >
-            <div className="container">
+            <div className="container-fluid">
               <div className="row">
                 <div className="col-lg-3">
                   <div className="sidebar-wrapper shop-sidebar storefront-filter icofont">
@@ -285,8 +229,11 @@ function Shop() {
                       </div>
                       <div className="blog-sidebar sidebar-single widget-collapse sidebar-widget">
                         <h5 className="title">Authors</h5>
-                        <div className="sidebar-body widget-collapse-hide">
-                          <ul className="checkbox-container categories-list">
+                        <div
+                          className=""
+                          style={{ maxHeight: "165px", overflow: "auto" }}
+                        >
+                          {/* <ul className="checkbox-container categories-list">
                             <li>
                               <div className="custom-control custom-checkbox">
                                 <input
@@ -400,13 +347,21 @@ function Shop() {
                                 <span className="checkmark" />
                               </div>
                             </li>
-                          </ul>
+                          </ul> */}
+                          <MultiCheckGroup
+                            data={allAuthors}
+                            type={"Author"}
+                            setStateDispatch={setFilterAuthors}
+                          />
                         </div>
                       </div>
                       <div className="blog-sidebar sidebar-single widget-collapse sidebar-widget">
                         <h5 className="title">Semester</h5>
-                        <div className="sidebar-body widget-collapse-hide">
-                          <ul className="checkbox-container categories-list">
+                        <div
+                          className=""
+                          style={{ maxHeight: "165px", overflow: "auto" }}
+                        >
+                          {/* <ul className="checkbox-container categories-list">
                             <li>
                               <div className="custom-control custom-checkbox">
                                 <input
@@ -533,13 +488,17 @@ function Shop() {
                                 <span className="checkmark" />
                               </div>
                             </li>
-                          </ul>
+                          </ul> */}
+                          <MultiCheckGroup
+                            data={allSemesters}
+                            setStateDispatch={setFilterSemesters}
+                          />
                         </div>
                       </div>
                       <div className="blog-sidebar sidebar-single widget-collapse sidebar-widget">
                         <h5 className="title">Categories</h5>
-                        <div className="sidebar-body widget-collapse-hide">
-                          <ul className="checkbox-container categories-list">
+                        <div style={{ maxHeight: "165px", overflow: "auto" }}>
+                          {/* <ul className="checkbox-container categories-list">
                             <li>
                               <div className="custom-control custom-checkbox">
                                 <input
@@ -856,7 +815,11 @@ function Shop() {
                                 <span className="checkmark" />
                               </div>
                             </li>
-                          </ul>
+                          </ul> */}
+                          <MultiCheckGroup
+                            data={allCourses}
+                            setStateDispatch={setFilterCourses}
+                          />
                         </div>
                       </div>
                     </form>
@@ -896,178 +859,62 @@ function Shop() {
                     <div className="tab-content jump">
                       <div>
                         <div className="row theme-products ">
-                          <div
-                            className="col-xl-4 col-lg-4 
-                      col-md-4 col-sm-6 
-                      col-12"
-                          >
-                            <div
-                              className="40344367005776 theme-product theme-product-action-on-hover mb-30 
-       theme-product-action-middle
-      
-      
+                          {allBooks &&
+                            allBooks.length > 0 &&
+                            allBooks.map((book, index) => (
+                              <div
+                                key={index}
+                                className="col-xl-4 col-lg-4 
+                                col-md-4 col-sm-6 
+                                col-12"
+                              >
+                                <div
+                                  className="40344367005776 theme-product theme-product-action-on-hover mb-30 
+       theme-product-action-middle      
        theme-product-countdown-bottom
        product-wrapper-class"
-                            >
-                              {allBooks &&
-                                allBooks.length > 0 &&
-                                allBooks.slice(0, 10).map((book, index) => (
-                                  <div
-                                    key={index}
-                                    className="theme-product-inner icon_bg grid__style__2"
-                                  >
+                                >
+                                  <div className="theme-product-inner icon_bg grid__style__2">
                                     <div className="theme-product-image-wrap product-color">
                                       <div className="theme-product-image">
                                         <div className="theme-product-cus-tab icon_bg_img">
-                                          <a
-                                            href="../products/chronicles-of-celestial-realms.html"
-                                            className="theme-product-image"
-                                          >
-                                            <img
-                                              className="popup_cart_image"
-                                              src={`${REACT_APP_URL}/Image/${book.image}`}
-                                              // src="../Assets/shop/files/p11_839563f9-8797-449c-a4ae-0e4aefce618e_largef767.png?v=1697899506"
-                                              alt="Chronicles of Celestial Realms"
-                                            />
+                                          <a className="theme-product-image">
+                                            <center>
+                                              <img
+                                                className="popup_cart_image"
+                                                src={`${REACT_APP_URL}/Image/${book.image}`}
+                                                alt="Chronicles of Celestial Realms"
+                                                style={{
+                                                  height: "60vh",
+                                                  width: "100vw",
+                                                }}
+                                                onClick={() => {
+                                                  navigate(
+                                                    `/BookDetails/${book.id}`
+                                                  );
+                                                }}
+                                              />
+                                              <button
+                                                onClick={() => handleCart(book)}
+                                              >
+                                                Add to Cart
+                                              </button>
+                                            </center>
                                           </a>
-                                          <div className="theme-product-action">
-                                            <ul>
-                                              <li>
-                                                <a
-                                                  href="javascript:void(0);"
-                                                  onclick="quiqview('chronicles-of-celestial-realms')"
-                                                  data-toggle="modal"
-                                                  data-target="#exampleModal"
-                                                >
-                                                  <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    className="ionicon"
-                                                    viewBox="0 0 512 512"
-                                                  >
-                                                    <path
-                                                      d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z"
-                                                      fill="none"
-                                                      stroke="currentColor"
-                                                      strokeLinecap="round"
-                                                      strokeLinejoin="round"
-                                                      strokeWidth={32}
-                                                    />
-                                                    <circle
-                                                      cx={256}
-                                                      cy={256}
-                                                      r={80}
-                                                      fill="none"
-                                                      stroke="currentColor"
-                                                      strokeMiterlimit={10}
-                                                      strokeWidth={32}
-                                                    />
-                                                  </svg>
-                                                </a>
-                                              </li>
-                                              <li>
-                                                <a
-                                                  className="action-wishlist tile-actions--btn flex wishlist-btn wishlist"
-                                                  href="javascript: void(0)"
-                                                  button-wishlist=""
-                                                  data-product-handle="chronicles-of-celestial-realms"
-                                                  data-toggle="tooltip"
-                                                  data-placement="left"
-                                                  title=""
-                                                >
-                                                  <span className="add-wishlist">
-                                                    <svg
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                      className="ionicon"
-                                                      viewBox="0 0 512 512"
-                                                    >
-                                                      <path
-                                                        d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"
-                                                        fill="none"
-                                                        stroke="currentColor"
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        strokeWidth={32}
-                                                      />
-                                                    </svg>
-                                                  </span>
-                                                  <span className="loading-wishlist">
-                                                    <svg
-                                                      className="loader"
-                                                      id="Layer_1"
-                                                      enableBackground="new 0 0 24 24"
-                                                      height={512}
-                                                      viewBox="0 0 24 24"
-                                                      width={512}
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                      <g>
-                                                        <path d="m12 7c-.6 0-1-.4-1-1v-3c0-.6.4-1 1-1s1 .4 1 1v3c0 .6-.4 1-1 1z" />
-                                                      </g>
-                                                      <g>
-                                                        <path d="m16.3 8.8c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l2.2-2.1c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-2.2 2.1c-.2.2-.5.3-.7.3z" />
-                                                      </g>
-                                                      <g>
-                                                        <path d="m21 13h-3c-.6 0-1-.4-1-1s.4-1 1-1h3c.6 0 1 .4 1 1s-.4 1-1 1z" />
-                                                      </g>
-                                                      <g>
-                                                        <path d="m18.4 19.4c-.3 0-.5-.1-.7-.3l-2.2-2.1c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l2.2 2.2c.4.4.4 1 0 1.4-.2.1-.4.2-.7.2z" />
-                                                      </g>
-                                                      <g>
-                                                        <path d="m12 22c-.6 0-1-.4-1-1v-3c0-.6.4-1 1-1s1 .4 1 1v3c0 .6-.4 1-1 1z" />
-                                                      </g>
-                                                      <g>
-                                                        <path d="m5.6 19.4c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l2.1-2.2c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-2.1 2.2c-.2.2-.4.3-.7.3z" />
-                                                      </g>
-                                                      <g>
-                                                        <path d="m6 13h-3c-.6 0-1-.4-1-1s.4-1 1-1h3c.6 0 1 .4 1 1s-.4 1-1 1z" />
-                                                      </g>
-                                                      <g>
-                                                        <path d="m7.8 8.8c-.3 0-.6-.1-.8-.3l-2.1-2.2c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l2.2 2.1c.4.4.4 1 0 1.4-.2.3-.5.4-.7.4z" />
-                                                      </g>
-                                                    </svg>
-                                                  </span>
-                                                  <span className="remove-wishlist">
-                                                    <svg
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                      className="ionicon"
-                                                      viewBox="0 0 512 512"
-                                                    >
-                                                      <path d="M352.92 64c-48.09 0-80 29.54-96.92 51-16.88-21.49-48.83-51-96.92-51C98.46 64 48.63 114.54 48 176.65c-.54 54.21 18.63 104.27 58.61 153 18.77 22.88 52.8 59.46 131.39 112.81a31.84 31.84 0 0036 0c78.59-53.35 112.62-89.93 131.39-112.81 40-48.74 59.15-98.8 58.61-153C463.37 114.54 413.54 64 352.92 64zM256 416V207.58c0-19.63 5.23-38.76 14.21-56.22a1.19 1.19 0 01.08-.16 123 123 0 0121.77-28.51C310.19 105 330.66 96 352.92 96c43.15 0 78.62 36.32 79.07 81C433 281.61 343.63 356.51 256 416z" />
-                                                    </svg>
-                                                  </span>
-                                                </a>
-                                              </li>
-                                              <li>
-                                                <a
-                                                  href="javascript:void(0);"
-                                                  onclick="Shopify.addItem(40344367005776, 1); return false;"
-                                                  className="theme-product-action-btn"
-                                                >
-                                                  <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    className="ionicon"
-                                                    viewBox="0 0 512 512"
-                                                  >
-                                                    <path
-                                                      fill="none"
-                                                      stroke="currentColor"
-                                                      strokeLinecap="round"
-                                                      strokeLinejoin="round"
-                                                      strokeWidth={32}
-                                                      d="M256 256v128M320 320H192M80 176a16 16 0 00-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 00-16-16zM160 176v-32a96 96 0 0196-96h0a96 96 0 0196 96v32"
-                                                    />
-                                                  </svg>
-                                                </a>
-                                              </li>
-                                            </ul>
-                                          </div>
-                                          <div className="color_size_img_wrap" />
                                         </div>
                                       </div>
                                     </div>
                                     <div className="theme-product-content  content__center ">
                                       <div className="theme-product-content-inner ">
-                                        <div className="theme-product-categories ">
+                                        <h4 className="theme-product-title popup_cart_title">
+                                          <a href="../products/chronicles-of-celestial-realms.html">
+                                            {book.name}{" "}
+                                          </a>
+                                        </h4>
+                                        <div
+                                          className="theme-product-categories "
+                                          style={{ fontSize: "7px" }}
+                                        >
                                           <a href="#" className="remove_href">
                                             {book.authors.map(
                                               (author, index) => (
@@ -1082,11 +929,6 @@ function Shop() {
                                             )}{" "}
                                           </a>
                                         </div>
-                                        <h4 className="theme-product-title popup_cart_title">
-                                          <a href="../products/chronicles-of-celestial-realms.html">
-                                            {book.name}{" "}
-                                          </a>
-                                        </h4>
                                         <div className="theme-product-price ">
                                           <span className="new">
                                             Rs. {book.mRP}
@@ -1226,9 +1068,9 @@ function Shop() {
                                       </div>
                                     </div>
                                   </div>
-                                ))}
-                            </div>
-                          </div>
+                                </div>
+                              </div>
+                            ))}
                         </div>
                       </div>
                     </div>
