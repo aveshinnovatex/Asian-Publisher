@@ -12,8 +12,6 @@ export const cartSlice = createSlice({
     addTocart: (state, action) => {
       const sevenDaysInMillis = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
       const checkcartdata = JSON.parse(JSON.stringify(state.cartdata));
-      // console.log("checkcartdata checkcartdata", checkcartdata);
-
       let {
         id,
         authors,
@@ -42,7 +40,6 @@ export const cartSlice = createSlice({
       }
 
       if (isItemExist) {
-        // const existingcartdata = JSON.parse(JSON.stringify(state.cartdata));-
         const existingdata = checkcartdata.map((s) =>
           s === isItemExist ? action.payload.product : s
         );
@@ -146,44 +143,19 @@ export const cartSlice = createSlice({
         cardData.splice(index, 1, myObj);
         state.cartdata = cardData;
       }
-
-      // console.log(
-      //   "index:-",
-      //   index,
-      //   "item-",
-      //   item,
-      //   "paymentModeType:-",
-      //   paymentModeType,
-      //   "cartdata:-",
-      //   cardData[index]
-      // );
     },
   },
 });
 
 //Function to check from array of objects
 function findObjectFromArray(searchObj, arr) {
-  // const result = [];
-  // console.log("searchObj item " + searchObj);
-  // console.log("arr item " + arr.length);
   if (arr.length == 0) return false;
   let isMatch = false;
   for (let i = 0; i < arr.length; i++) {
     const currentObj = arr[i];
-    // console.log("loooppppp searchObj", Object.values(searchObj)[0]);
-    // console.log("loooppppp searchObj", Object.values(currentObj)[0]);
     if (Object.values(searchObj)[0] === Object.values(currentObj)[0]) {
       isMatch = true;
     }
-
-    // for (const key of Object.keys(searchObj)) {
-    //   console.log("loooppppp currentObj", currentObj[key]);
-    //   if (searchObj[key] !== currentObj[key]) {
-    //     isMatch = true;
-    //     break;
-    //   }
-    // }
-    // console.log("loooppppp isMatch", isMatch);
   }
   return isMatch;
 }

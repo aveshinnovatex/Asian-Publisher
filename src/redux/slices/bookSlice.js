@@ -3,26 +3,36 @@ import { axiosInstance } from "../../config/config";
 import { toastError, toastSuceess } from "../../util/reactToastify";
 import axios from "axios";
 
-export const fetchBooks = createAsyncThunk("book/fetchBooks", async () => {
-  //   const { data } = await axiosInstance.get("/api/BookApi");
-  //   return data.data;
-  //   try {
-  //     const { data } = await axiosInstance.get(`/api/BookApi`);
-  //     return data.data;
-  //   } catch (error) {
-  //     console.log(error.response.data.message);
-  //     toastError(error?.response?.data?.message);
-  //   }
-  try {
-    const response = await axios.get(
-      "https://api.asianpublisher.in/api/BookApi"
-    );
-    // console.log("response", response);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching books:", error);
+export const fetchBooks = createAsyncThunk(
+  "book/fetchBooks",
+  async ({ filterAuthors = [], filterCourses = [], filterSemesters = [] }) => {
+    //   const { data } = await axiosInstance.get("/api/BookApi");
+    //   return data.data;
+    //   try {
+    //     const { data } = await axiosInstance.get(`/api/BookApi`);
+    //     return data.data;
+    //   } catch (error) {
+    //     console.log(error.response.data.message);
+    //     toastError(error?.response?.data?.message);
+    //   }
+    try {
+      const response = await axios.get(
+        "https://api.asianpublisher.in/api/BookApi",
+        {
+          headers: {
+            Author: filterAuthors,
+            Course: filterCourses,
+            Semester: filterSemesters,
+          },
+        }
+      );
+      // console.log("response", response);
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching books:", error);
+    }
   }
-});
+);
 
 export const fetchBookDetails = createAsyncThunk(
   "book/fetchBookDetails",

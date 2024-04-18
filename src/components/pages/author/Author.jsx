@@ -5,10 +5,12 @@ import Header from "../../common/header/Header";
 import Footer from "../../common/footer/Footer";
 import { countBooksByAuthor } from "../../../redux/slices/authorSlice";
 import { REACT_APP_URL } from "../../../config/config";
+import { useNavigate } from "react-router-dom";
 
 function Author() {
   const { loading, countBookauthor } = useSelector((state) => state.author);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [countBookByAuthor, setCountBookByAuthor] = useState([]);
   useEffect(() => {
     dispatch(countBooksByAuthor());
@@ -18,6 +20,13 @@ function Author() {
       setCountBookByAuthor(countBookauthor);
     }
   }, [loading]);
+
+  function handleAuthor(author) {
+    console.log("author in author page: " + author?.authorNav?.name);
+    navigate("/shop", {
+      state: { id: author?.authorNav?.id, name: author?.authorNav?.name },
+    });
+  }
 
   return (
     <>
@@ -74,11 +83,10 @@ function Author() {
         </div>
       </div>
       <div id="shopify-section-header" className="shopify-section">
-        <div style={{height:"16vh"}}>
-        <Header />
+        <div style={{ height: "16vh" }}>
+          <Header />
         </div>
-     
-     </div>
+      </div>
       <div className="breadcrumb-area breadcrumbs-section">
         <div className="breadcrumbs overlay-bg">
           <div className="container">
@@ -104,7 +112,8 @@ function Author() {
       <main>
         <div
           id="shopify-section-template--14595761602640__e5bea2ba-dc5b-4b9a-bda3-2860db263594"
-          className="shopify-section" style={{marginTop:"40px"}}
+          className="shopify-section"
+          style={{ marginTop: "40px" }}
         >
           <div
             className="best_collection_area common_slick_slider"
@@ -154,44 +163,47 @@ function Author() {
                 {countBookByAuthor &&
                   countBookByAuthor.length > 0 &&
                   countBookByAuthor.map((author, index) => (
-                    <div key={index} className="col-lg-6 col-md-4 col-sm-6 col-12 block_template--14588627386448__e5bea2ba-dc5b-4b9a-bda3-2860db263594-collection-1">
-  <div
-    style={{
-      borderTopLeftRadius: 50,
-      borderBottomRightRadius: 50,
-      padding: 20,
-      background: "linear-gradient(to bottom, #fff, #F6F2E7)",
-      /* gradient colors */ boxShadow: "0 8px 10px rgba(0, 0, 0, 0.1)"
-    }}
-    className="single_collection mb-30 text-center large__size"
-  >
-    <div className="banner-common best-coll-content">
-      <h4 className="multi_top" style={{ fontWeight: 800 }}>
-      {author.name}
-      </h4>
-      <br />
-      <p style={{ textAlign: "justify" }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ullam dicta
-        accusamus optio doloremque eos aspernatur, provident, harum accusantium,
-        nihil fugiat fuga dolores? Facere omnis quas ullam quaerat rem
-        laudantium!
-      </p>
-      <a
-        className="ban_btn1 banner_style_2"
-        href="ContactUs.html"
-        style={{
-          fontSize: 12,
-          borderTopLeftRadius: 10,
-          borderBottomRightRadius: 10
-        }}
-      >
-        View 8 Published Books
-      </a>
-    </div>
-  </div>
-</div>
-
-
+                    <div
+                      key={index}
+                      className="col-lg-6 col-md-4 col-sm-6 col-12 block_template--14588627386448__e5bea2ba-dc5b-4b9a-bda3-2860db263594-collection-1"
+                    >
+                      <div
+                        style={{
+                          borderTopLeftRadius: 50,
+                          borderBottomRightRadius: 50,
+                          padding: 20,
+                          background:
+                            "linear-gradient(to bottom, #fff, #F6F2E7)",
+                          /* gradient colors */ boxShadow:
+                            "0 8px 10px rgba(0, 0, 0, 0.1)",
+                        }}
+                        className="single_collection mb-30 text-center large__size"
+                      >
+                        <div className="banner-common best-coll-content">
+                          <h4 className="multi_top" style={{ fontWeight: 800 }}>
+                            {author?.authorNav?.name}
+                          </h4>
+                          <br />
+                          <p style={{ textAlign: "justify" }}>
+                            {author?.authorNav?.content !== ""
+                              ? author?.authorNav?.content
+                              : ""}
+                          </p>
+                          <a
+                            className="ban_btn1 banner_style_2"
+                            // href="ContactUs.html"
+                            style={{
+                              fontSize: 12,
+                              borderTopLeftRadius: 10,
+                              borderBottomRightRadius: 10,
+                            }}
+                            onClick={() => handleAuthor(author)}
+                          >
+                            View {author?.bookCount} Published Books
+                          </a>
+                        </div>
+                      </div>
+                    </div>
 
                     // <div
                     //   key={index}

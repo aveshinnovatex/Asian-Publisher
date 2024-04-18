@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../../common/header/Header";
 import Footer from "../../common/footer/Footer";
 import "./Shop.css";
@@ -10,29 +10,43 @@ import { fetchCourses } from "../../../redux/slices/courseSlice";
 import { fetchSemesters } from "../../../redux/slices/semesterSlice";
 import { addTocart } from "../../../redux/slices/cartSlice";
 import { REACT_APP_URL } from "../../../config/config";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import MultiCheckGroup from "../../common/MultiCheckGroup";
+// import MultiCheckGroup from "../../common/MultiCheckGroup";
 import Spinner from "../../common/Spinner";
+import Checkbox from "@mui/material/Checkbox";
 
 function Shop() {
   const { loading, books } = useSelector((state) => state.book);
-  const { courses } = useSelector((state) => state.course);
-  const { semesters } = useSelector((state) => state.semester);
-  const { authors } = useSelector((state) => state.author);
+  const { loading: coursesLoading, courses } = useSelector(
+    (state) => state.course
+  );
+  const { loading: semestersLoading, semesters } = useSelector(
+    (state) => state.semester
+  );
+  const { loading: authorsLoading, authors } = useSelector(
+    (state) => state.author
+  );
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const history = useLocation();
   const [allBooks, setAllBooks] = useState([]);
   const [filterLoading, setFilterLoading] = useState(false);
+  const [checked, setChecked] = useState(false);
   const [allAuthors, setAllAuthors] = useState([]);
   const [allCourses, setAllCourses] = useState([]);
   const [allSemesters, setAllSemesters] = useState([]);
   const [filterAuthors, setFilterAuthors] = useState([]);
   const [filterCourses, setFilterCourses] = useState([]);
   const [filterSemesters, setFilterSemesters] = useState([]);
+  const author = history.state;
+  useMemo(() => {
+    if (author?.id !== undefined && author?.id !== "") {
+      setFilterAuthors((prev) => [...prev, author?.id]);
+    }
+  }, [author?.id]);
 
   useEffect(() => {
-    dispatch(fetchBooks());
-  }, [dispatch]);
+    dispatch(fetchBooks({ filterAuthors, filterCourses, filterSemesters }));
+  }, [dispatch, filterSemesters, filterCourses, filterAuthors, checked]);
   useEffect(() => {
     dispatch(fetchAuthors());
   }, [dispatch]);
@@ -51,10 +65,6 @@ function Shop() {
       setAllSemesters(semesters);
     }
   }, [loading]);
-
-  // useEffect(() => {
-  //   // console.log("allBooks", allBooks);
-  // }, [allBooks]);
 
   function handleCart(book) {
     const {
@@ -92,46 +102,38 @@ function Shop() {
     );
   }
 
-  useEffect(() => {
-    if (
-      filterAuthors?.length === 0 &&
-      filterCourses?.length === 0 &&
-      filterSemesters?.length === 0
-    ) {
-      setAllBooks(books);
+  function coursesChangeHandler(e, newVal) {
+    setChecked(e.target.checked);
+    if (e.target.checked) {
+      if (newVal.type === "Course") {
+        setFilterCourses((prev) => [...prev, newVal?.id]);
+      }
     } else {
-      filterAllAppliedData();
+      setFilterCourses((prev) => prev.filter((id) => id !== newVal.id));
     }
-  }, [filterAuthors, filterCourses, filterSemesters]);
+  }
 
-  const filterAllAppliedData = () => {
-    setFilterLoading(true);
-    const allBooksCopy = [...books];
-    const filterAllAuthorsArr = allBooksCopy?.filter((book) =>
-      book.authors?.some((author) => filterAuthors.includes(author?.id))
-    );
-    const filterAllCoursesArr = allBooksCopy?.filter((book) =>
-      book.courseSemesters?.some((course) =>
-        filterCourses.includes(course?.courseId)
-      )
-    );
-    const filterAllSemestersArr = allBooksCopy?.filter((book) =>
-      book.courseSemesters?.some((semester) =>
-        filterSemesters.includes(semester?.semesterId)
-      )
-    );
-    const mergedAllArr = [
-      ...filterAllAuthorsArr,
-      ...filterAllCoursesArr,
-      ...filterAllSemestersArr,
-    ];
-    setAllBooks(mergedAllArr);
-    setTimeout(() => {
-      setFilterLoading(false);
-    }, 1000);
-  };
+  function semestersChangeHandler(e, newVal) {
+    setChecked(e.target.checked);
+    if (e.target.checked) {
+      if (newVal.type === "Semester") {
+        setFilterSemesters((prev) => [...prev, newVal?.id]);
+      }
+    } else {
+      setFilterSemesters((prev) => prev.filter((id) => id !== newVal.id));
+    }
+  }
 
-  // console.log("mjsndjaksdlka", allBooks, filterAuthors);
+  function authorsChangeHandler(e, newVal) {
+    setChecked(e.target.checked);
+    if (e.target.checked) {
+      if (newVal.type === "Author") {
+        setFilterAuthors((prev) => [...prev, newVal?.id]);
+      }
+    } else {
+      setFilterAuthors((prev) => prev.filter((id) => id !== newVal.id));
+    }
+  }
 
   return (
     <>
@@ -233,126 +235,44 @@ function Shop() {
                           className=""
                           style={{ maxHeight: "165px", overflow: "auto" }}
                         >
-                          {/* <ul className="checkbox-container categories-list">
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.vendor"
-                                  defaultValue="Emax"
-                                  id="Filter-authors-1"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-authors-1"
-                                  className="custom-control-label"
-                                >
-                                  Emax <span className="count_value"> 2</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.vendor"
-                                  defaultValue="Erik Martin"
-                                  id="Filter-authors-2"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-authors-2"
-                                  className="custom-control-label"
-                                >
-                                  Erik Martin{" "}
-                                  <span className="count_value"> 3</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.vendor"
-                                  defaultValue="Historical"
-                                  id="Filter-authors-3"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-authors-3"
-                                  className="custom-control-label"
-                                >
-                                  Historical{" "}
-                                  <span className="count_value"> 2</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.vendor"
-                                  defaultValue="James Dylan"
-                                  id="Filter-authors-4"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-authors-4"
-                                  className="custom-control-label"
-                                >
-                                  James Dylan{" "}
-                                  <span className="count_value"> 4</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.vendor"
-                                  defaultValue="Sage Isaias"
-                                  id="Filter-authors-5"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-authors-5"
-                                  className="custom-control-label"
-                                >
-                                  Sage Isaias{" "}
-                                  <span className="count_value"> 3</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.vendor"
-                                  defaultValue="Team90Degree"
-                                  id="Filter-authors-6"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-authors-6"
-                                  className="custom-control-label"
-                                >
-                                  Team90Degree{" "}
-                                  <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                          </ul> */}
-                          <MultiCheckGroup
+                          {/* <MultiCheckGroup
                             data={allAuthors}
                             type={"Author"}
                             setStateDispatch={setFilterAuthors}
-                          />
+                          /> */}
+                          {
+                            <div style={{ height: "100%" }}>
+                              {allAuthors?.length > 0 &&
+                                allAuthors.map((item) => (
+                                  <>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                                        alignItems: "center",
+                                        padding: "0 10px 0 10px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                        }}
+                                      >
+                                        <div>
+                                          <Checkbox
+                                            onChange={(e) =>
+                                              authorsChangeHandler(e, item)
+                                            }
+                                          />
+                                        </div>
+                                        <div>{item?.name} </div>
+                                      </div>
+                                    </div>
+                                  </>
+                                ))}
+                            </div>
+                          }
                         </div>
                       </div>
                       <div className="blog-sidebar sidebar-single widget-collapse sidebar-widget">
@@ -361,465 +281,85 @@ function Shop() {
                           className=""
                           style={{ maxHeight: "165px", overflow: "auto" }}
                         >
-                          {/* <ul className="checkbox-container categories-list">
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.v.option.color"
-                                  defaultValue="Black"
-                                  id="Filter-color-1"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-color-1"
-                                  className="custom-control-label"
-                                >
-                                  Black <span className="count_value"> 10</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.v.option.color"
-                                  defaultValue="Blue"
-                                  id="Filter-color-2"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-color-2"
-                                  className="custom-control-label"
-                                >
-                                  Blue <span className="count_value"> 8</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.v.option.color"
-                                  defaultValue="Gold"
-                                  id="Filter-color-3"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-color-3"
-                                  className="custom-control-label"
-                                >
-                                  Gold <span className="count_value"> 8</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.v.option.color"
-                                  defaultValue="Linen"
-                                  id="Filter-color-4"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-color-4"
-                                  className="custom-control-label"
-                                >
-                                  Linen <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.v.option.color"
-                                  defaultValue="Pink"
-                                  id="Filter-color-5"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-color-5"
-                                  className="custom-control-label"
-                                >
-                                  Pink <span className="count_value"> 3</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.v.option.color"
-                                  defaultValue="Silver"
-                                  id="Filter-color-6"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-color-6"
-                                  className="custom-control-label"
-                                >
-                                  Silver <span className="count_value"> 3</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.v.option.color"
-                                  defaultValue="White"
-                                  id="Filter-color-7"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-color-7"
-                                  className="custom-control-label"
-                                >
-                                  White <span className="count_value"> 3</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                          </ul> */}
-                          <MultiCheckGroup
+                          {/* <MultiCheckGroup
                             data={allSemesters}
                             setStateDispatch={setFilterSemesters}
-                          />
+                          /> */}
+                          {
+                            <div style={{ height: "100%" }}>
+                              {allSemesters?.length > 0 &&
+                                allSemesters.map((item) => (
+                                  <>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                                        alignItems: "center",
+                                        padding: "0 10px 0 10px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                        }}
+                                      >
+                                        <div>
+                                          <Checkbox
+                                            onChange={(e) =>
+                                              semestersChangeHandler(e, item)
+                                            }
+                                          />
+                                        </div>
+                                        <div>{item?.name} </div>
+                                      </div>
+                                    </div>
+                                  </>
+                                ))}
+                            </div>
+                          }
                         </div>
                       </div>
                       <div className="blog-sidebar sidebar-single widget-collapse sidebar-widget">
                         <h5 className="title">Categories</h5>
                         <div style={{ maxHeight: "165px", overflow: "auto" }}>
-                          {/* <ul className="checkbox-container categories-list">
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Accessories"
-                                  id="Filter-categories-1"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-1"
-                                  className="custom-control-label"
-                                >
-                                  Accessories{" "}
-                                  <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Best seller"
-                                  id="Filter-categories-2"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-2"
-                                  className="custom-control-label"
-                                >
-                                  Best seller{" "}
-                                  <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="City"
-                                  id="Filter-categories-3"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-3"
-                                  className="custom-control-label"
-                                >
-                                  City <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Erik Martin"
-                                  id="Filter-categories-4"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-4"
-                                  className="custom-control-label"
-                                >
-                                  Erik Martin{" "}
-                                  <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Handbags"
-                                  id="Filter-categories-5"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-5"
-                                  className="custom-control-label"
-                                >
-                                  Handbags{" "}
-                                  <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Historical"
-                                  id="Filter-categories-6"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-6"
-                                  className="custom-control-label"
-                                >
-                                  Historical{" "}
-                                  <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Jackets"
-                                  id="Filter-categories-7"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-7"
-                                  className="custom-control-label"
-                                >
-                                  Jackets{" "}
-                                  <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Jewelry"
-                                  id="Filter-categories-8"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-8"
-                                  className="custom-control-label"
-                                >
-                                  Jewelry{" "}
-                                  <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Kids"
-                                  id="Filter-categories-9"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-9"
-                                  className="custom-control-label"
-                                >
-                                  Kids <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="New"
-                                  id="Filter-categories-10"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-10"
-                                  className="custom-control-label"
-                                >
-                                  New <span className="count_value"> 5</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Pendant"
-                                  id="Filter-categories-11"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-11"
-                                  className="custom-control-label"
-                                >
-                                  Pendant{" "}
-                                  <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Ring"
-                                  id="Filter-categories-12"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-12"
-                                  className="custom-control-label"
-                                >
-                                  Ring <span className="count_value"> 3</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Sage Isaias"
-                                  id="Filter-categories-13"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-13"
-                                  className="custom-control-label"
-                                >
-                                  Sage Isaias{" "}
-                                  <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Story"
-                                  id="Filter-categories-14"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-14"
-                                  className="custom-control-label"
-                                >
-                                  Story <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Tops"
-                                  id="Filter-categories-15"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-15"
-                                  className="custom-control-label"
-                                >
-                                  Tops <span className="count_value"> 1</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Trends"
-                                  id="Filter-categories-16"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-16"
-                                  className="custom-control-label"
-                                >
-                                  Trends{" "}
-                                  <span className="count_value"> 10</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                            <li>
-                              <div className="custom-control custom-checkbox">
-                                <input
-                                  type="checkbox"
-                                  name="filter.p.tag"
-                                  defaultValue="Women"
-                                  id="Filter-categories-17"
-                                  className="custom-control-input"
-                                />
-                                <label
-                                  htmlFor="Filter-categories-17"
-                                  className="custom-control-label"
-                                >
-                                  Women <span className="count_value"> 3</span>
-                                </label>
-                                <span className="checkmark" />
-                              </div>
-                            </li>
-                          </ul> */}
-                          <MultiCheckGroup
+                          {/* <MultiCheckGroup
                             data={allCourses}
                             setStateDispatch={setFilterCourses}
-                          />
+                          /> */}
+                          {
+                            <div style={{ height: "100%" }}>
+                              {allCourses?.length > 0 &&
+                                allCourses.map((item) => (
+                                  <>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                                        alignItems: "center",
+                                        padding: "0 10px 0 10px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                        }}
+                                      >
+                                        <div>
+                                          <Checkbox
+                                            onChange={(e) =>
+                                              coursesChangeHandler(e, item)
+                                            }
+                                          />
+                                        </div>
+                                        <div>{item?.name} </div>
+                                      </div>
+                                    </div>
+                                  </>
+                                ))}
+                            </div>
+                          }
                         </div>
                       </div>
                     </form>
