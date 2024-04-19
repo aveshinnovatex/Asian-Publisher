@@ -37,6 +37,7 @@ function Shop() {
   const [filterAuthors, setFilterAuthors] = useState([]);
   const [filterCourses, setFilterCourses] = useState([]);
   const [filterSemesters, setFilterSemesters] = useState([]);
+  const [orderFilter, setOrderFilter] = useState("");
   const author = history.state;
   useMemo(() => {
     if (author?.id !== undefined && author?.id !== "") {
@@ -45,8 +46,17 @@ function Shop() {
   }, [author?.id]);
 
   useEffect(() => {
-    dispatch(fetchBooks({ filterAuthors, filterCourses, filterSemesters }));
-  }, [dispatch, filterSemesters, filterCourses, filterAuthors, checked]);
+    dispatch(
+      fetchBooks({ filterAuthors, filterCourses, filterSemesters, orderFilter })
+    );
+  }, [
+    dispatch,
+    filterSemesters,
+    filterCourses,
+    filterAuthors,
+    orderFilter,
+    checked,
+  ]);
   useEffect(() => {
     dispatch(fetchAuthors());
   }, [dispatch]);
@@ -102,6 +112,9 @@ function Shop() {
     );
   }
 
+  function handleSort(e) {
+    setOrderFilter(e.target.value);
+  }
   function coursesChangeHandler(e, newVal) {
     setChecked(e.target.checked);
     if (e.target.checked) {
@@ -370,9 +383,8 @@ function Shop() {
                     <div className="select-shoing-wrap">
                       <div className="shop-select d-flex">
                         <label htmlFor="SortBy">Sort by :</label>
-                        <select name="SortBy" id="SortBy">
+                        <select onChange={handleSort} name="SortBy" id="SortBy">
                           <option value="manual">Featured</option>
-                          <option value="best-selling">Best Selling</option>
                           <option value="title-ascending">
                             Alphabetically, A-Z
                           </option>
@@ -384,12 +396,6 @@ function Shop() {
                           </option>
                           <option value="price-descending">
                             Price, high to low
-                          </option>
-                          <option value="created-descending">
-                            Date, new to old
-                          </option>
-                          <option value="created-ascending">
-                            Date, old to new
                           </option>
                         </select>
                       </div>

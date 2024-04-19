@@ -5,7 +5,12 @@ import axios from "axios";
 
 export const fetchBooks = createAsyncThunk(
   "book/fetchBooks",
-  async ({ filterAuthors = [], filterCourses = [], filterSemesters = [] }) => {
+  async ({
+    filterAuthors = [],
+    filterCourses = [],
+    filterSemesters = [],
+    orderFilter = "",
+  }) => {
     //   const { data } = await axiosInstance.get("/api/BookApi");
     //   return data.data;
     //   try {
@@ -23,6 +28,7 @@ export const fetchBooks = createAsyncThunk(
             Author: filterAuthors,
             Course: filterCourses,
             Semester: filterSemesters,
+            orderFilter: orderFilter,
           },
         }
       );
