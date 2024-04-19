@@ -132,8 +132,8 @@ function Checkout() {
                   >
                     <form
                       method="post"
-                      action=""
                       id="contact-form"
+                      action=""
                       acceptCharset="UTF-8"
                       className="contact-form"
                     >
@@ -146,20 +146,20 @@ function Checkout() {
                       <div className="col-lg-12">
                         <input
                           type="text"
+                          id="ContactFormName"
                           placeholder="Name"
                           className=""
                           name="contact[name]"
-                          id="ContactFormName"
                           defaultValue=""
                         />
                       </div>
                       <div className="col-lg-6" style={{ float: "left" }}>
                         <input
                           type="email"
+                          id="ContactFormEmail"
                           placeholder="Email"
                           className=""
                           name="contact[email]"
-                          id="ContactFormEmail"
                           defaultValue=""
                         />
                       </div>
