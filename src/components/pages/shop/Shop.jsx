@@ -385,16 +385,16 @@ function Shop() {
                         <label htmlFor="SortBy">Sort by :</label>
                         <select onChange={handleSort} name="SortBy" id="SortBy">
                           <option value="manual">Featured</option>
-                          <option value="title-ascending">
+                          <option value="titleAscending">
                             Alphabetically, A-Z
                           </option>
-                          <option value="title-descending">
+                          <option value="titleDescending">
                             Alphabetically, Z-A
                           </option>
-                          <option value="price-ascending">
+                          <option value="priceAscending">
                             Price, low to high
                           </option>
-                          <option value="price-descending">
+                          <option value="priceDescending">
                             Price, high to low
                           </option>
                         </select>

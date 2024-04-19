@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../common/header/Header";
 import Footer from "../../common/footer/Footer";
+import useContactUs from "../../../hooks/useContactUs";
+import Spinner from "../../common/Spinner";
 
 function ContactUs() {
+  const { loading, submitData } = useContactUs();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+    submitData(formData);
+  }
+  useEffect(() => {
+    if (!loading) {
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    }
+  }, [loading]);
+
   return (
     <>
+      {loading && <Spinner />}
       <title>Contact Us - Asian Publishers</title>
       {/* CSS */}
       <link
@@ -57,11 +81,10 @@ function ContactUs() {
         </div>
       </div>
       <div id="shopify-section-header" className="shopify-section">
-        <div style={{height:"16vh"}}>
-        <Header />
+        <div style={{ height: "16vh" }}>
+          <Header />
         </div>
-     
-     </div>
+      </div>
       <div className="breadcrumb-area breadcrumbs-section">
         <div className="breadcrumbs overlay-bg">
           <div className="container">
@@ -163,6 +186,7 @@ function ContactUs() {
                   <div className="contact-from contact-shadow">
                     <form
                       method="post"
+                      onSubmit={handleSubmit}
                       action=""
                       id="contact-form"
                       acceptCharset="UTF-8"
@@ -175,34 +199,47 @@ function ContactUs() {
                       />
                       <input type="hidden" name="utf8" defaultValue="✓" />
                       <input
+                        id="ContactFormName"
                         type="text"
                         placeholder="Name"
                         className=""
-                        name="contact[name]"
-                        id="ContactFormName"
-                        defaultValue=""
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        // defaultValue=""
                       />
                       <input
                         type="email"
+                        id="ContactFormEmail"
                         placeholder="Email"
                         className=""
-                        name="contact[email]"
-                        id="ContactFormEmail"
-                        defaultValue=""
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        // defaultValue=""
                       />
                       <input
                         type="text"
                         id="ContactFormSubject"
-                        name="contact[subject]"
                         placeholder="Subject"
-                        defaultValue=""
+                        name="subject"
+                        required
+                        value={formData.subject}
+                        onChange={handleChange}
+
+                        // defaultValue=""
                       />
                       <textarea
-                        rows={2}
-                        placeholder="Your Message"
-                        name="contact[body]"
-                        id="ContactFormMessage"
                         style={{ height: "auto" }}
+                        rows={2}
+                        id="ContactFormMessage"
+                        placeholder="Your Message"
+                        name="message"
+                        required
+                        value={formData.message}
+                        onChange={handleChange}
                       />
                       <button className="submit" type="submit">
                         Send Message
