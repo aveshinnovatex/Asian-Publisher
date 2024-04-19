@@ -1,7 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../common/header/Header";
 import Footer from "../../common/footer/Footer";
+import { createOrderFrom } from "../../../redux/slices/orderFromSlice";
+import { useDispatch, useSelector } from "react-redux";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import { fetchBooks } from "../../../redux/slices/bookSlice";
+
 function OrderForm() {
+  const { loading } = useSelector((state) => state.orderFrom);
+  const { books } = useSelector((state) => state.book);
+  const topBooks = books?.map((book) => ({ label: book.name, id: book.id }));
+  const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    address: "",
+    city: "",
+    book: "",
+    quantity: 0,
+    mobNumber: "",
+    description: "",
+  });
+  useEffect(() => {
+    dispatch(fetchBooks({}));
+  }, [dispatch]);
+
+  const { name, email, address, city, book, quantity, mobNumber, description } =
+    formData;
+  /**handle change  method implement here */
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }
+
+  /**handle submit  method implement here */
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    /** create instance of Form data here */
+    let orderFrom = new FormData();
+
+    orderFrom.append("name", name);
+    orderFrom.append("email", email);
+    orderFrom.append("address", address);
+    orderFrom.append("city", city);
+    orderFrom.append("bookId", book);
+    orderFrom.append("quantity", Number(quantity));
+    orderFrom.append("mobileNo", mobNumber);
+    orderFrom.append("description", description);
+
+    /** hitt the create order from api from  here */
+    dispatch(createOrderFrom(orderFrom));
+  }
   return (
     <>
       <link
@@ -54,11 +105,10 @@ function OrderForm() {
         </div>
       </div>
       <div id="shopify-section-header" className="shopify-section">
-        <div style={{height:"16vh"}}>
-        <Header />
+        <div style={{ height: "16vh" }}>
+          <Header />
         </div>
-     
-     </div>
+      </div>
       <div className="breadcrumb-area breadcrumbs-section">
         <div className="breadcrumbs overlay-bg">
           <div className="container">
@@ -101,6 +151,7 @@ function OrderForm() {
                   <div className="contact-from contact-shadow">
                     <form
                       method="post"
+                      onSubmit={handleSubmit}
                       action=""
                       id="contact-form"
                       acceptCharset="UTF-8"
@@ -122,12 +173,15 @@ function OrderForm() {
                       >
                         <label>Name</label>
                         <input
+                          id="ContactFormName"
                           type="text"
                           placeholder="Enter Your Name"
                           className=""
-                          name="contact[name]"
-                          id="ContactFormName"
-                          defaultValue=""
+                          name="name"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          // defaultValue=""
                         />
                       </div>
                       <div
@@ -141,11 +195,14 @@ function OrderForm() {
                         <label>Email</label>
                         <input
                           type="email"
+                          id="ContactFormEmail"
                           placeholder="Enter Your Email"
                           className=""
-                          name="contact[email]"
-                          id="ContactFormEmail"
-                          defaultValue=""
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          // defaultValue=""
                         />
                       </div>
                       <div
@@ -160,9 +217,12 @@ function OrderForm() {
                         <input
                           type="text"
                           id="ContactFormSubject"
-                          name="contact[subject]"
                           placeholder="Enter Your Address"
-                          defaultValue=""
+                          name="address"
+                          required
+                          value={formData.address}
+                          onChange={handleChange}
+                          // defaultValue=""
                         />
                       </div>
                       <div
@@ -177,9 +237,12 @@ function OrderForm() {
                         <input
                           type="text"
                           id="ContactFormSubject"
-                          name="contact[subject]"
                           placeholder="Enter Your City"
-                          defaultValue=""
+                          name="city"
+                          required
+                          value={formData.city}
+                          onChange={handleChange}
+                          // defaultValue=""
                         />
                       </div>
                       <div
@@ -190,24 +253,30 @@ function OrderForm() {
                           paddingRight: 0,
                         }}
                       >
-                        <label>Book</label>
-                        <select
-                          className="form-control"
-                          style={{
-                            background: "0 0",
-                            border: "1px solid #e5e5e5",
-                            fontSize: 15,
-                            height: 60,
-                            padding: "2px 24px",
-                            marginBottom: 15,
-                            color: "#1f2226",
+                        <Autocomplete
+                          disablePortal
+                          id="combo-box-demo"
+                          options={topBooks}
+                          onChange={(event, value) => {
+                            setFormData((prev) => ({
+                              ...prev,
+                              book: value?.id,
+                            }));
                           }}
-                        >
-                          <option value="Book Name">Book Name</option>
-                          <option value="Book Name">Book Name</option>
-                          <option value="Book Name">Book Name</option>
-                        </select>
+                          sx={{
+                            width: 700,
+                            ".MuiAutocomplete-inputRoot": {
+                              "& .MuiAutocomplete-input": {
+                                fontSize: "16px",
+                              },
+                            },
+                          }}
+                          renderInput={(params) => (
+                            <TextField {...params} label="Books" />
+                          )}
+                        />
                       </div>
+
                       <div
                         className="col-lg-6"
                         style={{
@@ -218,11 +287,14 @@ function OrderForm() {
                       >
                         <label>Quantity</label>
                         <input
-                          type="text"
+                          type="number"
                           id="ContactFormSubject"
-                          name="contact[subject]"
                           placeholder="Enter Your Quantity"
-                          defaultValue=""
+                          name="quantity"
+                          required
+                          value={formData.quantity}
+                          onChange={handleChange}
+                          // defaultValue=""
                         />
                       </div>
                       <div
@@ -237,19 +309,25 @@ function OrderForm() {
                         <input
                           type="text"
                           id="ContactFormSubject"
-                          name="contact[subject]"
                           placeholder="Enter Your Mobile No."
-                          defaultValue=""
+                          name="mobNumber"
+                          required
+                          value={formData.mobNumber}
+                          onChange={handleChange}
+                          // defaultValue=""
                         />
                       </div>
                       <label>Description</label>
                       <textarea
+                        style={{ height: "auto" }}
                         rows={5}
                         placeholder="Enter Your Message"
-                        name="contact[body]"
                         id="ContactFormMessage"
-                        style={{ height: "auto" }}
-                        defaultValue={"        \n      "}
+                        name="description"
+                        required
+                        value={formData.description}
+                        onChange={handleChange}
+                        // defaultValue={"\n"}
                       />
                       <center>
                         <button className="submit" type="submit">

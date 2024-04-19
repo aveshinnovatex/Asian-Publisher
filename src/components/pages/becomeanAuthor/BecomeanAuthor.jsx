@@ -1,8 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../common/header/Header";
 import Footer from "../../common/footer/Footer";
+import { createBecomeAuthor } from "../../../redux/slices/becomeAuthorSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function BecomeanAuthor() {
+  const { loading, becomeAuthors } = useSelector((state) => state.becomeAuthor);
+  const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const { name, email, subject, message } = formData;
+
+  /**handle change method here  */
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }
+
+  /**handle submit method here  */
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    let becomeAuthorsData = new FormData();
+    becomeAuthorsData.append("name", name);
+    becomeAuthorsData.append("email", email);
+    becomeAuthorsData.append("subject", subject);
+    becomeAuthorsData.append("message", message);
+
+    /** hitt the create become author api from  here */
+    dispatch(createBecomeAuthor(becomeAuthorsData));
+  }
+  useEffect(() => {
+    if (loading === "fulfilled") {
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    }
+  }, [loading]);
+
   return (
     <>
       <link
@@ -55,11 +92,10 @@ function BecomeanAuthor() {
         </div>
       </div>
       <div id="shopify-section-header" className="shopify-section">
-        <div style={{height:"16vh"}}>
-        <Header />
+        <div style={{ height: "16vh" }}>
+          <Header />
         </div>
-     
-     </div>
+      </div>
       <div className="breadcrumb-area breadcrumbs-section">
         <div className="breadcrumbs overlay-bg">
           <div className="container">
@@ -75,7 +111,7 @@ function BecomeanAuthor() {
               <nav>
                 <ul className="breadcrumb-list">
                   <li>
-                    <a href="index.html" title="Back to the home page">
+                    <a href="/" title="Back to the home page">
                       Home
                     </a>
                   </li>
@@ -98,8 +134,9 @@ function BecomeanAuthor() {
               <div className="row">
                 <div className="col-lg-12 col-md-6">
                   <div className="contact-from contact-shadow">
-                     <form
+                    <form
                       method="post"
+                      onSubmit={handleSubmit}
                       action=""
                       id="contact-form"
                       acceptCharset="UTF-8"
@@ -112,34 +149,48 @@ function BecomeanAuthor() {
                       />
                       <input type="hidden" name="utf8" defaultValue="✓" />
                       <input
+                        id="ContactFormName"
                         type="text"
                         placeholder="Name"
-                        className=""
-                        name="contact[name]"
-                        id="ContactFormName"
-                        defaultValue=""
+                        // className=""
+                        name="name"
+                        value={formData.name}
+                        required
+                        onChange={handleChange}
+                        // defaultValue=""
                       />
                       <input
+                        id="ContactFormEmail"
                         type="email"
                         placeholder="Email"
                         className=""
-                        name="contact[email]"
-                        id="ContactFormEmail"
-                        defaultValue=""
+                        name="email"
+                        value={formData.email}
+                        required
+                        onChange={handleChange}
+
+                        // defaultValue=""
                       />
                       <input
-                        type="text"
                         id="ContactFormSubject"
-                        name="contact[subject]"
+                        type="text"
                         placeholder="Subject"
-                        defaultValue=""
+                        name="subject"
+                        value={formData.subject}
+                        required
+                        // defaultValue=""
+                        onChange={handleChange}
                       />
                       <textarea
-                        rows={2}
-                        placeholder="Your Message"
-                        name="contact[body]"
-                        id="ContactFormMessage"
                         style={{ height: "auto" }}
+                        rows={2}
+                        id="ContactFormMessage"
+                        type="text"
+                        placeholder="Your Message"
+                        name="message"
+                        value={formData.message}
+                        required
+                        onChange={handleChange}
                       />
                       <button className="submit" type="submit">
                         Send Message

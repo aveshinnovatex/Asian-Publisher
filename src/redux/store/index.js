@@ -5,6 +5,8 @@ import authorSlice from "../slices/authorSlice";
 import courseSlice from "../slices/courseSlice";
 import cartSlice from "../slices/cartSlice";
 import semesterSlice from "../slices/semesterSlice";
+import becomeAuthorSlice from "../slices/becomeAuthorSlice";
+import orderFromSlice from "../slices/orderFromSlice";
 //persisted Reducer
 import storage from "redux-persist/lib/storage";
 import {
@@ -25,6 +27,8 @@ const reducers = combineReducers({
   author: authorSlice,
   course: courseSlice,
   semester: semesterSlice,
+  becomeAuthor: becomeAuthorSlice,
+  orderFrom: orderFromSlice,
 });
 
 const persistConfig = {
@@ -49,7 +53,14 @@ const persistConfig = {
     // In this example, we will remove the data from local storage if it has been tampered with
     PURGE();
   },
-  blacklist: ["book", "author", "semester", "course"],
+  blacklist: [
+    "book",
+    "author",
+    "semester",
+    "course",
+    "becomeAuthor",
+    "orderFrom",
+  ],
 
   //Blacklisting and white listing Store
   // whitelist:["tags"]
