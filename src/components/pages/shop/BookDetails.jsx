@@ -261,7 +261,7 @@ function Shop() {
                                     aria-label="Decrease"
                                     onClick={() =>
                                       setQuantity((prevQuantity) =>
-                                        Math.max(prevQuantity - 1, 1)
+                                        Math.max(parseInt(prevQuantity) - 1, 1)
                                       )
                                     }
                                   >
@@ -286,7 +286,10 @@ function Shop() {
                                     aria-label="Increase"
                                     onClick={() =>
                                       setQuantity((prevQuantity) =>
-                                        Math.min(prevQuantity + 1, 1000)
+                                        Math.min(
+                                          parseInt(prevQuantity) + 1,
+                                          1000
+                                        )
                                       )
                                     }
                                   >

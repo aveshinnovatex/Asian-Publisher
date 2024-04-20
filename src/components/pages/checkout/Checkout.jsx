@@ -5,14 +5,58 @@ import "./Checkout.css";
 // import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { REACT_APP_URL } from "../../../config/config";
+import useOrder from "../../../hooks/useOrder";
 
 function Checkout() {
   const { cartdata } = useSelector((state) => state.cart);
+  const { loading, submitData } = useOrder();
   const [cartItem, setCartItem] = useState([]);
   const [totalQnt, setTotalQnt] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalAmmount, setTotalAmmount] = useState(0);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    mobileNo: "",
+    address: "",
+    city: "",
+    state: "",
+    country: "",
+    pincode: "",
+  });
 
+  const cartdataitem = cartdata.map((cart) => ({
+    bookId: cart.id,
+    quantity: cart.quantity,
+    price: cart.mRP,
+  }));
+  // const { name, email, mobileNo, address, city, state, country, pincode } =
+  //   formData;
+
+  /**handle change  method implement here */
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }
+
+  /**handle submit  method implement here */
+  function handleSubmit(event) {
+    event.preventDefault();
+    /** create instance of Form data here */
+    // let orderData = new FormData();
+    // orderData.append("name", name);
+    // orderData.append("email", email);
+    // orderData.append("mobileNo", mobNumber);
+    // orderData.append("address", address);
+    // orderData.append("city", city);
+    // orderData.append("state", state);
+    // orderData.append("country", country);
+    // orderData.append("pincode", pincode);
+    // orderData.append("orderMetas", cartdataitem);
+
+    /** hitt the create order from api from  here */
+    submitData({ ...formData, orderMetas: cartdataitem });
+  }
   useEffect(() => {
     setCartItem(cartdata);
   }, [cartdata]);
@@ -132,6 +176,7 @@ function Checkout() {
                   >
                     <form
                       method="post"
+                      onSubmit={handleSubmit}
                       id="contact-form"
                       action=""
                       acceptCharset="UTF-8"
@@ -149,8 +194,10 @@ function Checkout() {
                           id="ContactFormName"
                           placeholder="Name"
                           className=""
-                          name="contact[name]"
-                          defaultValue=""
+                          name="name"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
                         />
                       </div>
                       <div className="col-lg-6" style={{ float: "left" }}>
@@ -158,65 +205,86 @@ function Checkout() {
                           type="email"
                           id="ContactFormEmail"
                           placeholder="Email"
-                          className=""
-                          name="contact[email]"
-                          defaultValue=""
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
                         />
                       </div>
                       <div className="col-lg-6" style={{ float: "left" }}>
                         <input
                           type="text"
                           id="ContactFormSubject"
-                          name="contact[subject]"
                           placeholder="Mobile No."
-                          defaultValue=""
+                          name="mobileNo"
+                          required
+                          value={formData.mobileNo}
+                          onChange={handleChange}
                         />
                       </div>
                       <div className="col-lg-12" style={{ float: "left" }}>
                         <input
                           type="text"
                           id="ContactFormSubject"
-                          name="contact[subject]"
                           placeholder="Address"
-                          defaultValue=""
+                          name="address"
+                          required
+                          value={formData.address}
+                          onChange={handleChange}
                         />
                       </div>
                       <div className="col-lg-6" style={{ float: "left" }}>
                         <input
                           type="text"
                           id="ContactFormSubject"
-                          name="contact[subject]"
                           placeholder="City"
-                          defaultValue=""
+                          name="city"
+                          required
+                          value={formData.city}
+                          onChange={handleChange}
                         />
                       </div>
                       <div className="col-lg-6" style={{ float: "left" }}>
                         <input
                           type="text"
                           id="ContactFormSubject"
-                          name="contact[subject]"
                           placeholder="State"
-                          defaultValue=""
+                          name="state"
+                          required
+                          value={formData.state}
+                          onChange={handleChange}
                         />
                       </div>
                       <div className="col-lg-6" style={{ float: "left" }}>
                         <input
                           type="text"
                           id="ContactFormSubject"
-                          name="contact[subject]"
                           placeholder="Country"
-                          defaultValue=""
+                          name="country"
+                          required
+                          value={formData.country}
+                          onChange={handleChange}
                         />
                       </div>
                       <div className="col-lg-6" style={{ float: "left" }}>
                         <input
                           type="text"
                           id="ContactFormSubject"
-                          name="contact[subject]"
                           placeholder="Pin Code"
-                          defaultValue=""
+                          name="pincode"
+                          required
+                          value={formData.pincode}
+                          onChange={handleChange}
                         />
                       </div>
+                      <center>
+                        <button
+                          className="ban_btn1 banner_style_2"
+                          type="submit"
+                        >
+                          Place Your Order Now
+                        </button>
+                      </center>
                     </form>
                   </div>
                 </div>
@@ -272,11 +340,6 @@ function Checkout() {
                     </tr>
                   </table>
                   <br></br>
-                  <center>
-                    <a className="ban_btn1 banner_style_2" href="index.html">
-                      Place Your Order Now
-                    </a>
-                  </center>
                 </div>
               </div>
             </div>
